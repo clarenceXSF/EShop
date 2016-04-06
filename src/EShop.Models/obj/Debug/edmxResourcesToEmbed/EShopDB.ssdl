@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" />
+    <Property Name="PublishDate" Type="date" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Price" Type="money" />
+    <Property Name="ISBN" Type="nvarchar" MaxLength="50" />
+    <Property Name="Describe" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateDate" Type="date" />
+    <Property Name="Sale" Type="int" />
+    <Property Name="Press" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BookSale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Time" Type="datetime" />
+    <Property Name="State" Type="int" />
+    <Property Name="Evalute" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="BookType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TypeCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ImgSrc" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="OtherType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TypeCode" Type="int" Nullable="false" />
+    <Property Name="TypeContent" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Recommend">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShowImage" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ShowTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoginId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoginPwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="int" />
+    <Property Name="Role" Type="int" />
+    <Property Name="Score" Type="int" />
+  </EntityType>
+  <EntityContainer Name="EShopModelStoreContainer">
+    <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookSale" EntityType="Self.BookSale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookType" EntityType="Self.BookType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OtherType" EntityType="Self.OtherType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recommend" EntityType="Self.Recommend" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

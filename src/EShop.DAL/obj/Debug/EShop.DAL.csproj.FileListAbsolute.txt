@@ -1,0 +1,11 @@
+G:\EShop\src\EShop.DAL\bin\Debug\EShop.DAL.dll.config
+G:\EShop\src\EShop.DAL\bin\Debug\EShop.DAL.dll
+G:\EShop\src\EShop.DAL\bin\Debug\EShop.DAL.pdb
+G:\EShop\src\EShop.DAL\bin\Debug\EntityFramework.dll
+G:\EShop\src\EShop.DAL\bin\Debug\EShop.Models.dll
+G:\EShop\src\EShop.DAL\bin\Debug\EShop.Models.pdb
+G:\EShop\src\EShop.DAL\bin\Debug\EntityFramework.xml
+G:\EShop\src\EShop.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\EShop\src\EShop.DAL\obj\Debug\EShop.DAL.csprojResolveAssemblyReference.cache
+G:\EShop\src\EShop.DAL\obj\Debug\EShop.DAL.dll
+G:\EShop\src\EShop.DAL\obj\Debug\EShop.DAL.pdb

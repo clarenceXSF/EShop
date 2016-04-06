@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section css{
+<link rel="stylesheet" href="~/Content/amazeui/css/amazeui.min.css" />
+<link rel="stylesheet" href="~/Content/amazeui/css/admin.css">
+    <style type="text/css" >
+        body {
+            background-image: url(/Images/LoginBg.jpg);
+            background-size:cover;
+        }
+    </style>
+    }
+<div style="text-align: center;">
+    <div class="am-g am-text-primary" style="margin-top:5%">
+        <h1 class="am-kai">风 御 轩</h1>
+        <h3 class="am-kai">后台管理系统</h3>
+        <p>
+            <span>模块显示，书籍管理，订单处理，客户评价</span>
+        </p>
+    </div>
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <hr>
+        <form method="post" class="am-form">
+            <label for="text">登录名:</label>
+            <input type="text" name="" id="loginName" value="">
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" name="" id="password" value="">
+            <br>
+            <label for="remember-me">
+                <input id="remember-me" type="checkbox">
+                记住密码
+            </label>
+            <br />
+            <div class="am-cf">
+                <input type="submit" name="" value=" 登录后台 " class="am-btn am-btn-primary am-btn-sm am-fl">
+                <input type="submit" name="" value="忘记密码 ? " class="am-btn am-btn-default am-btn-sm am-fr">
+            </div>
+        </form>
+    </div>
+</div>
+<footer class="am-topbar-fixed-bottom">
+    <p style="text-align:center">&copy; 2016 ACCP XSF, individual.</p>
+</footer>
+<script src="~/Content/amazeui/js/jquery.min.js"></script>
+<script src="~/Content/amazeui/js/amazeui.min.js"></script>
+<script src="~/Content/amazeui/js/app.js"></script>
+
