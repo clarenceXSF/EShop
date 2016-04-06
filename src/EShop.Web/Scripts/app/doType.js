@@ -131,11 +131,6 @@ $(function () {
                 flag = false;
             }
         });
-        $(this).find("textarea").each(function (i, ele) {
-            if (!validate($(ele))) {
-                flag = false;
-            }
-        });
         if (flag === false) {
             var alterMess = new EShop("<label class='am-text-danger'>输入存在错误，提交失败</label>");
             alterMess.alert();

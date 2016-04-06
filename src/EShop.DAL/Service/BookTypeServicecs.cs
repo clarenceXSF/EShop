@@ -28,7 +28,7 @@ namespace EShop.DAL.Service
             }
         }
 
-        public List<BookType> PagingFindBookType(string name, int pageIndex, int PageSize)
+        public List<BookType> PagingFindBookType(string name, int pageIndex, int pageSize)
         {
             using (EShopDB db = new EShopDB())
             {
@@ -38,7 +38,7 @@ namespace EShop.DAL.Service
                           where bt.TypeName.Contains(name)
                           orderby bt.TypeCode
                           select bt;
-                List<BookType> list = obj.Skip((pageIndex - 1) * PageSize).Take(PageSize).ToList();
+                List<BookType> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                 return list;
             }
         }
@@ -66,7 +66,7 @@ namespace EShop.DAL.Service
             }
         }
 
-        public bool DelectBookType(string id)
+        public bool DeleteBookType(string id)
         {
             using (EShopDB db = new EShopDB())
             {

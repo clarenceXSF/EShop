@@ -48,8 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBookInfoService.cs" />
     <Compile Include="IBookTypeServicecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BookInfoService.cs" />
     <Compile Include="Service\BookTypeServicecs.cs" />
   </ItemGroup>
   <ItemGroup>
