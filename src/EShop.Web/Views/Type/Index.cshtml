@@ -1,0 +1,66 @@
+﻿@using EShop.Models
+@{
+    ViewBag.Title = "图书分类列表";
+    var searchStr = Session["searchText"] as string;
+}
+@section featured {
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
+    </div>
+}
+@section scripts {
+    <script src="~/Scripts/app/AlertMess.js"></script>
+    <script src="~/Scripts/app/doType.js"></script>
+}
+<div class="am-u-sm-12 am-u-md-8">
+    <div id="TypeListHeadMenu" class="am-btn-toolbar">
+        <div class="am-btn-group am-btn-group-sm">
+            <button type="button" id="addType" class="am-btn am-btn-secondary" onclick="AddType();">
+                <span class="am-icon-plus"> 添加图书类型</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="am-input-group">
+    <input type="text" class="am-form-field" id="searchText" name="searchText" placeholder="请输入图书类型名称" value="@searchStr" />
+    <span class="am-input-group-btn">
+        <input class="am-btn am-btn-default" type="button" value="搜索" onclick="searchType();" />
+    </span>
+</div>
+<hr />
+<input type="hidden" value="@TempData["mess"]" id="mess" />
+<table id="projectTab" class="am-table am-table-striped am-table-hover table-main">
+    <thead>
+        <tr id="thMenu">
+            <th style="display: none;">类型ID</th>
+            <th style="width: 15%">类型代码</th>
+            <th style="width: 15%">类型名称</th>
+            <th style="width: 40%">目录图片</th>
+            <th style="width: 30%">具体操作</th>
+        </tr>
+    </thead>
+    @foreach (var item in (List<BookType>)Model)
+    {
+        <tr>
+            <td style="display: none;">@item.Id</td>
+            <td>@item.TypeCode</td>
+            <td>@item.TypeName</td>
+            <td>@item.ImgSrc</td>
+            <td>
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button class="editType am-btn am-btn-default am-btn-xs am-text-primary"
+                                data-url="@Url.Content("~/Type/EditType?ID=" + @item.Id)">
+                            <span class="am-icon-pencil-square-o"></span>修改
+                        </button>
+                        <button class="delType am-btn am-btn-default am-btn-xs am-text-danger"
+                                data-url="@Url.Content("~/Type/DelType?ID=" + @item.Id)">
+                            <span class="am-icon-trash-o"></span>删除
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+@Html.Partial("_pageNavigation")

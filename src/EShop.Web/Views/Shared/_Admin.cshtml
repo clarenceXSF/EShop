@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 风御轩后台管理系统</title>
+    <meta name="description" content="这里是风御轩后台管理系统">
+    <meta name="keywords" content="EShop">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="icon" type="image/png" href="../../Images/favicon.ico">
+    @Styles.Render("~/bundles/amazeui/css")
+</head>
+<body>
+    <header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <a href="~/"><strong>风御轩</strong> <small>后台管理系统</small></a>
+        </div>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+                data-am-collapse="{target: '#topbar-collapse'}">
+            <span class="am-sr-only">导航切换</span>
+            <span class="am-icon-bars"></span>
+        </button>
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                <li class="am-hide-sm-only">
+                    <a href="javascript:;" id="admin-fullscreen">
+                        <span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="am-cf admin-main">
+        <!-- sidebar start -->
+        <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+            <div class="am-offcanvas-bar admin-offcanvas-bar">
+                <ul class="am-list admin-sidebar-list">
+                    <li><a href="~/Integration/Index"><span class="am-icon-qrcode"></span> 资源整合</a></li>
+                    <li><a href="~/User/Index"><span class="am-icon-users"></span> 人员管理</a></li>
+                    <li class="admin-parent">
+                        <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                        <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+                            <li><a href="~/Recommend/Index"><span class="am-icon-thumbs-up"></span> 店主推荐<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+                            <li><a href="~/Search/Index"><span class="am-icon-fire"></span> 热门搜索<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="~/Type/Index"><span class="am-icon-tasks"></span> 图书类型</a></li>
+                    <li><a href="~/Book/Index"><span class="am-icon-book"></span> 书籍管理</a></li>
+                    <li><a href="~/Sale/Index"><span class="am-icon-suitcase"></span> 订单管理</a></li>
+                    <li><a href="~/"><span class="am-icon-sign-out"></span> 前往客户端</a></li>
+                </ul>
+                <div class="am-panel am-panel-default admin-sidebar-panel">
+                    <div class="am-panel-bd">
+                        <p><span class="am-icon-bookmark"></span> 公告</p>
+                        <p>
+                            目前等待发货的订单数<br />
+                            有<strong style="color:red">9</strong>单
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar end -->
+        <!-- content start -->
+        <div class="admin-content">
+            @RenderSection("featured", required: false)
+            <div class="am-g">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- content end -->
+    </div>
+    <footer class="am-topbar am-topbar-fixed-bottom">
+        <p class="am-padding-left">&copy; 2016 ACCP XSF, individual.</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/amazeui")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿@using EShop.Common;
+@{
+    var page = ViewData["page"] as Pager;
+    var path = Request.Path;
+    var maxPageIndex = Math.Min(10, page.PageCount); //最大显示页数
+    var minBoundary = 5; //最小边界值
+    var maxBoundary = page.PageCount - 4; //最大边界值
+}
+@if (page.Total > 0)
+{
+    <div class="am-u-lg-12 am-cf">
+        <div class="am-pagination am-fl">
+            当前：@page.PageIndex / @page.PageCount 页，共 @page.Total 条记录
+        </div>
+        <div class="am-fr">
+            <ul class="am-pagination">
+                @{
+                    if (page.HasPrev)
+                    {
+                        <li><a href="@(path + "?pageIndex=" + (page.PageIndex - 1))">上一页</a></li>
+                    }
+                    else
+                    {
+                        <li class="am-disabled"><a href="javascript:;">上一页</a></li>
+                    }
+                }
+                @{
+                    if (page.PageCount <= maxPageIndex) //总页数不超过10
+                    {
+                        for (var index = 1; index <= page.PageCount; index++)
+                        {
+                            if (index == page.PageIndex)
+                            {
+                                <li class="am-active"><a href="#">@index</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@(path + "?pageIndex=" + index)">@index</a></li>
+                            }
+                        }
+                    }
+                    else //总页数过多，超过10
+                    {
+                        //当前页数超过初始临界点5，但不超过限定临界点(总页数-4)
+                        if (page.PageIndex > minBoundary && page.PageIndex <= maxBoundary)
+                        {
+                            //分页显示页数时，当前页固定左侧有5个，右侧4个页数
+                            for (var index = (page.PageIndex - 5); index <= (page.PageIndex + 4); index++) 
+                            {
+                                if (index == page.PageIndex)
+                                {
+                                    <li class="am-active"><a href="#">@index</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@(path + "?pageIndex=" + index)">@index</a></li>
+                                }
+                            }
+                        }
+                        else if (page.PageIndex <= minBoundary) //当前页数暂不超过临界点5，分页数字从1开始，保持10个分页
+                        {
+                            for (var index = 1; index <= maxPageIndex; index++)
+                            {
+                                if (index == page.PageIndex)
+                                {
+                                    <li class="am-active"><a href="#">@index</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@(path + "?pageIndex=" + index)">@index</a></li>
+                                }
+                            }
+                        }
+                        else if (page.PageIndex > maxBoundary) //当前页数超过限定临界点(总页数-4)
+                        {
+                            //分页数字最大值为总页数，保持10个分页页数显示
+                            for (var index = (page.PageCount - (maxPageIndex-1)); index <= page.PageCount; index++)
+                            {
+                                if (index == page.PageIndex)
+                                {
+                                    <li class="am-active"><a href="#">@index</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@(path + "?pageIndex=" + index)">@index</a></li>
+                                }
+                            }
+                        }
+                    }
+                }
+                @{
+                    if (page.HasNext)
+                    {
+                        <li><a href="@(path + "?pageIndex=" + (page.PageIndex + 1))">下一页</a></li>
+                    }
+                    else
+                    {
+                        <li class="am-disabled"><a href="javascript:;">下一页</a></li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+}
