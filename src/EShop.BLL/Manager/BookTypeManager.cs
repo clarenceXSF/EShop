@@ -27,9 +27,9 @@ namespace EShop.BLL.Manager
         {
             return _bookTypeService.InsertBookType(bookType);
         }
-        public bool DelectBookType(string id) 
+        public bool DeleteBookType(string id) 
         {
-            return _bookTypeService.DelectBookType(id);
+            return _bookTypeService.DeleteBookType(id);
         }
         public bool UpdateBookType(BookType bookType) 
         {

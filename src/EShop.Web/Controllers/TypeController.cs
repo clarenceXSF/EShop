@@ -45,7 +45,7 @@ namespace EShop.Web.Controllers
         [HttpGet]
         public ActionResult DelType(string ID)
         {
-            bool result = btManager.DelectBookType(ID);
+            bool result = btManager.DeleteBookType(ID);
             if (!result)
                 TempData["mess"] = "删除类型操作失败！";
             return Redirect("Index");
@@ -74,6 +74,7 @@ namespace EShop.Web.Controllers
         /// <returns></returns>
         public ActionResult EditType(string ID)
         {
+            TempData["editTypeId"] = ID;
             BookType bt = btManager.FindById(ID);
             return View(bt);
         }

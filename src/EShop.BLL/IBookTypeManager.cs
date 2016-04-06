@@ -12,7 +12,7 @@ namespace EShop.BLL
         List<BookType> PagingFindBookType(string name, int pageIndex, int PageSize);
         int GetCount(string name);
         bool InsertBookType(BookType bookType);
-        bool DelectBookType(string id);
+        bool DeleteBookType(string id);
         bool UpdateBookType(BookType bookType);
         BookType FindById(string id);
     }
