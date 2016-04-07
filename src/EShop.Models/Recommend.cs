@@ -18,5 +18,6 @@ namespace EShop.Models
         public string BookId { get; set; }
         public string ShowImage { get; set; }
         public string ShowTitle { get; set; }
+        public Nullable<System.DateTime> CreateTime { get; set; }
     }
 }

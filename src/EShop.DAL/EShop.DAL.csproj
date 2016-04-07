@@ -52,6 +52,7 @@
     <Compile Include="IBookTypeServicecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BookInfoService.cs" />
+    <Compile Include="Service\BookSaleService.cs" />
     <Compile Include="Service\BookTypeServicecs.cs" />
   </ItemGroup>
   <ItemGroup>

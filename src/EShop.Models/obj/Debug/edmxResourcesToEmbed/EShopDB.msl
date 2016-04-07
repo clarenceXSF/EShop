@@ -1,35 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EShopModelStoreContainer" CdmEntityContainer="EShopDB">
-    <EntitySetMapping Name="BookInfo">
-      <EntityTypeMapping TypeName="EShopModel.BookInfo">
-        <MappingFragment StoreEntitySet="BookInfo">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
-          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-          <ScalarProperty Name="Describe" ColumnName="Describe" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="Sale" ColumnName="Sale" />
-          <ScalarProperty Name="Press" ColumnName="Press" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="BookSale">
-      <EntityTypeMapping TypeName="EShopModel.BookSale">
-        <MappingFragment StoreEntitySet="BookSale">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Evalute" ColumnName="Evalute" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="OtherType">
       <EntityTypeMapping TypeName="EShopModel.OtherType">
         <MappingFragment StoreEntitySet="OtherType">
@@ -40,37 +11,82 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Recommend">
-      <EntityTypeMapping TypeName="EShopModel.Recommend">
-        <MappingFragment StoreEntitySet="Recommend">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
-          <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserInfo">
-      <EntityTypeMapping TypeName="EShopModel.UserInfo">
-        <MappingFragment StoreEntitySet="UserInfo">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
-          <ScalarProperty Name="LoginPwd" ColumnName="LoginPwd" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BookType">
       <EntityTypeMapping TypeName="EShopModel.BookType">
         <MappingFragment StoreEntitySet="BookType">
           <ScalarProperty Name="ImgSrc" ColumnName="ImgSrc" />
           <ScalarProperty Name="TypeName" ColumnName="TypeName" />
           <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookInfo">
+      <EntityTypeMapping TypeName="EShopModel.BookInfo">
+        <MappingFragment StoreEntitySet="BookInfo">
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Sale" ColumnName="Sale" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Describe" ColumnName="Describe" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="Original" ColumnName="Original" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookSale">
+      <EntityTypeMapping TypeName="EShopModel.BookSale">
+        <MappingFragment StoreEntitySet="BookSale">
+          <ScalarProperty Name="Evalute" ColumnName="Evalute" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="CountPrice" ColumnName="CountPrice" />
+          <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recommend">
+      <EntityTypeMapping TypeName="EShopModel.Recommend">
+        <MappingFragment StoreEntitySet="Recommend">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
+          <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleDetail">
+      <EntityTypeMapping TypeName="EShopModel.SaleDetail">
+        <MappingFragment StoreEntitySet="SaleDetail">
+          <ScalarProperty Name="BookNum" ColumnName="BookNum" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="BsId" ColumnName="BsId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="EShopModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LoginPwd" ColumnName="LoginPwd" />
+          <ScalarProperty Name="LoginId" ColumnName="LoginId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

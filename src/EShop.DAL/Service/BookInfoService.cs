@@ -17,7 +17,7 @@ namespace EShop.DAL.Service
                     pageIndex = 1;
                 var obj = from b in db.BookInfo
                           where b.Name.Contains(search) || b.Author.Contains(search)
-                          orderby b.CreateDate, b.PublishDate
+                          orderby b.CreateDate descending 
                           select b;
                 List<BookInfo> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                 return list;
@@ -96,6 +96,67 @@ namespace EShop.DAL.Service
                            where b.Id == id
                            select b).FirstOrDefault();
                 return obj;
+            }
+        }
+
+        public List<BookInfo> FindByType(int type, int pageIndex, int pageSize)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                if (pageIndex == 0)
+                    pageIndex = 1;
+                var obj = from b in db.BookInfo
+                          where b.Type == type
+                          orderby b.CreateDate descending 
+                          select b;
+                List<BookInfo> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                return list;
+            }
+        }
+
+        public int GetCount(int type)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                int count = (from b in db.BookInfo
+                             where b.Type == type
+                             select b).Count();
+                return count;
+            }
+        }
+
+        public List<BookInfo> FindByType(int type, int size)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = from b in db.BookInfo
+                          where b.Type == type
+                          orderby b.PublishDate descending
+                          select b;
+                List<BookInfo> list = obj.Take(size).ToList();
+                return list;
+            }
+        }
+        public List<BookInfo> FindTopCreate(int size)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = from b in db.BookInfo
+                          orderby b.CreateDate descending
+                          select b;
+                List<BookInfo> list = obj.Take(size).ToList();
+                return list;
+            }
+        }
+        public List<BookInfo> FindTopSale(int size)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = from b in db.BookInfo
+                          orderby b.Sale descending
+                          select b;
+                List<BookInfo> list = obj.Take(size).ToList();
+                return list;
             }
         }
     }
