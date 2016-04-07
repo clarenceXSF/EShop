@@ -23,5 +23,6 @@ namespace EShop.Models
         public Nullable<int> State { get; set; }
         public Nullable<int> Role { get; set; }
         public Nullable<int> Score { get; set; }
+        public Nullable<System.DateTime> CreateTime { get; set; }
     }
 }

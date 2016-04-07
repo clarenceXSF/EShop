@@ -81,6 +81,9 @@
     <Compile Include="Recommend.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="SaleDetail.cs">
+      <DependentUpon>EShopDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>

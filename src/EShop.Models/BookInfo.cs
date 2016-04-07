@@ -20,10 +20,11 @@ namespace EShop.Models
         public Nullable<System.DateTime> PublishDate { get; set; }
         public Nullable<int> Type { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> Original { get; set; }
         public string ISBN { get; set; }
         public string Describe { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<int> Sale { get; set; }
-        public string Press { get; set; }
+        public Nullable<int> Stock { get; set; }
     }
 }

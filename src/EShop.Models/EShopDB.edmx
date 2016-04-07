@@ -15,11 +15,12 @@
           <Property Name="PublishDate" Type="date" />
           <Property Name="Type" Type="int" />
           <Property Name="Price" Type="money" />
+          <Property Name="Original" Type="money" />
           <Property Name="ISBN" Type="nvarchar" MaxLength="50" />
           <Property Name="Describe" Type="nvarchar" MaxLength="200" />
           <Property Name="CreateDate" Type="date" />
           <Property Name="Sale" Type="int" />
-          <Property Name="Press" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stock" Type="int" />
         </EntityType>
         <EntityType Name="BookSale">
           <Key>
@@ -27,8 +28,11 @@
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="BookId" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Time" Type="datetime" />
+          <Property Name="GoodsNum" Type="int" />
+          <Property Name="CountPrice" Type="money" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
           <Property Name="State" Type="int" />
           <Property Name="Evalute" Type="nvarchar" MaxLength="200" />
         </EntityType>
@@ -58,6 +62,16 @@
           <Property Name="BookId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ShowImage" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="ShowTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SaleDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BsId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BookId" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookNum" Type="int" />
         </EntityType>
         <EntityType Name="UserInfo">
           <Key>
@@ -72,6 +86,7 @@
           <Property Name="State" Type="int" />
           <Property Name="Role" Type="int" />
           <Property Name="Score" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="EShopModelStoreContainer">
           <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" store:Type="Tables" />
@@ -79,39 +94,13 @@
           <EntitySet Name="BookType" EntityType="Self.BookType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OtherType" EntityType="Self.OtherType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recommend" EntityType="Self.Recommend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleDetail" EntityType="Self.SaleDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="BookInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PublishDate" Type="DateTime" Precision="0" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Describe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="0" />
-          <Property Name="Sale" Type="Int32" />
-          <Property Name="Press" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="BookSale">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Time" Type="DateTime" Precision="3" />
-          <Property Name="State" Type="Int32" />
-          <Property Name="Evalute" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="OtherType">
           <Key>
             <PropertyRef Name="Id" />
@@ -121,36 +110,14 @@
           <Property Name="TypeCode" Type="Int32" Nullable="false" />
           <Property Name="TypeContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Recommend">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ShowImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ShowTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UserInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoginId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoginPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="Int32" />
-          <Property Name="Role" Type="Int32" />
-          <Property Name="Score" Type="Int32" />
-        </EntityType>
         <EntityContainer Name="EShopDB" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BookInfo" EntityType="Self.BookInfo" />
-          <EntitySet Name="BookSale" EntityType="Self.BookSale" />
           <EntitySet Name="OtherType" EntityType="Self.OtherType" />
-          <EntitySet Name="Recommend" EntityType="Self.Recommend" />
-          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
           <EntitySet Name="BookType" EntityType="EShopModel.BookType" />
+          <EntitySet Name="BookInfo" EntityType="EShopModel.BookInfo" />
+          <EntitySet Name="BookSale" EntityType="EShopModel.BookSale" />
+          <EntitySet Name="Recommend" EntityType="EShopModel.Recommend" />
+          <EntitySet Name="SaleDetail" EntityType="EShopModel.SaleDetail" />
+          <EntitySet Name="UserInfo" EntityType="EShopModel.UserInfo" />
         </EntityContainer>
         <EntityType Name="BookType">
           <Key>
@@ -161,41 +128,77 @@
           <Property Name="TypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="ImgSrc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PublishDate" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Original" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Describe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="Sale" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BookSale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsNum" Type="Int32" />
+          <Property Name="CountPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="Evalute" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Recommend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShowImage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ShowTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SaleDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BsId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginPwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="Role" Type="Int32" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="EShopModelStoreContainer" CdmEntityContainer="EShopDB">
-          <EntitySetMapping Name="BookInfo">
-            <EntityTypeMapping TypeName="EShopModel.BookInfo">
-              <MappingFragment StoreEntitySet="BookInfo">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-                <ScalarProperty Name="Describe" ColumnName="Describe" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="Sale" ColumnName="Sale" />
-                <ScalarProperty Name="Press" ColumnName="Press" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookSale">
-            <EntityTypeMapping TypeName="EShopModel.BookSale">
-              <MappingFragment StoreEntitySet="BookSale">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="BookId" ColumnName="BookId" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Evalute" ColumnName="Evalute" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OtherType">
             <EntityTypeMapping TypeName="EShopModel.OtherType">
               <MappingFragment StoreEntitySet="OtherType">
@@ -206,37 +209,82 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Recommend">
-            <EntityTypeMapping TypeName="EShopModel.Recommend">
-              <MappingFragment StoreEntitySet="Recommend">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BookId" ColumnName="BookId" />
-                <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
-                <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserInfo">
-            <EntityTypeMapping TypeName="EShopModel.UserInfo">
-              <MappingFragment StoreEntitySet="UserInfo">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
-                <ScalarProperty Name="LoginPwd" ColumnName="LoginPwd" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="BookType">
             <EntityTypeMapping TypeName="EShopModel.BookType">
               <MappingFragment StoreEntitySet="BookType">
                 <ScalarProperty Name="ImgSrc" ColumnName="ImgSrc" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookInfo">
+            <EntityTypeMapping TypeName="EShopModel.BookInfo">
+              <MappingFragment StoreEntitySet="BookInfo">
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Sale" ColumnName="Sale" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookSale">
+            <EntityTypeMapping TypeName="EShopModel.BookSale">
+              <MappingFragment StoreEntitySet="BookSale">
+                <ScalarProperty Name="Evalute" ColumnName="Evalute" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CountPrice" ColumnName="CountPrice" />
+                <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recommend">
+            <EntityTypeMapping TypeName="EShopModel.Recommend">
+              <MappingFragment StoreEntitySet="Recommend">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
+                <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaleDetail">
+            <EntityTypeMapping TypeName="EShopModel.SaleDetail">
+              <MappingFragment StoreEntitySet="SaleDetail">
+                <ScalarProperty Name="BookNum" ColumnName="BookNum" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="BsId" ColumnName="BsId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="EShopModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LoginPwd" ColumnName="LoginPwd" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

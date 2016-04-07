@@ -5,12 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3c42608dede345e98c89b9e01adc73d5" Name="Diagram1">
-        <EntityTypeShape EntityType="EShopModel.BookInfo" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EShopModel.BookSale" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EShopModel.OtherType" Width="1.5" PointX="4.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EShopModel.Recommend" Width="1.5" PointX="4.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="EShopModel.UserInfo" Width="1.5" PointX="6.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EShopModel.BookType" Width="1.5" PointX="2.75" PointY="3.125" />
+        <EntityTypeShape EntityType="EShopModel.OtherType" Width="1.5" PointX="6.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EShopModel.BookType" Width="1.5" PointX="3.125" PointY="0.625" />
+        <EntityTypeShape EntityType="EShopModel.BookInfo" Width="1.5" PointX="1.125" PointY="0.5" />
+        <EntityTypeShape EntityType="EShopModel.BookSale" Width="1.5" PointX="3" PointY="2.875" />
+        <EntityTypeShape EntityType="EShopModel.Recommend" Width="1.5" PointX="5.25" PointY="0.5" />
+        <EntityTypeShape EntityType="EShopModel.SaleDetail" Width="1.5" PointX="4.875" PointY="3" />
+        <EntityTypeShape EntityType="EShopModel.UserInfo" Width="1.5" PointX="7.5" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
