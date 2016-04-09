@@ -83,7 +83,22 @@ namespace EShop.DAL.Service
             using (EShopDB db = new EShopDB())
             {
                 var bookInfo = db.BookInfo.Find(id);
+                if (bookInfo.Sale == null)
+                    bookInfo.Sale = 0;
                 bookInfo.Sale = bookInfo.Sale + num;
+                bookInfo.Stock = bookInfo.Stock - num;
+                return db.SaveChanges() > 0;
+            }
+        }
+
+        public bool UpdateBookInfoStock(string id, int num)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var bookInfo = db.BookInfo.Find(id);
+                if (bookInfo.Stock == null)
+                    bookInfo.Stock = 0;
+                bookInfo.Stock = bookInfo.Stock + num;
                 return db.SaveChanges() > 0;
             }
         }
@@ -137,6 +152,7 @@ namespace EShop.DAL.Service
                 return list;
             }
         }
+
         public List<BookInfo> FindTopCreate(int size)
         {
             using (EShopDB db = new EShopDB())
@@ -148,6 +164,7 @@ namespace EShop.DAL.Service
                 return list;
             }
         }
+
         public List<BookInfo> FindTopSale(int size)
         {
             using (EShopDB db = new EShopDB())
@@ -156,6 +173,34 @@ namespace EShop.DAL.Service
                           orderby b.Sale descending
                           select b;
                 List<BookInfo> list = obj.Take(size).ToList();
+                return list;
+            }
+        }
+
+        public List<string> FindAuthor(int size)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = (from b in db.BookInfo
+                           orderby b.CreateDate descending 
+                           select b.Author).Distinct();
+                int count = obj.Count();
+                if (count > size)
+                    return obj.Take(size).ToList();
+                else
+                    return obj.ToList();
+            }
+        }
+
+        public List<BookInfo> FindByAuthor(string author)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = from b in db.BookInfo
+                          where b.Author == author
+                          orderby b.CreateDate descending
+                          select b;
+                List<BookInfo> list = obj.ToList();
                 return list;
             }
         }

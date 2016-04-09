@@ -56,11 +56,11 @@ namespace EShop.DAL.Service
             }
         }
 
-        public bool InsertBookType(BookType BookType)
+        public bool InsertBookType(BookType bookType)
         {
             using (EShopDB db = new EShopDB())
             {
-                db.BookType.Add(BookType);
+                db.BookType.Add(bookType);
                 bool isSuccess = db.SaveChanges() > 0;
                 return isSuccess;
             }

@@ -56,6 +56,9 @@
     <Compile Include="BookSale.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookSaleView.cs">
+      <DependentUpon>EShopDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="BookType.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
@@ -81,7 +84,13 @@
     <Compile Include="Recommend.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="RecommendView.cs">
+      <DependentUpon>EShopDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SaleDetail.cs">
+      <DependentUpon>EShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SaleDetailView.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.cs">

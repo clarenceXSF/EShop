@@ -49,11 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBookInfoService.cs" />
+    <Compile Include="IBookSaleService.cs" />
     <Compile Include="IBookTypeServicecs.cs" />
+    <Compile Include="IOtherTypeService.cs" />
+    <Compile Include="IRecommendService.cs" />
+    <Compile Include="ISaleDetailService.cs" />
+    <Compile Include="IUserInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BookInfoService.cs" />
     <Compile Include="Service\BookSaleService.cs" />
     <Compile Include="Service\BookTypeServicecs.cs" />
+    <Compile Include="Service\OtherTypeService.cs" />
+    <Compile Include="Service\RecommendService.cs" />
+    <Compile Include="Service\SaleDetailService.cs" />
+    <Compile Include="Service\UserInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -37,7 +37,7 @@ namespace EShop.DAL
         /// </summary>
         /// <param name="BookType"></param>
         /// <returns></returns>
-        bool InsertBookType(BookType BookType);
+        bool InsertBookType(BookType bookType);
         /// <summary>
         /// 删除图书类型
         /// </summary>
@@ -49,7 +49,7 @@ namespace EShop.DAL
         /// </summary>
         /// <param name="BookType"></param>
         /// <returns></returns>
-        bool UpdateBookType(BookType BookType);
+        bool UpdateBookType(BookType bookType);
         /// <summary>
         /// 根据图书类型id获取图书类型信息
         /// </summary>

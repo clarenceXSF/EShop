@@ -13,10 +13,13 @@
     <EntitySet Name="OtherType" EntityType="Self.OtherType" />
     <EntitySet Name="BookType" EntityType="EShopModel.BookType" />
     <EntitySet Name="BookInfo" EntityType="EShopModel.BookInfo" />
-    <EntitySet Name="BookSale" EntityType="EShopModel.BookSale" />
     <EntitySet Name="Recommend" EntityType="EShopModel.Recommend" />
     <EntitySet Name="SaleDetail" EntityType="EShopModel.SaleDetail" />
     <EntitySet Name="UserInfo" EntityType="EShopModel.UserInfo" />
+    <EntitySet Name="SaleDetailView" EntityType="EShopModel.SaleDetailView" />
+    <EntitySet Name="BookSale" EntityType="EShopModel.BookSale" />
+    <EntitySet Name="BookSaleView" EntityType="EShopModel.BookSaleView" />
+    <EntitySet Name="RecommendView" EntityType="EShopModel.RecommendView" />
   </EntityContainer>
   <EntityType Name="BookType">
     <Key>
@@ -43,20 +46,6 @@
     <Property Name="CreateDate" Type="DateTime" Precision="0" />
     <Property Name="Sale" Type="Int32" />
     <Property Name="Stock" Type="Int32" />
-  </EntityType>
-  <EntityType Name="BookSale">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GoodsNum" Type="Int32" />
-    <Property Name="CountPrice" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="CreateTime" Type="DateTime" Precision="3" />
-    <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
-    <Property Name="State" Type="Int32" />
-    <Property Name="Evalute" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Recommend">
     <Key>
@@ -90,6 +79,71 @@
     <Property Name="State" Type="Int32" />
     <Property Name="Role" Type="Int32" />
     <Property Name="Score" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleDetailView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="BsId" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BsId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaleNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BookNum" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BookSale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaleNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GoodsNum" Type="Int32" />
+    <Property Name="CountPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Evalute" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BookSaleView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SaleNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GoodsNum" Type="Int32" />
+    <Property Name="CountPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Evalute" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RecommendView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="BookId" />
+      <PropertyRef Name="ShowImage" />
+      <PropertyRef Name="ShowTitle" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShowImage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ShowTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>
