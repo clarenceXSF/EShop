@@ -22,6 +22,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SaleNum" Type="nvarchar" MaxLength="50" />
     <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="GoodsNum" Type="int" />
     <Property Name="CountPrice" Type="money" />
@@ -29,6 +30,7 @@
     <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
     <Property Name="UpdateTime" Type="datetime" />
     <Property Name="State" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
     <Property Name="Evalute" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="BookType">
@@ -83,6 +85,61 @@
     <Property Name="Score" Type="int" />
     <Property Name="CreateTime" Type="datetime" />
   </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EShop.dbo.BookSaleView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="BookSaleView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SaleNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="GoodsNum" Type="int" />
+    <Property Name="CountPrice" Type="money" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="State" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Evalute" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EShop.dbo.RecommendView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="RecommendView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="BookId" />
+      <PropertyRef Name="ShowImage" />
+      <PropertyRef Name="ShowTitle" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShowImage" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ShowTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EShop.dbo.SaleDetailView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="SaleDetailView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="BsId" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BsId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SaleNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="BookId" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookPrice" Type="money" />
+    <Property Name="BookNum" Type="int" />
+  </EntityType>
   <EntityContainer Name="EShopModelStoreContainer">
     <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BookSale" EntityType="Self.BookSale" Schema="dbo" store:Type="Tables" />
@@ -91,5 +148,46 @@
     <EntitySet Name="Recommend" EntityType="Self.Recommend" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SaleDetail" EntityType="Self.SaleDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookSaleView" EntityType="Self.BookSaleView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[BookSaleView].[Id] AS [Id], 
+[BookSaleView].[SaleNum] AS [SaleNum], 
+[BookSaleView].[UserId] AS [UserId], 
+[BookSaleView].[UserName] AS [UserName], 
+[BookSaleView].[UserPhone] AS [UserPhone], 
+[BookSaleView].[GoodsNum] AS [GoodsNum], 
+[BookSaleView].[CountPrice] AS [CountPrice], 
+[BookSaleView].[CreateTime] AS [CreateTime], 
+[BookSaleView].[UpdateBy] AS [UpdateBy], 
+[BookSaleView].[UpdateTime] AS [UpdateTime], 
+[BookSaleView].[State] AS [State], 
+[BookSaleView].[Address] AS [Address], 
+[BookSaleView].[Evalute] AS [Evalute]
+FROM [dbo].[BookSaleView] AS [BookSaleView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RecommendView" EntityType="Self.RecommendView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[RecommendView].[Id] AS [Id], 
+[RecommendView].[BookId] AS [BookId], 
+[RecommendView].[BookName] AS [BookName], 
+[RecommendView].[ShowImage] AS [ShowImage], 
+[RecommendView].[ShowTitle] AS [ShowTitle], 
+[RecommendView].[CreateTime] AS [CreateTime]
+FROM [dbo].[RecommendView] AS [RecommendView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SaleDetailView" EntityType="Self.SaleDetailView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SaleDetailView].[Id] AS [Id], 
+[SaleDetailView].[BsId] AS [BsId], 
+[SaleDetailView].[SaleNum] AS [SaleNum], 
+[SaleDetailView].[UserName] AS [UserName], 
+[SaleDetailView].[UserPhone] AS [UserPhone], 
+[SaleDetailView].[CreateTime] AS [CreateTime], 
+[SaleDetailView].[BookId] AS [BookId], 
+[SaleDetailView].[BookName] AS [BookName], 
+[SaleDetailView].[BookPrice] AS [BookPrice], 
+[SaleDetailView].[BookNum] AS [BookNum]
+FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

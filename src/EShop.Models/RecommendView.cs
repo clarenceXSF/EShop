@@ -12,18 +12,13 @@ namespace EShop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class BookSale
+    public partial class RecommendView
     {
         public string Id { get; set; }
-        public string SaleNum { get; set; }
-        public string UserId { get; set; }
-        public Nullable<int> GoodsNum { get; set; }
-        public Nullable<decimal> CountPrice { get; set; }
+        public string BookId { get; set; }
+        public string BookName { get; set; }
+        public string ShowImage { get; set; }
+        public string ShowTitle { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
-        public string UpdateBy { get; set; }
-        public Nullable<System.DateTime> UpdateTime { get; set; }
-        public Nullable<int> State { get; set; }
-        public string Address { get; set; }
-        public string Evalute { get; set; }
     }
 }
