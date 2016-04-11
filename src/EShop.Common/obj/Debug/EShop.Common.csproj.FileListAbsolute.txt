@@ -2,3 +2,4 @@ G:\EShop\src\EShop.Common\bin\Debug\EShop.Common.dll
 G:\EShop\src\EShop.Common\bin\Debug\EShop.Common.pdb
 G:\EShop\src\EShop.Common\obj\Debug\EShop.Common.dll
 G:\EShop\src\EShop.Common\obj\Debug\EShop.Common.pdb
+G:\EShop\src\EShop.Common\obj\Debug\EShop.Common.csprojResolveAssemblyReference.cache

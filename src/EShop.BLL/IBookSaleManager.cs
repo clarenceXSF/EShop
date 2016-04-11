@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EShop.DAL
+namespace EShop.BLL
 {
-    public interface IBookSaleService
+    public interface IBookSaleManager
     {
         /// <summary>
         /// 根据关键字分页获取相关订单信息

@@ -67,5 +67,11 @@ namespace EShop.DAL
         /// <param name="id"></param>
         /// <returns></returns>
         UserInfo FindById(string id);
+        /// <summary>
+        /// 验证用户登录账号是否存在
+        /// </summary>
+        /// <param name="loginId"></param>
+        /// <returns></returns>
+        bool VerifyLogin(string loginContext);
     }
 }
