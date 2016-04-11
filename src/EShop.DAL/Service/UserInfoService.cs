@@ -119,17 +119,14 @@ namespace EShop.DAL.Service
             }
         }
 
-        public bool VerifyLogin(string loginContext)
+        public UserInfo FindByLogin(string loginContext)
         {
             using (EShopDB db = new EShopDB())
             {
                 var obj = (from u in db.UserInfo
                            where u.LoginId == loginContext || u.Phone == loginContext
                            select u).FirstOrDefault();
-                if (obj != null)
-                    return true;
-                else
-                    return false;
+                return obj;
             }
         }
     }
