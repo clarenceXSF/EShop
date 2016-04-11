@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace EShop.BLL.Manager
 {
-    public interface BookSaleManager : IBookSaleManager
+    public class BookSaleManager : IBookSaleManager
     {
         private IBookSaleService _bookSaleService = new BookSaleService();
        // private ISaleDetailService _saleDetailService = new SaleDetailService();
-        public List<BookSaleView> PagingFindBookInfo(string search, int pageIndex, int pageSize)
+        public List<BookSaleView> PagingFindBookSale(string search, int pageIndex, int pageSize)
         {
             return _bookSaleService.PagingFindBookSale(search, pageIndex, pageSize);
         }

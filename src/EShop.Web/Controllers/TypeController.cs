@@ -36,7 +36,7 @@ namespace EShop.Web.Controllers
             string content = String.Empty;
             if (Session["searchText"] != null && Session["searchText"].ToString() != "")
                 content = (string)Session["searchText"];
-            int count = btManager.GetCount(content); //pjService.GetCountSearchText(content);
+            int count = btManager.GetCount(content); 
             List<BookType> list = btManager.PagingFindBookType(content, index, size);
             Pager page = new Pager(index, size, count);
             ViewData["page"] = page;
