@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EShop.DAL
+namespace EShop.BLL
 {
-    public interface IUserInfoService
+    public interface IUserInfoManager
     {
         /// <summary>
         /// 根据关键字和角色分页获取相关人员信息

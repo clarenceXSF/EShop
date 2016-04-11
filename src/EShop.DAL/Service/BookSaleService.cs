@@ -9,7 +9,7 @@ namespace EShop.DAL.Service
 {
     public class BookSaleService : IBookSaleService
     {
-        public List<BookSaleView> PagingFindBookInfo(string search, int pageIndex, int pageSize)
+        public List<BookSaleView> PagingFindBookSale(string search, int pageIndex, int pageSize)
         {
             using (EShopDB db = new EShopDB())
             {

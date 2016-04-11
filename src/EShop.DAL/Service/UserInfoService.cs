@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EShop.DAL.Service
 {
-    public class UserInfoService
+    public class UserInfoService : IUserInfoService
     {
         public List<UserInfo> PagingFindUserInfo(string search, int role, int pageIndex, int pageSize)
         {
@@ -16,7 +16,7 @@ namespace EShop.DAL.Service
                 if (pageIndex == 0)
                     pageIndex = 1;
                 var obj = from u in db.UserInfo
-                          where u.Name.Contains(search) && u.Role == role
+                          where (u.Name.Contains(search) || u.LoginId.Contains(search )) && u.Role == role
                           orderby u.CreateTime descending
                           select u;
                 List<UserInfo> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
@@ -29,7 +29,7 @@ namespace EShop.DAL.Service
             using (EShopDB db = new EShopDB())
             {
                 int count = (from u in db.UserInfo
-                             where u.Name.Contains(search) && u.Role == role
+                             where (u.Name.Contains(search) || u.LoginId.Contains(search)) && u.Role == role
                              select u).Count();
                 return count;
             }
@@ -114,6 +114,17 @@ namespace EShop.DAL.Service
             {
                 var obj = (from u in db.UserInfo
                            where u.Id == id
+                           select u).FirstOrDefault();
+                return obj;
+            }
+        }
+
+        public UserInfo FindByLogin(string loginContext)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = (from u in db.UserInfo
+                           where u.LoginId == loginContext || u.Phone == loginContext
                            select u).FirstOrDefault();
                 return obj;
             }
