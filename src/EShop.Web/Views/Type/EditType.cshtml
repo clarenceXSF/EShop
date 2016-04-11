@@ -21,7 +21,7 @@
             <label class="am-u-sm-2 am-text-right am-form-label">类型代码：</label>
             <span id="oldTypeCode" hidden>@oldBt.TypeCode</span>
             <div class="am-u-sm-5 am-u-end">
-                <input type="text" id="typeCode" name="typeCode" class="am-round am-text-center" placeholder="请输入类型代码" />
+                <input type="text" id="typeCode" name="typeCode" class="am-round am-text-center" value="@oldBt.TypeCode" placeholder="请输入类型代码" />
                 <div>
                     &nbsp;
                     <div id="typeCode_prompt"></div>
@@ -30,9 +30,9 @@
         </div>
         <div class="am-form-group">
             <label class="am-u-sm-2 am-form-label">类型名称：</label>
-            <span id="oldTypeName" hidden>@oldBt.TypeName</span>
+            <span id="oldTypeName" hidden></span>
             <div class="am-u-sm-5 am-u-end">
-                <input type="text" id="typeName" name="typeName" class="am-round am-text-center" placeholder="请输入类型名称" />
+                <input type="text" id="typeName" name="typeName" class="am-round am-text-center" value="@oldBt.TypeName" placeholder="请输入类型名称" />
                 <div>
                     &nbsp;
                     <div id="typeName_prompt"></div>
@@ -46,7 +46,7 @@
                 <input name="upImg" style="width:350px;height:25px;" size="38" type="file" /><input type="submit" value="上传" />
                 <div>
                     &nbsp;
-                    <div id="upImg_prompt"><img alt="" style="display:none;" id="result" src="" /></div>
+                    <div id="upImg_prompt"><img alt="" style="display:none;" id="result" src="" />建议图片大小为：330*470</div>
                 </div>
             </div>
 
