@@ -46,6 +46,9 @@ namespace EShop.Web
             bundles.Add(new StyleBundle("~/bundles/amazeui/css").Include(
                         "~/Content/amazeui/css/amazeui.css",
                         "~/Content/amazeui/css/admin.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/plUpload").Include(
+                        "~/js/lib/plUpload/plupload.full.min.js"));
         }
     }
 }

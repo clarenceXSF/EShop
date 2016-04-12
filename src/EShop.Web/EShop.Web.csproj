@@ -224,8 +224,11 @@
     <Content Include="Images\head\9b9374d6-9f83-41e0-8607-871ec9b22a63.jpg" />
     <Content Include="Images\head\a7dd0ae0-b801-446f-9c54-b51abc41f94f.jpg" />
     <Content Include="Images\LoginBg.jpg" />
-    <Content Include="Scripts\app\AlertMess.js" />
-    <Content Include="Scripts\app\doType.js" />
+    <Content Include="js\admin\AlertMess.js" />
+    <Content Include="js\admin\doType.js" />
+    <Content Include="js\lib\plUpload\Moxie.swf" />
+    <Content Include="js\lib\plUpload\Moxie.xap" />
+    <Content Include="js\lib\plUpload\plupload.full.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -275,6 +278,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="js\front\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
