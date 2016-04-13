@@ -16,7 +16,7 @@ namespace EShop.DAL.Service
                 if (pageIndex == 0)
                     pageIndex = 1;
                 var obj = from ot in db.OtherType
-                          where ot.TypeName == name && ot.TypeContent == content
+                          where ot.TypeName == name && ot.TypeContent.Contains(content)
                           orderby ot.TypeCode
                           select ot;
                 List<OtherType> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
@@ -33,7 +33,7 @@ namespace EShop.DAL.Service
                 if (String.IsNullOrEmpty(content))
                     content = String.Empty;
                 int count = (from ot in db.OtherType
-                             where ot.TypeName == name && ot.TypeContent == content
+                             where ot.TypeName == name && ot.TypeContent.Contains(content)
                              select ot).Count();
                 return count;
             }

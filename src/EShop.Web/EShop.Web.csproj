@@ -226,6 +226,7 @@
     <Content Include="Images\LoginBg.jpg" />
     <Content Include="Images\notImage.jpg" />
     <Content Include="js\admin\AlertMess.js" />
+    <Content Include="js\admin\doSearch.js" />
     <Content Include="js\admin\doType.js" />
     <Content Include="js\lib\plUpload\Moxie.swf" />
     <Content Include="js\lib\plUpload\Moxie.xap" />
@@ -276,6 +277,8 @@
     <Content Include="Views\Shared\_pageNavigation.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Search\AddSearch.cshtml" />
+    <Content Include="Views\Search\EditSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
