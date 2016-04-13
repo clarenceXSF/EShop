@@ -3,7 +3,7 @@
     ViewBag.Title = "修改图书类型";
 }
 @section featured {
-    <div class="am-cf am-padding">
+    <div class="am-cf am-padding am-margin-bottom">
         <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
     </div>
 }
@@ -15,8 +15,9 @@
     <ul class="am-tabs-nav am-nav am-nav-tabs">
         <li><a>修改信息</a></li>
     </ul>
-    <form class="am-form am-form-horizontal am-text-primary" id="EditForm" action="@Url.Content("~/Type/EditType")" method="POST">
+    <form class="am-form am-form-horizontal am-text-primary" id="EditForm" action="@Url.Content("~/Type/EditTypeInfo")" method="POST">
         @{var oldBt = (BookType)Model;}
+        <input type="hidden" name="typeId" value="@oldBt.Id" />
         <div class="am-margin-top am-form-group">
             <label class="am-u-sm-2 am-text-right am-form-label">类型代码：</label>
             <span id="oldTypeCode" hidden>@oldBt.TypeCode</span>
@@ -42,14 +43,24 @@
         <div class="am-form-group">
             <label class="am-u-sm-2 am-form-label">目录图片：</label>
             <span id="oldUpImg" hidden>@oldBt.ImgSrc</span>
-            <div class="am-u-sm-5 am-u-end">
-                <input name="upImg" style="width:350px;height:25px;" size="38" type="file" /><input type="submit" value="上传" />
-                <div>
-                    &nbsp;
-                    <div id="upImg_prompt"><img alt="" style="display:none;" id="result" src="" />建议图片大小为：330*470</div>
-                </div>
+            <div class="am-u-sm-3">
+                @{
+                    if (string.IsNullOrEmpty(@oldBt.ImgSrc)) 
+                    { 
+                        <img src="~/Images/notImage.jpg" width="150" height="200" />
+                    }
+                    else
+                    {
+                        <img src="@oldBt.ImgSrc" width="150" height="200" />
+                    }
+                }
             </div>
-
+            <div class="am-u-sm-2">
+                <input type="button" value="重新上传图片?" id="browse" />
+                <br />建议图片大小为：330*470<br />
+                &nbsp;<div id="upName"></div>
+            </div>
+            <div class="am-u-sm-3" id="upImg"></div>
         </div>
         <br />
         <div class="am-u-sm-10  am-u-sm-offset-2">
@@ -62,3 +73,4 @@
         </div>
     </form>
 </div>
+<script src="~/js/lib/plUpload/plupload.full.min.js"></script>

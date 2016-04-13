@@ -14,7 +14,7 @@ namespace EShop.BLL
         /// <returns></returns>
         List<BookType> FindBookType();
         /// <summary>
-        /// 根据类型名称分页显示图书类型
+        /// 根据类型名称或代码分页显示图书类型
         /// </summary>
         /// <param name="name"></param>
         /// <param name="pageIndex"></param>
@@ -22,7 +22,7 @@ namespace EShop.BLL
         /// <returns></returns>
         List<BookType> PagingFindBookType(string name, int pageIndex, int PageSize);
         /// <summary>
-        /// 统计名称关键字的类型数量
+        /// 统计名称或代码关键字的类型数量
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>

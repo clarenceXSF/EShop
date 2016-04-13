@@ -224,6 +224,7 @@
     <Content Include="Images\head\9b9374d6-9f83-41e0-8607-871ec9b22a63.jpg" />
     <Content Include="Images\head\a7dd0ae0-b801-446f-9c54-b51abc41f94f.jpg" />
     <Content Include="Images\LoginBg.jpg" />
+    <Content Include="Images\notImage.jpg" />
     <Content Include="js\admin\AlertMess.js" />
     <Content Include="js\admin\doType.js" />
     <Content Include="js\lib\plUpload\Moxie.swf" />
@@ -278,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\bookType\" />
     <Folder Include="js\front\" />
     <Folder Include="Models\" />
   </ItemGroup>

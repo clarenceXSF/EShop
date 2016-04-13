@@ -35,7 +35,7 @@ namespace EShop.DAL.Service
                 if (pageIndex == 0)
                     pageIndex = 1;
                 var obj = from bt in db.BookType
-                          where bt.TypeName.Contains(name)
+                          where bt.TypeName.Contains(name) || bt.TypeCode.Contains(name)
                           orderby bt.TypeCode
                           select bt;
                 List<BookType> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
@@ -50,7 +50,7 @@ namespace EShop.DAL.Service
                 if (String.IsNullOrEmpty(name))
                     name = String.Empty;
                 int count = (from bt in db.BookType
-                             where bt.TypeName.Contains(name)
+                             where bt.TypeName.Contains(name) || bt.TypeCode.Contains(name)
                              select bt).Count();
                 return count;
             }
