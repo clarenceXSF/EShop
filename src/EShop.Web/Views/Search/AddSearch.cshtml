@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "添加热搜信息";
+}
+@section featured {
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
+    </div>
+}
+@section scripts {
+    <script src="~/js/admin/AlertMess.js"></script>
+    <script src="~/js/admin/doSearch.js"></script>
+}
+<div class="am-tabs" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <li><a>信息录入</a></li>
+    </ul>
+    <form class="am-form am-form-horizontal am-text-primary" id="AddForm" action="@Url.Content("~/Search/AddNewSearch")" method="POST">
+        <div class="am-margin-top am-form-group">
+            <label class="am-u-sm-2 am-text-right am-form-label">热搜编号：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="typeCode" name="typeCode" class="am-round am-text-center" value="@ViewBag.Code" readonly />
+                <div> &nbsp;</div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">热搜内容：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="typeContent" name="typeContent" class="am-round am-text-center" placeholder="请输入热搜内容" />
+                <div>
+                    &nbsp;
+                    <div id="typeContent_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-10  am-u-sm-offset-2">
+            <button type="button" class="am-btn am-btn-primary" onclick="location.href = 'Index';">
+                <span class="am-icon-refresh"></span> 返 回
+            </button>
+            <button type="submit" class="am-btn am-btn-primary" style="margin-left: 10%">
+                <span class="am-icon-external-link"></span> 提 交
+            </button>
+        </div>
+    </form>
+</div>

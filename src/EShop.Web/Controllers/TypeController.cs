@@ -16,11 +16,7 @@ namespace EShop.Web.Controllers
         //
         // GET: /Type/
 
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-        private int alPageSize = 5;//列表页显示行数
+        private int alPageSize = 4;//列表页显示行数
 
         private IBookTypeManager btManager = new BookTypeManager();
 
@@ -35,8 +31,8 @@ namespace EShop.Web.Controllers
             int index = pageIndex ?? 1;
             int size = pageSize ?? alPageSize;
             string content = String.Empty;
-            if (Session["searchText"] != null && Session["searchText"].ToString() != "")
-                content = (string)Session["searchText"];
+            if (Session["searchText_t"] != null && Session["searchText_t"].ToString() != "")
+                content = (string)Session["searchText_t"];
             int count = btManager.GetCount(content); 
             List<BookType> list = btManager.PagingFindBookType(content, index, size);
             Pager page = new Pager(index, size, count);
@@ -135,7 +131,7 @@ namespace EShop.Web.Controllers
         [AllowAnonymous]
         public ActionResult FindBySearchText(string content)
         {
-            Session["searchText"] = content;
+            Session["searchText_t"] = content;
             return Redirect("Index");
         }
 
