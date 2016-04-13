@@ -4,7 +4,7 @@
     var searchStr = Session["searchText"] as string;
 }
 @section featured {
-    <div class="am-cf am-padding">
+    <div class="am-cf am-padding am-margin-bottom">
         <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
     </div>
 }
@@ -33,19 +33,27 @@
     <thead>
         <tr id="thMenu">
             <th style="display: none;">类型ID</th>
-            <th style="width: 15%">类型代码</th>
-            <th style="width: 15%">类型名称</th>
-            <th style="width: 40%">目录图片</th>
-            <th style="width: 30%">具体操作</th>
+            <th style="width: 15%; text-align: center;">类型代码</th>
+            <th style="width: 15%; text-align: center;">类型名称</th>
+            <th style="width: 30%; text-align: center;">目录图片</th>
+            <th style="width: 40%">具体操作</th>
         </tr>
     </thead>
     @foreach (var item in (List<BookType>)Model)
     {
         <tr>
             <td style="display: none;">@item.Id</td>
-            <td>@item.TypeCode</td>
-            <td>@item.TypeName</td>
-            <td>@item.ImgSrc</td>
+            <td style="text-align: center;">@item.TypeCode</td>
+            <td style="text-align: center;">@item.TypeName</td>
+            <td style="text-align: center;">
+                @{
+                    if (string.IsNullOrEmpty(@item.ImgSrc)){
+                        <img src="~/Images/notImage.jpg" width="100" height="135" />}
+                    else{
+                        <img src="@item.ImgSrc" width="100" height="135" />}
+                }
+            </td>
+
             <td>
                 <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
