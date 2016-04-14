@@ -60,7 +60,15 @@ namespace EShop.BLL.Manager
         {
             return _userInfoService.FindByLogin(loginContext);
         }
-        public bool FindByLoginId(string loginId)
+        public bool CheckLoginId(string loginId)
+        {
+            UserInfo ui = _userInfoService.FindByLoginId(loginId);
+            if (ui != null)
+                return true;
+            else
+                return false;
+        }
+        public UserInfo FindByLoginId(string loginId)
         {
             return _userInfoService.FindByLoginId(loginId);
         }

@@ -1,0 +1,94 @@
+﻿
+<link rel="stylesheet" type="text/css" href="~/Css/login/login.css">
+<script type="text/javascript">
+    var m60 = 60;
+    var uelemailcode = '{link:ucenter-emailcode-default}';
+    var uelphonecode = '{link:ucenter-phonecode-default}';
+    var checkLoginInfo_url = "{link:login-checkLoginInfo-default}";
+    var checkCode_url = "{link:login-checkCode-default}";
+    var loginsuc_url = "{link:index}";
+    var decodeUrl = '{DECODE}';
+    var ucenterUrl = '{link:ucenter-index}';
+    var urlreg = "{link:login-reg}";
+</script>
+<script type="text/javascript" src="~/js/front/login/login.js"></script>
+<!--登录-->
+<div class="login-title">
+    <div class="w">
+        <div class="title-left"><img src="~/Images/header/headLogo.png" width="213" height="50" alt="" /></div>
+        <div class="title-right">
+            <ul>
+                <li><a href="#">欢迎光临EShop</a></li>
+                <li><a href="/Home/Index">首页</a></li>
+                <li><a href="#">帮助中心</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="login-content">
+    <div class="w">
+        <div class="content-left"></div>
+        <div class="content-right">
+            <div class="login-box">
+                <div class="l-title">
+                    <ul>
+                        <li class="l-link">登录</li>
+                        <li class="r-link" style="background:#f3f3f3;">注册</li>
+                    </ul>
+                </div>
+                <input type="hidden" value="@TempData["mess"]" id="mess" />
+                <!--登录框-->
+                <div class="login">
+                    <div class="login-message">
+                        <form id="loginform" name="loginform" action="@Url.Content("~/Account/CustomerLogin")" method="post">
+                            <ul>
+                                <li>
+                                    <input type="text" id="account-num" name="account-num" placeholder="用户名/邮箱/手机号">
+                                    <span id="account_tips"></span>
+                                </li>
+                                <li>
+                                    <input type="password" id="pwd" name="pwd" placeholder="请输入密码">
+                                    <span id="pwd_tips"></span>
+                                </li>
+                                <li>
+                                    <input type="submit" id="login" value="登录">
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+                <!--注册框-->
+                <div class="register">
+                    <div class="register-message">
+                        <form id="regform" name="regform" action="{@Url.Content("~/Account/CustomerRegister")" method="post">
+                            <ul>
+                                <li>
+                                    <input type="text" id="username" name="username" placeholder="请设置用户名">
+                                    <span id="username_tips"></span>
+                                </li>
+                                <li>
+                                    <input type="password" id="set-pwd" name="set-pwd" placeholder="请设置密码">
+                                    <span id="password_tips"></span>
+                                </li>
+                                <li>
+                                    <input type="password" id="confirm-pwd" name="confirm-pwd" placeholder="请确认密码">
+                                    <span id="con_password_tips"></span>
+                                </li>
+                                <li>
+                                    <input type="submit" id="register" value="注册">
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div class="login-footer">
+    <div class="w">
+        <div class="company">&copy;  2016  13ACCP2  CLARENCE_FENG  版权所有  130235</div>
+    </div>
+</div>
+

@@ -1,102 +1,664 @@
-﻿<h2 style="color:greenyellow">这里是客户端首页</h2>
-<a href="~/Integration/Index"> 后台管理</a>
-<a href="~/Account/Index"> 登录管理</a>
-
-
-
-@*<link rel="stylesheet" href="~/Content/amazeui/css/amazeui.min.css" />
-<link rel="stylesheet" href="~/Content/amazeui/css/admin.css">
-<div class="am-cf admin-main">
-    <!-- sidebar start -->
-    <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
-        <div class="am-offcanvas-bar admin-offcanvas-bar">
-            <ul class="am-list admin-sidebar-list">
-                <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
-                <li class="admin-parent">
-                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                    <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-                        <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-                        <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
-                        <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
-                        <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
-                        <li><a href="admin-404.html"><span class="am-icon-bug"></span> 404</a></li>
-                    </ul>
-                </li>
-                <li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>
-                <li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
-                <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
-            </ul>
-        </div>
+﻿<!--左导航栏-->
+<div class="z-menu" style="display: block !important;">
+    <div class="left-sidebar" style="display:block;">
+        <ul>
+            <li><a href="/GoodList/Index"><div class="left-item1"><i><img src="~/Images/typemenu/xzby.png" width="18" height="18" /></i> 人文 </div></a></li>
+            <li><a href="/GoodList/Index"><div class="left-item1"><i><img src="~/Images/typemenu/xztc.png" width="18" height="18" /></i> 少儿 </div></a></li>
+            <li><a href="/GoodList/Index"><div class="left-item1"><i><img src="~/Images/typemenu/xzmx.png" width="18" height="18" /></i> 生活 </div></a></li>
+            <li><a href="/GoodList/Index"><div class="left-item1"><i><img src="~/Images/typemenu/xzcn.png" width="18" height="18" /></i> 科技 </div></a></li>
+            @*<li n="126" class="ll">
+                    <div class="left-item1">
+                        <i class="left-item1 icon"><img src="http://test.fnuo123.com/View/index/img/default/header/nav-icon1.png" width="18" height="18" /></i>
+                        <h4><a href="http://test.fnuo123.com/?act=lists&ctrl=shopguide&c=126" target="_blank">服装/男装/女装/服饰</a></h4>
+                    </div>
+                </li>*@
+        </ul>
     </div>
-    <!-- sidebar end -->
-    <!-- content start -->
-    <div class="admin-content">
-        <div class="admin-content-body">
-            <div class="am-cf am-padding">
-                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
+</div>
+<link href="~/Css/index/index.css" rel="stylesheet" type="text/css" />
+<script src="~/js/front/index/indexban.js"></script>
+<div id="foc">
+    <div class="wit">
+        <!--左导航-->
+        <div class="left-side"></div>
+        <!--中间店长推荐-->
+        <div class="slider-banner">
+            <i class="last"> < </i> <i class="next"> > </i>
+
+            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a>
+
+            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a>
+
+            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a>
+
+            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a><!--~/Images/typeMenu/middle_feng.jpg-->
+
+            <div class="dian">
+                <ul class="-h"></ul>
             </div>
-            <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
-                <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br />新增页面<br />2300</a></li>
-                <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br />成交订单<br />308</a></li>
-                <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br />昨日访问<br />80082</a></li>
-                <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br />在线用户<br />3000</a></li>
-            </ul>
-            <div class="am-g">
-                <div class="am-u-sm-12">
-                    <table class="am-table am-table-bd am-table-striped admin-content-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>用户名</th>
-                                <th>最后成交任务</th>
-                                <th>成交订单</th>
-                                <th>管理</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>John Clark</td>
-                                <td><a href="#">Business management</a></td>
-                                <td><span class="am-badge am-badge-success">+20</span></td>
-                                <td>
-                                    <div class="am-dropdown" data-am-dropdown>
-                                        <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                        <ul class="am-dropdown-content">
-                                            <li><a href="#">1. 编辑</a></li>
-                                            <li><a href="#">2. 下载</a></li>
-                                            <li><a href="#">3. 删除</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>风清扬</td>
-                                <td><a href="#">公司LOGO设计</a> </td>
-                                <td><span class="am-badge am-badge-danger">+2</span></td>
-                                <td>
-                                    <div class="am-dropdown" data-am-dropdown>
-                                        <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                        <ul class="am-dropdown-content">
-                                            <li><a href="#">1. 编辑</a></li>
-                                            <li><a href="#">2. 下载</a></li>
-                                            <li><a href="#">3. 删除</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        </div>
+        <!--右边面板-->
+        <ul class="sider-r" style="position: relative;">
+            <li class="h1"><span>新书上架</span><a href="javascript:void(0);">更多 ></a></li>
+            <li class="line1 item" style="height: 165px;line-height: 36px;border-bottom: 1px dotted #d8d8d8;width: 320px;margin-left: 9px;vertical-align: top;">
+                <img src="~/Images/notImage.jpg" alt="孤独小说家" style="width:140px;height:150px;float: left;">
+                <div style="float: left;overflow: hidden;position: relative;width:51px;">
+                    <p class="name" style="height: 66px;line-height:22px;font-size:10px;overflow: hidden; ">
+                        <a title="孤独小说家" href="#" target="_blank">孤独小说家（十年前的梦想，如果还没有熄灭</a>
+                    </p><br />
+                    <p style="height:22px;line-height:22px;font-size:10px;overflow: hidden;color:red">￥35.00</p><br />
+                    <p><span class="yj" style="height:22px;line-height:22px;font-size:10px;overflow: hidden;color:darkgray;text-decoration:line-through;">￥168.00</span></p><br />
+                </div>
+            </li>
+            <li class="line1 item" style="height: 165px;line-height: 36px;border-bottom: 1px dotted #d8d8d8;width: 320px;margin-left: 9px;vertical-align: top;">
+                <img src="~/Images/notImage.jpg" alt="孤独小说家" style="width:140px;height:150px;float: left;">
+                <div style="float: left;overflow: hidden;position: relative;width:51px;">
+                    <p class="name" style="height: 66px;line-height:22px;font-size:10px;overflow: hidden; ">
+                        <a title="孤独小说家" href="#" target="_blank">孤独小说家（十年前的梦想)</a>
+                    </p><br />
+                    <p style="height:22px;line-height:22px;font-size:10px;overflow: hidden;color:red">￥35.00</p><br />
+                    <p><span class="yj" style="height:22px;line-height:22px;font-size:10px;overflow: hidden;color:darkgray;text-decoration:line-through;">￥168.00</span></p><br />
+                </div>
+            </li>
+            <li class="line1 item" style="height: 165px;line-height: 36px;border-bottom: 1px dotted #d8d8d8;width: 320px;margin-left: 9px;vertical-align: top;">
+                <img src="~/Images/notImage.jpg" alt="幸福小说家" style="width:140px;height:150px;float: left;">
+                <div style="float: left;overflow: hidden;position: relative;width:51px;">
+                    <p class="name" style="height: 66px;line-height:22px;font-size:10px;overflow: hidden; ">
+                        <a title="幸福小说家" href="#" target="_blank">幸福小说家</a>
+                    </p><br />
+                    <p style="height:22px;line-height:22px;font-size:10px;overflow: hidden;color:red">￥35.00</p><br />
+                    <p><span class="yj" style="height:22px;line-height:22px;font-size:10px;overflow: hidden;color:darkgray;text-decoration:line-through;">￥168.00</span></p><br />
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="floor">
+    <div class="footbanner">
+        <a href="explosion" target="_blank">
+            <img src="~/Images/divideShow/divide_1.jpg" />
+        </a>
+    </div>
+</div>
+@*热门书籍和作者*@
+<div id="floor">
+    <div class="wit">
+        <div class="witTop" style="width:860px;float: left;background-color:lavenderblush">
+            <div class="f-title" style="width:860px;">
+                <i class="f-ticon f-tic1"><em>热</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
+                <h2>热门书籍</h2>
+            </div>
+            <div class="f-content" style="width:860px;">
+                <div class="f-malllist f-mlist1" id="zf_1" style="height:235px;">
+                    <ul>
+                        <li>
+                            <div class="f-mimg f-mimg1">
+                                <a href="#" target="_blank">
+                                    <img src="~/Images/notImage.jpg" />
+                                </a>
+                            </div>
+                            <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                            <div class="f-mprice f-mprice1">
+                                <span>￥35.00</span>
+                                <span class="yj">￥168.00</span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="f-mimg f-mimg1">
+                                <a href="#" target="_blank">
+                                    <img src="~/Images/notImage.jpg" />
+                                </a>
+                            </div>
+                            <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                            <div class="f-mprice f-mprice1">
+                                <span>￥35.00</span>
+                                <span class="yj">￥168.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="f-mimg f-mimg1">
+                                <a href="#" target="_blank">
+                                    <img src="~/Images/notImage.jpg" />
+                                </a>
+                            </div>
+                            <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                            <div class="f-mprice f-mprice1">
+                                <span>￥35.00</span>
+                                <span class="yj">￥168.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="f-mimg f-mimg1">
+                                <a href="#" target="_blank">
+                                    <img src="~/Images/notImage.jpg" />
+                                </a>
+                            </div>
+                            <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                            <div class="f-mprice f-mprice1">
+                                <span>￥35.00</span>
+                                <span class="yj">￥168.00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="witTop" style="width:320px;margin-left:10px;background-color:lemonchiffon;float: left;overflow: hidden;position: relative;">
+            <div class="f-title" style="width:320px;">
+                <i class="f-ticon f-tic1"><em>作</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
+                <h2>优秀作者</h2>
+            </div>
+            <div class="f-content" style="width:320px;height:235px;">
+                <div class="goodAuthor">
+                    <a href="#" target="_blank"> 冰心 </a>
+                    <a href="#" target="_blank"> 金庸 </a>
+                    <a href="#" target="_blank"> 琼瑶 </a>
+                    <a href="#" target="_blank"> 老陈 </a>
+                    @*<a href="javascript:void(0);" target="_blank">
+                        <img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.jpg" class="img1">
+                        <span>话费</span></a>*@
                 </div>
             </div>
         </div>
     </div>
-    <!-- content end -->
 </div>
-<footer class="am-topbar am-topbar-fixed-bottom">
-    <p class="am-padding-left">&copy; 2016 ACCP XSF, individual.</p>
-</footer>
-<script src="~/Content/amazeui/js/jquery.min.js"></script>
-<script src="~/Content/amazeui/js/amazeui.min.js"></script>
-<script src="~/Content/amazeui/js/app.js"></script>*@
+<div id="floor">
+    <div class="footbanner">
+        <a href="explosion" target="_blank">
+            <img src="~/Images/divideShow/divide_3.jpg" />
+        </a>
+    </div>
+</div>
+@*人文*@
+<div id="floor" v="人文">
+    <div class="wit" style="background-color:cornsilk">
+        <div class="f-title">
+            <i class="f-ticon f-tic1"><em>1F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
+            <h2>人文</h2>
+        </div>
+        <div class="f-content f-cot1">
+            <div class="f-leftside f-ls1">
+                <img src="~/Images/bookType/renwen.jpg" width="330" height="470" alt="" />
+            </div>
+            <div class="f-malllist f-mlist1" id="zf_1">
+                <ul>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="floor">
+    <div class="footbanner">
+        <a href="explosion" target="_blank">
+            <img src="~/Images/divideShow/divide_6.jpg" />
+        </a>
+    </div>
+</div>
+@*少儿*@
+<div id="floor" v="少儿">
+    <div class="wit" style="background-color:lightcyan">
+        <div class="f-title">
+            <i class="f-ticon f-tic1"><em>2F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
+            <h2>少儿</h2>
+        </div>
+        <div class="f-content f-cot1">
+            <div class="f-leftside f-ls1">
+                <img src="~/Images/bookType/shaoer.jpg" width="330" height="470" alt="" />
+            </div>
+            <div class="f-malllist f-mlist1" id="zf_1">
+                <ul>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="floor">
+    <div class="footbanner">
+        <a href="explosion" target="_blank">
+            <img src="~/Images/divideShow/divide_2.jpg" />
+        </a>
+    </div>
+</div>
+@*生活*@
+<div id="floor" v="生活">
+    <div class="wit" style="background-color:lavenderblush">
+        <div class="f-title">
+            <i class="f-ticon f-tic1"><em>3F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
+            <h2>生活</h2>
+        </div>
+        <div class="f-content f-cot1">
+            <div class="f-leftside f-ls1">
+                <img src="~/Images/bookType/shenghuo.jpg" width="330" height="470" alt="" />
+            </div>
+            <div class="f-malllist f-mlist1" id="zf_1">
+                <ul>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="floor">
+    <div class="footbanner">
+        <a href="explosion" target="_blank">
+            <img src="~/Images/divideShow/divide_4.jpg" />
+        </a>
+    </div>
+</div>
+@*科技*@
+<div id="floor" v="科技">
+    <div class="wit" style="background-color:lavender">
+        <div class="f-title">
+            <i class="f-ticon f-tic1"><em>4F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
+            <h2>科技</h2>
+        </div>
+        <div class="f-content f-cot1">
+            <div class="f-leftside f-ls1">
+                <img src="~/Images/bookType/keji.jpg" width="330" height="470" alt="" />
+            </div>
+            <div class="f-malllist f-mlist1" id="zf_1">
+                <ul>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-mimg f-mimg1">
+                            <a href="#" target="_blank">
+                                <img src="~/Images/notImage.jpg" />
+                            </a>
+                        </div>
+                        <div class="f-mname f-mname1"> <a href="#" target="_blank">男人脸书</a> </div>
+                        <div class="f-mprice f-mprice1">
+                            <span>￥35.00</span>
+                            <span class="yj">￥168.00</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="floor">
+    <div class="footbanner">
+        <a href="explosion" target="_blank">
+            <img src="~/Images/divideShow/divide_5.jpg" />
+        </a>
+    </div>
+</div>

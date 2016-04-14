@@ -211,6 +211,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Css\comm\foot.css" />
+    <Content Include="Css\comm\head.css" />
+    <Content Include="Css\index\index.css" />
+    <Content Include="Css\login\login.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\amazeui\fonts\fontawesome-webfont.eot" />
@@ -219,16 +223,50 @@
     <Content Include="Content\amazeui\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\amazeui\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\divideShow\divide_1.jpg" />
+    <Content Include="Images\divideShow\divide_2.jpg" />
+    <Content Include="Images\divideShow\divide_3.jpg" />
+    <Content Include="Images\divideShow\divide_4.jpg" />
+    <Content Include="Images\divideShow\divide_5.jpg" />
+    <Content Include="Images\divideShow\divide_6.jpg" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\floor-icon.png" />
+    <Content Include="Images\footer\foot-icon1.png" />
+    <Content Include="Images\footer\foot-icon2.png" />
+    <Content Include="Images\footer\foot-icon3.png" />
+    <Content Include="Images\footer\foot-icon4.png" />
+    <Content Include="Images\footer\foot-icon5.png" />
+    <Content Include="Images\header\categorys_icon.png" />
+    <Content Include="Images\header\headLogo.png" />
     <Content Include="Images\head\6bf50c27-a350-495e-aaf0-6e2dc4ccafd9.jpg" />
     <Content Include="Images\head\9b9374d6-9f83-41e0-8607-871ec9b22a63.jpg" />
     <Content Include="Images\head\a7dd0ae0-b801-446f-9c54-b51abc41f94f.jpg" />
     <Content Include="Images\LoginBg.jpg" />
+    <Content Include="Images\Login\account-icon.png" />
+    <Content Include="Images\Login\Login.png" />
+    <Content Include="Images\Login\pwd-icon.png" />
     <Content Include="Images\notImage.jpg" />
+    <Content Include="Images\typemenu\xzby.png" />
+    <Content Include="Images\typemenu\xzcn.png" />
+    <Content Include="Images\typemenu\xzjn.png" />
+    <Content Include="Images\typemenu\xzjx.png" />
+    <Content Include="Images\typemenu\xzmx.png" />
+    <Content Include="Images\typemenu\xzshiz.png" />
+    <Content Include="Images\typemenu\xzsp.png" />
+    <Content Include="Images\typemenu\xzss.png" />
+    <Content Include="Images\typemenu\xzsy.png" />
+    <Content Include="Images\typemenu\xzsz.png" />
+    <Content Include="Images\typemenu\xztc.png" />
+    <Content Include="Images\typemenu\xztx.png" />
     <Content Include="js\admin\AlertMess.js" />
+    <Content Include="js\admin\doAccount.js" />
     <Content Include="js\admin\doUser.js" />
     <Content Include="js\admin\doSearch.js" />
     <Content Include="js\admin\doType.js" />
+    <Content Include="js\front\index\headcate.js" />
+    <Content Include="js\front\index\index.js" />
+    <Content Include="js\front\index\indexban.js" />
+    <Content Include="js\front\login\login.js" />
     <Content Include="js\lib\plUpload\Moxie.swf" />
     <Content Include="js\lib\plUpload\Moxie.xap" />
     <Content Include="js\lib\plUpload\plupload.full.min.js" />
@@ -282,11 +320,13 @@
     <Content Include="Views\Search\EditSearch.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\Shared\_Customer.cshtml" />
+    <Content Include="Views\Account\UserIndex.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\bookType\" />
-    <Folder Include="js\front\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

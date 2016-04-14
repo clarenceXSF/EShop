@@ -1,0 +1,290 @@
+/* CSS Document */
+
+body ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: "微软雅黑";
+	margin: 0px;
+}
+
+body a {
+	text-decoration: none;
+}
+
+.login-title {
+	width: 100%;
+	float: left;
+}
+
+.w {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.login-title .title-left {
+	float: left;
+	margin: 10px 0 3px 0;
+}
+
+.login-title .title-right {
+	float: right;
+	margin: 25px 0 0 0;
+}
+
+.login-title .title-right ul li {
+	float: left;
+	margin-left: 32px;
+}
+
+.login-title .title-right ul li a {
+	color: #000;
+	font-size: 18px;
+}
+
+.login-content {
+	width: 100%;
+	/*background: #E43B3E;*/
+    background:#b8f6ff;
+	height: 626px;
+	float: left;
+}
+
+.login-content .content-left {
+    float: left;
+    margin-top: 20px;
+    background: url(../../Images/Login/Login.png) 0 0 no-repeat;
+    width: 760px;
+    height: 564px;
+}
+
+.login-content .content-right {
+	float: right;
+	width: 430px;
+	height: 398px;
+	/*background: #F29D9E;*/
+	background: #dafaff;
+	margin: 105px 0;
+}
+
+.login-content .content-right .login-box {
+	width: 396px;
+	height: 365px;
+	background: #fff;
+	margin: 17px 17px;
+}
+
+.login-content .content-right .login-box .l-title {
+	width: 396px;
+	height: 56px;
+	float: left;
+}
+
+.login-content .content-right .login-box .l-title ul li {
+	width: 198px;
+	text-align: center;
+	line-height: 56px;
+	float: left;
+	cursor: pointer;
+	background: #fff;
+	font-size: 18px;
+	color: #6E6F73;
+}
+
+
+/*登录框*/
+
+.login-content .content-right .login {
+	float: left;
+	display: block;
+}
+
+.login-content .content-right .login-box .login-message {
+	float: left;
+	margin: 20px 20px 0 20px;
+}
+
+.login-content .content-right .login-box .login-message ul li {
+	float: left;
+	margin: 10px 0;
+	width: 356px;
+}
+
+.login-content .content-right .login-box .login-message ul li input[id="account-num"] {
+    width: 352px;
+    height: 40px;
+    border: solid 1px #F1F1F1;
+    background: url(../../Images/Login/account-icon.png) 10px no-repeat;
+    text-indent: 47px;
+}
+
+.login-content .content-right .login-box .login-message ul li input[id="pwd"] {
+    width: 352px;
+    height: 40px;
+    border: solid 1px #F1F1F1;
+    background: url(../../Images/Login/pwd-icon.png) 10px no-repeat;
+    text-indent: 47px;
+}
+
+.login-content .content-right .login-box .login-message ul li input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-top: 2px;
+}
+
+.login-content .content-right .login-box .login-message ul li .remind-text {
+	float: left;
+	margin-left: 8px;
+	font-size: 14px;
+}
+
+.login-content .content-right .login-box .login-message ul li input[type="button"] {
+	cursor: pointer;
+	width: 352px;
+	height: 40px;
+	color: #fff;
+	font-size: 18px;
+	background: #E33A3D;
+	border: none;
+}
+
+.login-content .content-right .login-box .login-message ul li .account-item {
+	float: left;
+	margin-left: 19px;
+	border-right: solid 1px #C5C5C5;
+	padding-right: 19px;
+}
+
+.login-content .content-right .login-box .login-message ul li .account-item i {
+	float: left;
+}
+
+.login-content .content-right .login-box .login-message ul li .account-item .item-link {
+	float: left;
+	margin-left: 12px;
+	margin-top: 2px;
+}
+
+.login-content .content-right .login-box .login-message ul li .account-item .item-link a {
+	color: #000;
+	font-size: 14px;
+}
+
+
+/*注册框*/
+
+.login-content .content-right .register {
+	float: left;
+	display: none;
+}
+
+.login-content .content-right .register-message {
+	float: left;
+	margin: 20px 20px 0 20px;
+}
+
+.login-content .content-right .register-message ul li {
+	float: left;
+	margin: 10px 0;
+	width: 356px;
+}
+
+.login-content .content-right .register-message ul li input[id="username"] {
+	width: 352px;
+	height: 40px;
+	border: solid 1px #F1F1F1;
+	background: url(../../Images/Login/account-icon.png) 10px no-repeat;
+	text-indent: 47px;
+}
+
+.login-content .content-right .register-message ul li input[id="set-pwd"] {
+	width: 352px;
+	height: 40px;
+	border: solid 1px #F1F1F1;
+	background: url(../../Images/Login/pwd-icon.png) 10px no-repeat;
+	text-indent: 47px;
+}
+
+.login-content .content-right .register-message ul li input[id="confirm-pwd"] {
+	width: 352px;
+	height: 40px;
+	border: solid 1px #F1F1F1;
+	background: url(../../Images/Login/pwd-icon.png) 10px no-repeat;
+	text-indent: 47px;
+}
+
+/*.login-content .content-right .register-message ul li input[id="verification-code"] {
+	width: 230px;
+	height: 40px;
+	border: solid 1px #F1F1F1;
+	background: url(../../../img/default/login/yanzheng-icon.png) 10px no-repeat;
+	padding-left: 47px;
+}*/
+
+.login-content .content-right .register-message ul li input[id="get-code-phone"] {
+	width: 115px;
+	height: 40px;
+	border: solid 1px #F1F1F1;
+	background: #fff;
+	margin-left: 2px;
+	cursor: pointer;
+}
+
+.login-content .content-right .register-message ul li input[id="get-code-email"] {
+	width: 115px;
+	height: 40px;
+	border: solid 1px #F1F1F1;
+	background: #fff;
+	margin-left: 2px;
+	cursor: pointer;
+}
+
+.login-content .content-right .register-message ul li input[id="register"] {
+	cursor: pointer;
+	width: 352px;
+	height: 40px;
+	color: #fff;
+	font-size: 18px;
+	background: #E33A3D;
+	border: none;
+}
+
+
+/*底部*/
+
+.login-footer {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.login-footer .company {
+	font-size: 14px;
+}
+
+.email60 {
+	font-size: 13px;
+}
+
+.wait60 {
+	cursor: not-allowed;
+	background-color: #666;
+}
+
+.login-content .content-right .register-message ul li #username_tips,
+#password_tips,
+#con_password_tips,
+#code_tips,
+#account_tips,
+#pwd_tips,
+#code-captch-tips {
+	position: absolute;
+	font-size: 12px;
+	color: #f00;
+	display: inline-block;
+	margin-left: 48px;
+}

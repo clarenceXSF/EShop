@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>风御轩EShop</title>
+    <meta name="description" content="这里是风御轩网上书店">
+    <meta name="keywords" content="EShop">
+    <link rel="icon" type="image/png" href="../../Images/favicon.ico">
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="~/Css/comm/head.css">
+    <script src="~/js/front/index/headcate.js"></script>
+    <script src="~/js/front/index/index.js"></script>
+    @{
+        var loginName = Session["loginName"] as string;
+    }
+    <!--登录条-->
+    <div id="loginbar">
+        <div class="wit">
+            <ul class="fleft">
+                <li class="dropdown" id="tbar-login">
+                    <iframe src="" id="loginMake" scrolling="no" frameborder="0" height="0" width="0"> </iframe>
+                    <div class="quick-link">
+                        <span id="toolBarWelcome" class="welcome child-node" style="background-image:none;">欢迎光临!</span>
+                        @{
+                            if (string.IsNullOrEmpty(@loginName)) { 
+                                <span id="logReg">
+                                    <a class="child-node" rel="nofollow" href="/Account/UserIndex" style="color:red;">请登录/注册</a>
+                                </span>
+                            }else { 
+                                <span id="logReg" style="color:green;padding-left:7px;">@loginName</span>
+                                <span id="logLoginOn">
+                                    <a class="child-node" rel="nofollow" href="http://test.fnuo123.com/?act=ucenter">会员中心</a>
+                                    <a class="child-node" rel="nofollow" id="commLoginOut" style="cursor:pointer;padding-left:7px;">退出</a>
+                                </span>
+                            }
+                        }
+                    </div>
+                </li>
+            </ul>
+            <ul class="fright">
+                <li class="fore1 dropdown" id="tbar-light">
+                    <div class="dt cw-icon wdzh">
+                        <a href="/UserSelf/Index">我的账户</a>
+                        <b class="abc" style="opacity:1"></b>
+                        <div class="my-lgt">
+                            <ul>
+                                <li><a target="_blank">我的订单</a></li>
+                                <li><a target="_blank">账户余额</a></li>
+                                <li><a target="_blank">个人资料</a></li>
+                                <li><a target="_blank">我的消息</a></li>@*通知发货*@
+                            </ul>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="fore2" id="ttbar-mycar">
+                    <div class="dt cw-icon"> <i class="ci-mycar"></i> <a>我的购物车</a> </div>
+                </li>
+                <li class="fore5" id="ttbar-online">
+                    <div class="dt"> <a href="javascript:void(0)">客服在线</a> </div>
+                </li>
+                <li class="fore6" id="ttbar-website">
+                    <div class="dt">
+                        <a href="javascript:void(0)">网站导航</a>
+
+                        <b class="abc" style="opacity:1"></b>
+                        <div class="s-nvg">
+                            <div class="wit">
+                                <div class="s-item">
+                                    <div class="i-title" style="color:#7ABD54;">热门搜索</div>
+                                    <div class="i-list">
+                                        <ul>
+                                            <li><a href="#">逛商城</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="s-item">
+                                    <div class="i-title" style="color:#E4393C;">优秀作者</div>
+                                    <div class="i-list">
+                                        <ul>
+                                            <li><a href="#">冰心</a></li>
+                                            <li><a href="#">巴金</a></li>
+                                            <li><a href="#">囖囖</a></li>
+                                            <li><a href="#">单身狗</a></li>
+                                            <li><a href="#">谔谔</a></li>
+                                            <li><a href="#">法定</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="s-item">
+                                    <div class="i-title" style="color:#E4393C;">图书分类</div>
+                                    <div class="i-list">
+                                        <ul>
+                                            <li><a href="#">aaa</a></li>
+                                            <li><a href="#">bbb</a></li>
+                                            <li><a href="#">ccc</a></li>
+                                            <li><a href="#">ddd</a></li>
+                                            <li><a href="#">eee</a></li>
+                                            <li><a href="#">aaa</a></li>
+                                            <li><a href="#">bbb</a></li>
+                                            <li><a href="#">ccc</a></li>
+                                            <li><a href="#">ddd</a></li>
+                                            <li><a href="#">eee</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="s-item" style="border:none;">
+                                    <div class="i-title" style="color:#7ABD54;">服务指南</div>
+                                    <div class="i-list">
+                                        <ul>
+                                            <li><a href="#">帮助中心</a></li>
+                                            <li><a href="#">登录</a></li>
+                                            <li><a href="#">注册</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--头部logo和搜索-->
+    <div class="headebar">
+        <div class="wit">
+            <!--左logo-->
+            <div id="logo-light"> <a href="#"><img src="~/Images/header/headLogo.png" height="50" alt="前台logo(风御轩EShop)" /></a> </div>
+            <!--右边搜索框-->
+            <div id="right_search">
+                <div class="form">
+                    <form action="#" method="post" target="_blank">
+                        <input type="text" name="keyword" />
+                        <button class="button cw-icon"><i></i>搜索</button>
+                    </form>
+                </div>
+            </div>
+            <div id="hotwords">
+                <a href="#">热搜01</a>
+                <a href="#">热搜02</a>
+                <a href="#">热搜03</a>
+                <a href="#">热搜04</a>
+                <a href="#">热搜05</a>
+                <a href="#">热搜06</a>
+                <a href="#">热搜07</a>
+                <a href="#">热搜08</a>
+                <a href="#">热搜09</a>
+                <a href="#">热搜10</a>
+            </div>
+            <!--导航栏-->
+            <div id="nav">
+                <div class="wit">
+                    <div class="categorys">
+                        <div class="dt"> <i class="categorys_icon"><img src="~/Images/header/categorys_icon.png" width="25" height="25" alt="" /></i> <a href="#">全部分类</a> </div>
+                    </div>
+                    <div id="navitems">
+                        <ul id="navitems-group">
+                            <li> <a href="/" tar="0">首页</a></li>
+                            <li> <a href="/GoodList/Index" tar="0">导购</a></li>@*分类搜索页面*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wit-spac"></div>
+
+    <!--中间区域-->
+    @RenderBody()
+
+    <!--底部块-->
+
+    <link href="~/Css/comm/foot.css" rel="stylesheet" type="text/css" />
+    <div id="footer">
+        <div class="wit">
+            <div class="foot">
+                <div class="foot-icon">
+                    <ul>
+                        <li> <i class="foot-i"> <img src="~/Images/footer/foot-icon1.png" width="77" height="73" alt="" /> </i> <span>正品采购</span> </li>
+                        <li> <i class="foot-i"> <img src="~/Images/footer/foot-icon2.png" width="77" height="73" alt="" /> </i> <span>质量保险</span> </li>
+                        <li> <i class="foot-i"> <img src="~/Images/footer/foot-icon3.png" width="77" height="73" alt="" /> </i> <span>快捷配送</span> </li>
+                        <li> <i class="foot-i"> <img src="~/Images/footer/foot-icon4.png" width="77" height="73" alt="" /> </i> <span>优质服务</span> </li>
+                        <li> <i class="foot-i"> <img src="~/Images/footer/foot-icon5.png" width="77" height="73" alt="" /> </i> <span>值得信赖</span> </li>
+                    </ul>
+                </div>
+                <div class="foot-service">
+                    <ul class="first">
+                        <li class="foot-title"><a href="#" style="color:#716664;">服务保障</a></li>
+                        <li><a href="#">正品保证</a></li>
+                        <li><a href="#">7天无理由放心退</a></li>
+                        <li><a href="#">退货返运费</a></li>
+                        <li><a href="#">7*15小时客户服务</a></li>
+                    </ul>
+                    <ul>
+                        <li class="foot-title"><a href="#" style="color:#716664;">购物指南</a></li>
+                        <li><a href="#">导购演示</a></li>
+                        <li><a href="#">订单操作</a></li>
+                        <li><a href="#">会员注册</a></li>
+                        <li><a href="#">账户管理</a></li>
+                        <li><a href="#">会员等级</a></li>
+                    </ul>
+                    <ul>
+                        <li class="foot-title"><a href="#" style="color:#716664;">支付方式</a></li>
+                        <li><a href="#">23家主流网银支付</a></li>
+                        <li><a href="#">货到付款</a></li>
+                        <li><a href="#">支付宝、银联等支付</a></li>
+                        <li><a href="#">信用卡支付</a></li>
+                        <li><a href="#">轩轩钱包支付</a></li>
+                    </ul>
+                    <ul>
+                        <li class="foot-title"><a href="#" style="color:#716664;">配送方式</a></li>
+                        <li><a href="#">全场满288元免运费</a></li>
+                        <li><a href="#">配送范围及运费</a></li>
+                        <li><a href="#">验货与签收</a></li>
+                    </ul>
+                    <ul>
+                        <li class="foot-title"><a href="#" style="color:#716664;">售后服务</a></li>
+                        <li><a href="#">退货政策</a></li>
+                        <li><a href="#">退货流程</a></li>
+                        <li><a href="#">退款方式和时效</a></li>
+                    </ul>
+                    <ul class="last">
+                        <li class="foot-title"><a href="#" style="color:#716664;">联系我们</a></li>
+                        <li><a href="#">QQ:1152311820</a></li>
+                        <li><a href="#">微信: 丰</a></li>
+                        <li><a href="#">Email:clarence_feng@163.com</a></li>
+                        <li><a href="~/Account/Index">后台管理</a></li>
+                    </ul>
+                </div>
+                <div style="width: 1190px;margin: 0 auto;float: left;">
+                    <div style="padding: 0 30%;">
+                        <span style="text-align:center;font-family:tahoma, arial, 宋体;white-space:normal;color:#666666;">&copy;  2016  13ACCP2  CLARENCE_FENG  版权所有  0104130235</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
