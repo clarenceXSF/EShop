@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EShop.BLL.Manager
 {
-    public class UserInfoManager
+    public class UserInfoManager : IUserInfoManager
     {
         private IUserInfoService _userInfoService = new UserInfoService();
         public List<UserInfo> PagingFindUserInfo(string search, int role, int pageIndex, int pageSize)
@@ -19,6 +19,14 @@ namespace EShop.BLL.Manager
         public int GetCount(string search, int role)
         {
             return _userInfoService.GetCount(search, role);
+        }
+        public List<UserInfo> PagingFindAdminInfo(string search, int role, int pageIndex, int pageSize)
+        {
+            return _userInfoService.PagingFindAdminInfo(search, role, pageIndex, pageSize);
+        }
+        public int GetAdminCount(string search, int role)
+        {
+            return _userInfoService.GetAdminCount(search, role);
         }
         public bool InsertUserInfo(UserInfo userInfo)
         {
@@ -51,6 +59,10 @@ namespace EShop.BLL.Manager
         public UserInfo FindByLogin(string loginContext)
         {
             return _userInfoService.FindByLogin(loginContext);
+        }
+        public bool FindByLoginId(string loginId)
+        {
+            return _userInfoService.FindByLoginId(loginId);
         }
     }
 }

@@ -37,10 +37,16 @@
             <div class="am-offcanvas-bar admin-offcanvas-bar">
                 <ul class="am-list admin-sidebar-list">
                     <li><a href="~/Integration/Index"><span class="am-icon-qrcode"></span> 资源整合</a></li>
-                    <li><a href="~/User/Index"><span class="am-icon-users"></span> 人员管理</a></li>
                     <li class="admin-parent">
-                        <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                        <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+                        <a class="am-cf" data-am-collapse="{target: '#collapse-nav_1'}"><span class="am-icon-users"></span> 人员管理<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                        <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav_1">
+                            <li><a href="~/User/Show?role=admin"><span class="am-icon-user-md"></span> 管理员<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+                            <li><a href="~/User/Show?role=customer"><span class="am-icon-user-secret"></span> 注册客户<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="admin-parent">
+                        <a class="am-cf" data-am-collapse="{target: '#collapse-nav_2'}"><span class="am-icon-file"></span> 页面模块<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+                        <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav_2">
                             <li><a href="~/Recommend/Index"><span class="am-icon-thumbs-up"></span> 店主推荐<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
                             <li><a href="~/Search/Index"><span class="am-icon-fire"></span> 热门搜索<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
                         </ul>
@@ -78,5 +84,6 @@
     @Scripts.Render("~/bundles/amazeui")
     
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
