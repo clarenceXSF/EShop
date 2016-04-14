@@ -89,8 +89,12 @@ $(function () {
                 break;
             case "email":
                 $("#email_prompt").html("&nbsp;");
+                var chkemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
                 if (v == "") {
                     $("#email_prompt").removeClass().addClass("am-text-danger am-icon-close").html("邮箱地址不能为空！");
+                    flag = false;
+                } else if (!chkemail.test(v)) {
+                    $("#email_prompt").removeClass().addClass("am-text-danger am-icon-close").html("请正确输入邮箱地址！");
                     flag = false;
                 } else {
                     $("#email_prompt").removeClass().addClass("am-text-success am-icon-check").html("输入正确");
@@ -159,7 +163,6 @@ function TheNameOnly(loginId) {
             alterMess.alert();
         },
         success: function (data) {
-            alert(data + " , " + (data == "true") + " , " + (data == true));
             if (data == "1") {//存在
                 isOnly = false; 
             } else {

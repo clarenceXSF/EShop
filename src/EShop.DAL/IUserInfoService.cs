@@ -90,10 +90,10 @@ namespace EShop.DAL
         /// <returns></returns>
         UserInfo FindByLogin(string loginContext);
         /// <summary>
-        /// 验证登录名是否已存在
+        /// 根据登录名获取人员信息
         /// </summary>
         /// <param name="loginId"></param>
         /// <returns></returns>
-        bool FindByLoginId(string loginId);
+        UserInfo FindByLoginId(string loginId);
     }
 }

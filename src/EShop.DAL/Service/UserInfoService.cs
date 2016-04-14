@@ -155,14 +155,14 @@ namespace EShop.DAL.Service
                 return obj;
             }
         }
-        public bool FindByLoginId(string loginId)
+        public UserInfo FindByLoginId(string loginId)
         {
             using (EShopDB db = new EShopDB())
             {
-                var obj = from u in db.UserInfo
+                var obj = (from u in db.UserInfo
                           where u.LoginId == loginId
-                          select u;
-                return obj.Count() > 0;
+                           select u).FirstOrDefault();
+                return obj;
             }
         }
     }

@@ -1,0 +1,27 @@
+/* CSS Document */
+*{margin:0;padding:0;}
+#footer{width:100%;position:relative;background:#fff;border-top:solid 2px #e9e9e9;float:left;}
+#footer .foot{width:1190px;height:451px;margin:0 auto;float:left;}
+#footer{width:100%;position:relative;background:#fff;border-top:solid 2px #e9e9e9; clear:both;}
+#footer .foot{width:1190px;height:451px;margin:0 auto;}
+>>>>>>> .r170
+#footer .foot-icon{width:1190px;height:190px;float:left;margin:0 auto;}
+#footer ul{list-style:none;width:850px;margin-left:170px;}
+#footer .foot-icon ul li{float:left;width:77px;text-align:center;font-size:16px;color:#333;margin:45px;}
+#footer .foot-icon li img{line-height:77px;}
+#footer .foot-i{line-height:77px;width:70px;}
+#footer .foot-icon i{display:block;height:80px;}
+#footer .foot-icon ul li span{color:#716664;}
+#footer .foot-service{width:1190px;height:200px;margin:0 auto;float:left;}
+#footer .foot-service ul {float:left;width:150px;height:180px;/*list-style:inside;*/margin-left:30px;border-right:solid  1px #ccc;color:#000;}
+#footer .foot-service .first {margin-left:85px;}
+#footer .foot-service .last {border-right:solid 0px #fff;}
+#footer .foot-service ul li{font-size:12px;line-height:25px;color:#ccc;}
+#footer .foot-service ul li a{text-decoration:none;}
+#footer  .foot-title{list-style:none;}
+#footer  .foot-title a{font-size:14px;color:#716664;line-height:30px;}
+#footer .foot-werweima{width:220px;}
+#footer .foot-werweima li{list-style:none;float:left;margin:15px 20px 10px 0;}
+#footer .foot-service ul li a{color:#9F9EA5;}
+.authentication{float:left;width:1190px;text-align:center;}
+.authentication a{margin:0 10px;text-decoration:none !important;}

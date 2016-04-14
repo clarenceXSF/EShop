@@ -115,7 +115,7 @@ namespace EShop.Web.Controllers
         public string CheckTheloginId(string loginId)
         {
             string result="0";
-            bool valid = uiManager.FindByLoginId(loginId);
+            bool valid = uiManager.CheckLoginId(loginId);
             if (valid) result = "1";//存在
             return result;
         }
