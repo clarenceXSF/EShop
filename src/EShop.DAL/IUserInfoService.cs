@@ -10,7 +10,7 @@ namespace EShop.DAL
     public interface IUserInfoService
     {
         /// <summary>
-        /// 根据关键字和角色分页获取相关人员信息
+        /// 根据关键字和角色分页获取相关人员信息(客户)
         /// </summary>
         /// <param name="search">关键字</param>
         /// <param name="role">角色</param>
@@ -19,12 +19,28 @@ namespace EShop.DAL
         /// <returns></returns>
         List<UserInfo> PagingFindUserInfo(string search, int role, int pageIndex, int pageSize);
         /// <summary>
-        /// 统计对应关键字和角色的数量
+        /// 统计对应关键字和角色的数量(客户)
         /// </summary>
         /// <param name="search"></param>
         /// <param name="role"></param>
         /// <returns></returns>
         int GetCount(string search, int role);
+        /// <summary>
+        /// 根据关键字和角色分页获取相关人员信息(管理)
+        /// </summary>
+        /// <param name="search">关键字</param>
+        /// <param name="role">角色</param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        List<UserInfo> PagingFindAdminInfo(string search, int role, int pageIndex, int pageSize);
+        /// <summary>
+        /// 统计对应关键字和角色的数量(管理)
+        /// </summary>
+        /// <param name="search"></param>
+        /// <param name="role"></param>
+        /// <returns></returns>
+        int GetAdminCount(string search, int role);
         /// <summary>
         /// 添加人员信息
         /// </summary>
@@ -73,5 +89,11 @@ namespace EShop.DAL
         /// <param name="loginId"></param>
         /// <returns></returns>
         UserInfo FindByLogin(string loginContext);
+        /// <summary>
+        /// 验证登录名是否已存在
+        /// </summary>
+        /// <param name="loginId"></param>
+        /// <returns></returns>
+        bool FindByLoginId(string loginId);
     }
 }

@@ -1,0 +1,82 @@
+﻿@using EShop.Models
+@{
+    ViewBag.Title = "修改管理员信息";
+}
+@section featured {
+    <div class="am-cf am-padding am-margin-bottom">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
+    </div>
+}
+@section scripts {
+    <script src="~/js/admin/AlertMess.js"></script>
+    <script src="~/js/admin/doUser.js"></script>
+}
+<div class="am-tabs" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <li><a>修改信息</a></li>
+    </ul>
+    <form class="am-form am-form-horizontal am-text-primary" id="EditForm" action="@Url.Content("~/User/EditUserInfo")" method="POST">
+        @{var oldUI = (UserInfo)Model;}
+        <input type="hidden" name="Id" value="@oldUI.Id" />
+        <div class="am-margin-top am-form-group">
+            <label class="am-u-sm-2 am-text-right am-form-label">登录名：</label>
+            <span id="oldUIloginName" hidden>@oldUI.LoginId</span>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="loginId" name="loginId" class="am-round am-text-center" value="@oldUI.LoginId" placeholder="请输入登录名" />
+                <div>
+                    &nbsp;
+                    <div id="loginId_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">登录密码：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="password" id="loginPwd" name="loginPwd" class="am-round am-text-center" value="@oldUI.LoginPwd" placeholder="请输入登录密码" />
+                <div>
+                    &nbsp;
+                    <div id="loginPwd_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-margin-top am-form-group">
+            <label class="am-u-sm-2 am-text-right am-form-label">真实姓名：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="name" name="name" class="am-round am-text-center" value="@oldUI.Name" placeholder="请输入真实姓名" />
+                <div>
+                    &nbsp;
+                    <div id="name_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-margin-top am-form-group">
+            <label class="am-u-sm-2 am-text-right am-form-label">联系电话：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="phone" name="phone" class="am-round am-text-center" value="@oldUI.Phone" placeholder="请输入联系电话" />
+                <div>
+                    &nbsp;
+                    <div id="phone_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-margin-top am-form-group">
+            <label class="am-u-sm-2 am-text-right am-form-label">邮箱地址：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="email" name="email" class="am-round am-text-center" value="@oldUI.Email" placeholder="请输入邮箱地址" />
+                <div>
+                    &nbsp;
+                    <div id="email_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-10  am-u-sm-offset-2">
+            <button type="button" class="am-btn am-btn-primary" onclick="location.href = 'Index';">
+                <span class="am-icon-refresh"></span> 返 回
+            </button>
+            <button type="submit" class="am-btn am-btn-primary" style="margin-left: 10%">
+                <span class="am-icon-external-link"></span> 提 交
+            </button>
+        </div>
+    </form>
+</div>
+<script src="~/js/lib/plUpload/plupload.full.min.js"></script>

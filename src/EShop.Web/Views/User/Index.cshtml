@@ -1,5 +1,111 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@using EShop.Models
+@{
+    var searchStr = Session["searchText"] as string;
+    var showRole = Session["showRole"] as string;
 }
-
-<h2>Index</h2>
+@section featured {
+    <div class="am-cf am-padding am-margin-bottom">
+        <div class="am-fl am-cf">
+            @{
+                if (@showRole.Equals("admin"))
+                {
+                    <strong class="am-text-primary am-text-lg">管理员信息列表</strong>
+                }
+                else { 
+                    <strong class="am-text-primary am-text-lg">客户信息列表</strong>
+                }
+            }
+        </div>
+    </div>
+}
+@section scripts {
+    <script src="~/js/admin/AlertMess.js"></script>
+    <script src="~/js/admin/doUser.js"></script>
+}
+<div class="am-u-sm-12 am-u-md-8">
+    <div id="TypeListHeadMenu" class="am-btn-toolbar">
+@{
+    if (@showRole.Equals("admin")) {
+        <div class="am-btn-group am-btn-group-sm">
+            <button type="button" id="addUser" class="am-btn am-btn-secondary" onclick="AddUser();">
+                <span class="am-icon-plus"> 添加管理员</span>
+            </button>
+        </div> 
+    }
+    else { 
+        <div class="am-text-success"><em>管理员请多关注注册客户哦</em></div>
+    }
+}
+    </div>
+</div>
+<div class="am-input-group">
+    <input type="text" class="am-form-field" id="searchText" name="searchText" placeholder="请输入人员名称或登录名" value="@searchStr" />
+    <span class="am-input-group-btn">
+        <input class="am-btn am-btn-default" type="button" value="搜索" onclick="searchUser();" />
+    </span>
+</div>
+<hr />
+<input type="hidden" value="@TempData["mess"]" id="mess" />
+<table id="userTab" class="am-table am-table-striped am-table-hover table-main">
+    <thead>
+        <tr id="thMenu">
+            <th style="display: none;">人员ID</th>
+@{
+    if (@showRole.Equals("admin")) {
+        <th style="width: 15%">管理员姓名</th>
+        <th style="width: 15%">登录名</th>
+        <th style="width: 15%">登录密码</th>
+        <th style="width: 15%">联系电话</th>
+        <th style="width: 15%">邮箱地址</th>
+        <th style="width: 25%">具体操作</th>
+    }
+    else { 
+        <th style="width: 15%">客户姓名</th>
+        <th style="width: 15%">登录名</th>
+        <th style="width: 15%">联系电话</th>
+        <th style="width: 20%">邮箱地址</th>
+        <th style="width: 15%">当前积分</th>
+        <th style="width: 20%">注册日期</th>
+    }
+}
+        </tr>
+    </thead>
+    @foreach (var item in (List<UserInfo>)Model)
+    {
+        <tr>
+            <td style="display: none;">@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.LoginId</td>
+            @{
+        if (@showRole.Equals("admin"))
+        {
+            <td>@item.LoginPwd</td>
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
+            <td>
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button class="editUser am-btn am-btn-default am-btn-xs am-text-primary"
+                                data-url="@Url.Content("~/User/EditUser?ID=" + @item.Id)">
+                            <span class="am-icon-pencil-square-o"></span>修改
+                        </button>
+                        <button class="delUser am-btn am-btn-default am-btn-xs am-text-danger"
+                                data-url="@Url.Content("~/User/DelUser?ID=" + @item.Id)">
+                            <span class="am-icon-trash-o"></span>删除
+                        </button>
+                    </div>
+                </div>
+            </td>
+        }
+        else
+        {
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
+            <td>@item.Score</td>
+            <td>@item.CreateTime</td>
+        }
+            }
+        </tr>
+    }
+</table>
+@Html.Partial("_pageNavigation")

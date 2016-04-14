@@ -108,7 +108,6 @@ namespace EShop.Web.Controllers
         /// <returns></returns>
         public ActionResult EditType(string ID)
         {
-            TempData["editTypeId"] = ID;
             BookType bt = btManager.FindById(ID);
             return View(bt);
         }

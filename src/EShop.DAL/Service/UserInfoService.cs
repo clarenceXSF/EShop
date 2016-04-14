@@ -16,8 +16,8 @@ namespace EShop.DAL.Service
                 if (pageIndex == 0)
                     pageIndex = 1;
                 var obj = from u in db.UserInfo
-                          where (u.Name.Contains(search) || u.LoginId.Contains(search )) && u.Role == role
-                          orderby u.CreateTime descending
+                          where (u.Name.Contains(search) || u.LoginId.Contains(search )) && u.Role < role
+                          orderby u.Role descending , u.CreateTime descending
                           select u;
                 List<UserInfo> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
                 return list;
@@ -29,7 +29,33 @@ namespace EShop.DAL.Service
             using (EShopDB db = new EShopDB())
             {
                 int count = (from u in db.UserInfo
-                             where (u.Name.Contains(search) || u.LoginId.Contains(search)) && u.Role == role
+                             where (u.Name.Contains(search) || u.LoginId.Contains(search)) && u.Role < role
+                             select u).Count();
+                return count;
+            }
+        }
+
+        public List<UserInfo> PagingFindAdminInfo(string search, int role, int pageIndex, int pageSize)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                if (pageIndex == 0)
+                    pageIndex = 1;
+                var obj = from u in db.UserInfo
+                          where (u.Name.Contains(search) || u.LoginId.Contains(search)) && u.Role >= role
+                          orderby u.Role descending, u.CreateTime descending
+                          select u;
+                List<UserInfo> list = obj.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                return list;
+            }
+        }
+
+        public int GetAdminCount(string search, int role)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                int count = (from u in db.UserInfo
+                             where (u.Name.Contains(search) || u.LoginId.Contains(search)) && u.Role >= role
                              select u).Count();
                 return count;
             }
@@ -127,6 +153,16 @@ namespace EShop.DAL.Service
                            where u.LoginId == loginContext || u.Phone == loginContext
                            select u).FirstOrDefault();
                 return obj;
+            }
+        }
+        public bool FindByLoginId(string loginId)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = from u in db.UserInfo
+                          where u.LoginId == loginId
+                          select u;
+                return obj.Count() > 0;
             }
         }
     }
