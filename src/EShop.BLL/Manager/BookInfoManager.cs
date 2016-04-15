@@ -12,9 +12,16 @@ namespace EShop.BLL.Manager
     public class BookInfoManager : IBookInfoManager
     {
         private IBookInfoService _bookInfoService = new BookInfoService();
+        private IBookTypeServicecs _typeService = new BookTypeServicecs();
         public List<BookInfo> PagingFindBookInfo(string search, int pageIndex, int pageSize)
         {
-            return _bookInfoService.PagingFindBookInfo(search, pageIndex, pageSize);
+            List<BookInfo> list =  _bookInfoService.PagingFindBookInfo(search, pageIndex, pageSize);
+            foreach (BookInfo bi in list)
+            {
+                BookType bt = _typeService.FindById(bi.Type);
+                bi.Type = bt.TypeName;
+            }
+            return list;
         }
         public int GetCount(string search)
         {
@@ -42,17 +49,20 @@ namespace EShop.BLL.Manager
         }
         public BookInfo FindById(string id)
         {
-            return _bookInfoService.FindById(id);
+            BookInfo bi =  _bookInfoService.FindById(id);
+            BookType bt = _typeService.FindById(bi.Type);
+            bi.Type = bt.TypeName;
+            return bi;
         }
-        public List<BookInfo> FindByType(int type, int pageIndex, int pageSize)
+        public List<BookInfo> FindByType(string type, int pageIndex, int pageSize)
         {
             return _bookInfoService.FindByType(type, pageIndex, pageSize);
         }
-        public int GetCount(int type)
+        public int GetTypeCount(string type)
         {
-            return _bookInfoService.GetCount(type);
+            return _bookInfoService.GetTypeCount(type);
         }
-        public List<BookInfo> FindByType(int type, int size)
+        public List<BookInfo> FindByType(string type, int size)
         {
             return _bookInfoService.FindByType(type, size);
         }

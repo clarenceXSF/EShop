@@ -1,0 +1,49 @@
+﻿/* CSS Document */
+.left-sidebar{display:none;}
+/*搜索结果*/
+.all-results{width:100%;position:relative;}
+.a-results{width:1190px;;margin:0 auto;overflow:hidden;position:relative;background:#fff;}
+.result-list{width:1186px;margin:0 auto;position:relative;border:solid 1px #e8e8e8;display:block;font-size:12px;overflow:hidden;}
+.result-title{width:1190px;position:relative;height:20px;margin:10px auto;line-height:20px;}
+.result-title h4{margin-left:10px;font-size:14px;color:#5E5E5E;float:left;}
+.result-title a {color: #555; font-size: 12px; text-decoration: none;}
+.result-in{width:1190px;border-bottom:dashed 1px #e8e8e8;overflow:hidden;}
+.result-head {width:115px;height:38px;line-height:38px;float:left; color: #666;font-size: 12px;font-weight: 600; text-align: right;}
+.result-head h5{margin-left:15px;font-weight:normal; font-size:14px;}
+.result-body{width:932px;height:38px;float:left;}
+.result-body a{color: #666;float: left; line-height: 38px; margin-left: 20px;text-align: left; text-decoration: none;width: 100px;}
+.result-right{float:left;width:130px;}
+.show-more{border:none;margin-left:20px;float:left;line-height:38px;}
+.show-more a{ border: 1px solid #ddd; color: #333;font-size: 12px; padding: 2px 6px; text-decoration: none;}
+.show-more span{float:left;}
+/*产品列表*/
+#mall-list{width:100%;position:relative;overflow:hidden;margin-top:10px;}
+.mall{width:1190px;margin:0 auto;overflow:hidden;background:#F6F6F6;}
+.mall ul{list-style:none;}
+.mall ul li{width:278px;background:#fff;float:left;margin-left:10px;margin-right:9px;margin-bottom:18px;overflow:hidden;}
+.mall-pic{float:left;width:278px;height:278px;}
+.mall-info{float:left;width:268px;height:50px;margin:14px 5px 0 5px; overflow:hidden;color:#AAA;}
+.book-name {float:left;color:#333; font-size:16px;height:25px;line-height:25px; overflow:hidden;}
+.book-date {float:right;padding-right:10px;}
+.mall ul li:hover .book-name{color:#ff285c;}
+
+.book-pic{float:left;width:278px;height:278px;}
+.book-name{text-align:center;width:268px;height:28px;line-height:28px;font-size:16px; overflow:hidden;}
+.book-info {position: relative;height:30px;padding-top:5px;height:22px;}
+.book-info .book-author {float:left;text-indent:1em;}
+.book-info .book-date {color:#555;float:right;padding-right:10px;}
+.mall ul li:hover .book-name{color:#ff285c;}
+.book-price {height:45px;padding-left:5px;}
+
+.new-price{float:left;color:#FF285C;font-size:22px;font-weight:bold;line-height:40px;}
+.old-price{float:left;color:#999;text-decoration:line-through;margin-left:5px;}
+.mall-price{float:left;width:268px;height:45px;line-height:45px;margin:0 5px;}
+.mall-temai{float:right;color:#FF285C;}
+.mall-temai img{margin:0px 5px;line-height:20px;}
+.select-mall{ float:left; margin-top:13px; margin-right:4px;}
+.bgxia{background-position:-143px -187px !important;}
+.bgsh{ background-position: -143px -197px !important;}
+.heightauto {height: auto;}
+.colorfize{ color:#F00 !important;}
+.result-list a:hover{color:#ad1306 ;}
+.bcolor{ color:#ad1306 !important;}

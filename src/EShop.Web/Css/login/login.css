@@ -47,7 +47,6 @@ body a {
 
 .login-content {
 	width: 100%;
-	/*background: #E43B3E;*/
     background:#b8f6ff;
 	height: 626px;
 	float: left;
@@ -56,7 +55,7 @@ body a {
 .login-content .content-left {
     float: left;
     margin-top: 20px;
-    background: url(../../Images/Login/Login.png) 0 0 no-repeat;
+    background: url(/Images/Login/Login.png) 0 0 no-repeat;
     width: 760px;
     height: 564px;
 }
@@ -65,7 +64,6 @@ body a {
 	float: right;
 	width: 430px;
 	height: 398px;
-	/*background: #F29D9E;*/
 	background: #dafaff;
 	margin: 105px 0;
 }
@@ -113,11 +111,11 @@ body a {
 	width: 356px;
 }
 
-.login-content .content-right .login-box .login-message ul li input[id="account-num"] {
+.login-content .content-right .login-box .login-message ul li input[id="account_num"] {
     width: 352px;
     height: 40px;
     border: solid 1px #F1F1F1;
-    background: url(../../Images/Login/account-icon.png) 10px no-repeat;
+    background: url(/Images/Login/account-icon.png) 10px no-repeat;
     text-indent: 47px;
 }
 
@@ -125,24 +123,11 @@ body a {
     width: 352px;
     height: 40px;
     border: solid 1px #F1F1F1;
-    background: url(../../Images/Login/pwd-icon.png) 10px no-repeat;
+    background: url(/Images/Login/pwd-icon.png) 10px no-repeat;
     text-indent: 47px;
 }
 
-.login-content .content-right .login-box .login-message ul li input[type="checkbox"] {
-	width: 15px;
-	height: 15px;
-	float: left;
-	margin-top: 2px;
-}
-
-.login-content .content-right .login-box .login-message ul li .remind-text {
-	float: left;
-	margin-left: 8px;
-	font-size: 14px;
-}
-
-.login-content .content-right .login-box .login-message ul li input[type="button"] {
+.login-content .content-right .login-box .login-message ul li input[type="submit"] {
 	cursor: pointer;
 	width: 352px;
 	height: 40px;
@@ -197,53 +182,27 @@ body a {
 	width: 352px;
 	height: 40px;
 	border: solid 1px #F1F1F1;
-	background: url(../../Images/Login/account-icon.png) 10px no-repeat;
+	background: url(/Images/Login/account-icon.png) 10px no-repeat;
 	text-indent: 47px;
 }
 
-.login-content .content-right .register-message ul li input[id="set-pwd"] {
+.login-content .content-right .register-message ul li input[id="setPwd"] {
 	width: 352px;
 	height: 40px;
 	border: solid 1px #F1F1F1;
-	background: url(../../Images/Login/pwd-icon.png) 10px no-repeat;
+	background: url(/Images/Login/pwd-icon.png) 10px no-repeat;
 	text-indent: 47px;
 }
 
-.login-content .content-right .register-message ul li input[id="confirm-pwd"] {
+.login-content .content-right .register-message ul li input[id="confirmPwd"] {
 	width: 352px;
 	height: 40px;
 	border: solid 1px #F1F1F1;
-	background: url(../../Images/Login/pwd-icon.png) 10px no-repeat;
+	background: url(/Images/Login/pwd-icon.png) 10px no-repeat;
 	text-indent: 47px;
 }
 
-/*.login-content .content-right .register-message ul li input[id="verification-code"] {
-	width: 230px;
-	height: 40px;
-	border: solid 1px #F1F1F1;
-	background: url(../../../img/default/login/yanzheng-icon.png) 10px no-repeat;
-	padding-left: 47px;
-}*/
-
-.login-content .content-right .register-message ul li input[id="get-code-phone"] {
-	width: 115px;
-	height: 40px;
-	border: solid 1px #F1F1F1;
-	background: #fff;
-	margin-left: 2px;
-	cursor: pointer;
-}
-
-.login-content .content-right .register-message ul li input[id="get-code-email"] {
-	width: 115px;
-	height: 40px;
-	border: solid 1px #F1F1F1;
-	background: #fff;
-	margin-left: 2px;
-	cursor: pointer;
-}
-
-.login-content .content-right .register-message ul li input[id="register"] {
+.login-content .content-right .register-message ul li input[type="submit"] {
 	cursor: pointer;
 	width: 352px;
 	height: 40px;

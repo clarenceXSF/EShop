@@ -1,0 +1,26 @@
+/* CSS Document */
+.left-sidebar{display:none;}
+body{font-family:"微软雅黑"}
+/*首页内容*/
+#ucenter-content{width:100%;position:relative;}
+.u-content{width:1190px;position:relative;margin:0 auto;margin-top:7px;}
+/*左边栏*/
+.uMcon{width:223px;float:left;overflow:hidden;border:solid 1px #E4E4E4;position:relative;}
+.uMcon ul{list-style:none;}
+.uMcon-item{float:left;width:223px;overflow:hidden;border-bottom:solid 1px #e4e4e4;padding-bottom:100px;}
+.ulcon{width:223px;height:46px;float:left;border-bottom:solid 2px #E4363B;text-align:center;}
+.ulcon .ulcon-icon{float:left;line-height:50px;padding-left:55px;}
+.ulcon .ulcon-text{float:left;margin-left:8px;line-height:46px;color:#3B3C41;font-weight:bold;cursor:pointer;}
+.ucot{width:223px;float:left;overflow:hidden;text-align:center;}
+.ucot li {width:223px;float:left;cursor:pointer;}
+.ucot li i{float:left;width:7px;height:7px;background:#DB433D;margin-left:60px;margin-top:25px;overflow:hidden;}
+.ucot li .ucot-text{float:left;margin-left:15px;margin-top:20px;font-size:16px;color:#3B3C41;}
+.ucot li .ucot-show-more{float:left;margin-left:10px;margin-top:20px;}
+.ucot li .ucot-show-more a{text-decoration:none;color:#787878;margin-top:20px;font-weight:bold;}
+.ucot-child{float:left;margin-top:8px;display:none;}
+.ucot-child li{width:223px;float:left;line-height:25px;text-align:left;margin-left:83px;}
+.ucot-child li a{text-decoration:none;font-size:12px;color:#000;}
+.ulcon .icon-shop{margin-top:5px;}
+.uMcon .item-shop{border-bottom:none;padding-bottom:440px;}
+.uMain{width:948px;float:left;margin-left:15px;position:relative;}
+.uMain input[type="button"]{cursor:pointer;}

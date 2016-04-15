@@ -134,5 +134,12 @@ namespace EShop.Web.Controllers
             return Redirect("Index");
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult FindBookType()
+        {
+            List<BookType> list = btManager.FindBookType();
+            return Json(list);
+        }
     }
 }

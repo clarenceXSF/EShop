@@ -68,20 +68,20 @@ namespace EShop.DAL
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        List<BookInfo> FindByType(int type, int pageIndex, int pageSize);
+        List<BookInfo> FindByType(string type, int pageIndex, int pageSize);
         /// <summary>
         /// 统计对应图书类型的数量
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        int GetCount(int type);
+        int GetTypeCount(string type);
         /// <summary>
         /// 根据图书类型获取指定数量的图书信息(前台界面显示)
         /// </summary>
         /// <param name="type"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        List<BookInfo> FindByType(int type, int size);
+        List<BookInfo> FindByType(string type, int size);
         /// <summary>
         /// 根据上架时间获取图书信息(前台界面显示)
         /// </summary>

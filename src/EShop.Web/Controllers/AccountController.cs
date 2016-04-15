@@ -48,6 +48,11 @@ namespace EShop.Web.Controllers
         {
             return View();
         }
+        public ActionResult LoginOut()
+        {
+            Session["loginName"] = null;
+            return Redirect("UserIndex");
+        }
         // Ajax验证登录名是否唯一
         [AllowAnonymous]
         [HttpPost]
@@ -59,39 +64,39 @@ namespace EShop.Web.Controllers
             return result;
         }
         [HttpPost]
-        public ActionResult CustomerLogin(string loginId, string loginPwd)
+        public ActionResult CustomerLogin(string account_num, string pwd)
         {
-            UserInfo ui = userManager.FindByLoginId(loginId);
+            UserInfo ui = userManager.FindByLogin(account_num);
             if (ui == null)
             {
-                TempData["mess"] = "登录名不存在";
+                TempData["mess"] = "登录账户不存在";
                 return Redirect("UserIndex");
             }
             else
             {
-                if (ui.LoginPwd != loginPwd)
+                if (ui.LoginPwd != pwd)
                 {
-                    TempData["mess"] = "登录名或密码错误";
+                    TempData["mess"] = "登录账户或密码错误";
                     return Redirect("UserIndex");
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(ui.Name))
+                    if (!string.IsNullOrEmpty(ui.Name))
                         Session["loginName"] = ui.Name;
                     else
-                        Session["loginName"] = loginId;
+                        Session["loginName"] = ui.LoginId;
                     return RedirectToAction("Index", "Home");
                 }
             }
         }
         [HttpPost]
-        public ActionResult CustomerRegister(string loginId, string loginPwd)
+        public ActionResult CustomerRegister(string username, string setPwd)
         {
             UserInfo ui = new UserInfo()
             {
                 Id = Guid.NewGuid().ToString(),
-                LoginId = loginId,
-                LoginPwd = loginPwd,
+                LoginId = username,
+                LoginPwd = setPwd,
                 Role = 1,
                 CreateTime = DateTime.Now
             };
@@ -99,7 +104,7 @@ namespace EShop.Web.Controllers
             if (success)
             {
                 TempData["mess"] = "恭喜您注册成功";
-                Session["loginName"] = loginId;
+                Session["loginName"] = username;
             }else
                 TempData["mess"] = "很抱歉，本次注册操作失败";
             return Redirect("UserIndex");

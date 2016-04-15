@@ -27,7 +27,6 @@ namespace EShop.Models
     
         public DbSet<OtherType> OtherType { get; set; }
         public DbSet<BookType> BookType { get; set; }
-        public DbSet<BookInfo> BookInfo { get; set; }
         public DbSet<Recommend> Recommend { get; set; }
         public DbSet<SaleDetail> SaleDetail { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
@@ -35,5 +34,6 @@ namespace EShop.Models
         public DbSet<BookSale> BookSale { get; set; }
         public DbSet<BookSaleView> BookSaleView { get; set; }
         public DbSet<RecommendView> RecommendView { get; set; }
+        public DbSet<BookInfo> BookInfo { get; set; }
     }
 }

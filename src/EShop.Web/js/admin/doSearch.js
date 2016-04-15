@@ -1,6 +1,4 @@
 ﻿$(function () {
-    //$("#admin-offcanvas").find("li:eq(0)").children("a").addClass("am-active");
-    //$("#admin-offcanvas").find("li:eq(0)").siblings().children("a").removeClass("am-active");
     $(".editSearch").click(function (event) {
         var href = $(this).attr("data-url");
         try {

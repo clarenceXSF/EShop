@@ -13,7 +13,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Author" Type="nvarchar" MaxLength="50" />
           <Property Name="PublishDate" Type="date" />
-          <Property Name="Type" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="money" />
           <Property Name="Original" Type="money" />
           <Property Name="ISBN" Type="nvarchar" MaxLength="50" />
@@ -211,7 +211,6 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
         <EntityContainer Name="EShopDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="OtherType" EntityType="Self.OtherType" />
           <EntitySet Name="BookType" EntityType="EShopModel.BookType" />
-          <EntitySet Name="BookInfo" EntityType="EShopModel.BookInfo" />
           <EntitySet Name="Recommend" EntityType="EShopModel.Recommend" />
           <EntitySet Name="SaleDetail" EntityType="EShopModel.SaleDetail" />
           <EntitySet Name="UserInfo" EntityType="EShopModel.UserInfo" />
@@ -219,6 +218,7 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
           <EntitySet Name="BookSale" EntityType="EShopModel.BookSale" />
           <EntitySet Name="BookSaleView" EntityType="EShopModel.BookSaleView" />
           <EntitySet Name="RecommendView" EntityType="EShopModel.RecommendView" />
+          <EntitySet Name="BookInfo" EntityType="EShopModel.BookInfo" />
         </EntityContainer>
         <EntityType Name="BookType">
           <Key>
@@ -228,23 +228,6 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
           <Property Name="TypeCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TypeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="ImgSrc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="BookInfo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PublishDate" Type="DateTime" Precision="0" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Original" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Describe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="0" />
-          <Property Name="Sale" Type="Int32" />
-          <Property Name="Stock" Type="Int32" />
         </EntityType>
         <EntityType Name="Recommend">
           <Key>
@@ -345,6 +328,23 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
           <Property Name="ShowTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PublishDate" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Original" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Describe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="Sale" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -367,24 +367,6 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
                 <ScalarProperty Name="ImgSrc" ColumnName="ImgSrc" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookInfo">
-            <EntityTypeMapping TypeName="EShopModel.BookInfo">
-              <MappingFragment StoreEntitySet="BookInfo">
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="Sale" ColumnName="Sale" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="Describe" ColumnName="Describe" />
-                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-                <ScalarProperty Name="Original" ColumnName="Original" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -486,6 +468,24 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
                 <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
                 <ScalarProperty Name="BookName" ColumnName="BookName" />
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookInfo">
+            <EntityTypeMapping TypeName="EShopModel.BookInfo">
+              <MappingFragment StoreEntitySet="BookInfo">
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Sale" ColumnName="Sale" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Original" ColumnName="Original" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
