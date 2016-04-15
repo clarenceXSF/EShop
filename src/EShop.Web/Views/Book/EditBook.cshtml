@@ -1,0 +1,124 @@
+﻿@using EShop.Models
+@{
+    ViewBag.Title = "修改图书信息";
+}
+@section featured {
+    <div class="am-cf am-padding am-margin-bottom">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
+    </div>
+}
+@section scripts {
+    <script src="~/js/admin/AlertMess.js"></script>
+    <script src="~/js/admin/doBook.js"></script>
+}
+<div class="am-tabs" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <li><a>修改信息</a></li>
+    </ul>
+    <form class="am-form am-form-horizontal am-text-primary" id="EditForm" action="@Url.Content("~/Book/EditBookInfo")" method="POST">
+        @{var oldBi = (BookInfo)Model;}
+        <input type="hidden" name="biId" value="@oldBi.Id" />
+        <div class="am-margin-top am-form-group">
+            <label class="am-u-sm-2 am-text-right am-form-label">图书名称：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="name" name="name" class="am-round am-text-center" value="@oldBi.Name" placeholder="请输入图书名称" />
+                <div>
+                    &nbsp;
+                    <div id="name_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">作者姓名：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="author" name="author" class="am-round am-text-center" value="@oldBi.Author" placeholder="请输入作者姓名" />
+                <div>
+                    &nbsp;
+                    <div id="author_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">出版日期：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="date" id="publishDate" name="publishDate" class="am-round am-text-center" value="@oldBi.PublishDate" placeholder="请选择出版日期" />
+                <div>
+                    &nbsp;
+                    <div id="publishDate_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group"> 
+            <label class="am-u-sm-2 am-form-label">图书类型：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="hidden" id="oldType" value="@oldBi.Type" />
+                <select id="type" name="type" class="am-round am-text-center"></select>
+                <div>
+                    &nbsp;
+                    <div id="type_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">当前售价：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="price" name="price" class="am-round am-text-center" value="@oldBi.Price" placeholder="请输入当前售价" />
+                <div>
+                    &nbsp;
+                    <div id="price_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">原售价：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <input type="text" id="original" name="original" class="am-round am-text-center" value="@oldBi.Original" placeholder="请输入原售价" />
+                <div>
+                    &nbsp;
+                    <div id="original_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">图书封面：</label>
+            <div class="am-u-sm-3">
+                @{
+                    if (string.IsNullOrEmpty(@oldBi.ISBN))
+                    {
+                        <img src="~/Images/notImage.jpg" width="150" height="150" />
+                    }
+                    else
+                    {
+                        <img src="@oldBi.ISBN" width="150" height="150" />
+                    }
+                }
+            </div>
+            <div class="am-u-sm-2">
+                <input type="button" value="重新上传图片?" id="browse" />
+                <br />建议图片大小为：300*300<br />
+                &nbsp;<div id="upName"></div>
+            </div>
+            <div class="am-u-sm-3" id="upImg"></div>
+        </div>
+        <div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">描述信息：</label>
+            <div class="am-u-sm-5 am-u-end">
+                <textarea rows="5" id="describe" name="describe" placeholder="请描述此书籍的相关信息内容">@oldBi.Describe</textarea>
+                <div>
+                    &nbsp;
+                    <div id="describe_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="am-u-sm-10  am-u-sm-offset-2">
+            <button type="button" class="am-btn am-btn-primary" onclick="location.href = 'Index';">
+                <span class="am-icon-refresh"></span> 返 回
+            </button>
+            <button type="submit" class="am-btn am-btn-primary" style="margin-left: 10%">
+                <span class="am-icon-external-link"></span> 提 交
+            </button>
+        </div>
+    </form>
+</div>
+<script src="~/js/lib/plUpload/plupload.full.min.js"></script>

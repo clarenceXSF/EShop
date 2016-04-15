@@ -18,7 +18,7 @@ namespace EShop.Models
         public string Name { get; set; }
         public string Author { get; set; }
         public Nullable<System.DateTime> PublishDate { get; set; }
-        public Nullable<int> Type { get; set; }
+        public string Type { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> Original { get; set; }
         public string ISBN { get; set; }

@@ -1,5 +1,80 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@using EShop.Models
+@{
+    ViewBag.Title = "图书列表";
+    var searchStr = Session["searchText_b"] as string;
 }
-
-<h2>Index</h2>
+@section featured {
+    <div class="am-cf am-padding am-margin-bottom">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
+    </div>
+}
+@section scripts {
+    <script src="~/js/admin/AlertMess.js"></script>
+    <script src="~/js/admin/doBook.js"></script>
+}
+<div class="am-u-sm-12 am-u-md-8">
+    <div id="TypeListHeadMenu" class="am-btn-toolbar">
+        <div class="am-btn-group am-btn-group-sm">
+            <button type="button" id="addBook" class="am-btn am-btn-secondary" onclick="AddBook();">
+                <span class="am-icon-plus"> 添加图书信息</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="am-input-group">
+    <input type="text" class="am-form-field" id="searchText" name="searchText" placeholder="请输入图书名称" value="@searchStr" />
+    <span class="am-input-group-btn">
+        <input class="am-btn am-btn-default" type="button" value="搜索" onclick="searchBook();" />
+    </span>
+</div>
+<hr />
+<input type="hidden" value="@TempData["mess"]" id="mess" />
+<table id="bookInfoTab" class="am-table am-table-striped am-table-hover table-main">
+    <thead>
+        <tr id="thMenu">
+            <th style="display: none;">图书编号</th>
+            <th style="width: 15%; text-align: center;">书名</th>
+            <th style="width: 15%; text-align: center;">作者</th>
+            <th style="width: 15%; text-align: center;">出版时间</th>
+            <th style="width: 5%; text-align: center;">类型</th>
+            <th style="width: 5%; text-align: center;">售价</th>
+            <th style="width: 5%; text-align: center;">原价</th>
+            <th style="width: 5%; text-align: center;">销售量</th>
+            <th style="width: 5%; text-align: center;">货存量</th>
+            <th style="width: 30%">具体操作</th>
+        </tr>
+    </thead>
+    @foreach (var item in (List<BookInfo>)Model)
+    {
+        <tr>
+            <td style="display: none;">@item.Id</td>
+            <td style="text-align: center;">@item.Name</td>
+            <td style="text-align: center;">@item.Author</td>
+            <td style="text-align: center;">@item.PublishDate</td>
+            <td style="text-align: center;">@item.Type</td>
+            <td style="text-align: center;">@item.Price</td>
+            <td style="text-align: center;">@item.Original</td>
+            <td style="text-align: center;">@item.Sale</td>
+            <td style="text-align: center;">@item.Stock</td>
+            <td>
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        <button class="editBook am-btn am-btn-default am-btn-xs am-text-primary"
+                                data-url="@Url.Content("~/Book/EditBook?ID=" + @item.Id)">
+                            <span class="am-icon-pencil-square-o"></span>修改
+                        </button>
+                        <button class="addStock am-btn am-btn-default am-btn-xs am-text-primary"
+                                data-url="@Url.Content("~/Book/AddStock?ID=" + @item.Id)">
+                            <span class="am-icon-cart-plus"></span>进货
+                        </button>
+                        <button class="delBook am-btn am-btn-default am-btn-xs am-text-danger"
+                                data-url="@Url.Content("~/Book/DelBook?ID=" + @item.Id)">
+                            <span class="am-icon-trash-o"></span>删除
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+@Html.Partial("_pageNavigation")

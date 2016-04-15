@@ -114,7 +114,7 @@ namespace EShop.DAL.Service
             }
         }
 
-        public List<BookInfo> FindByType(int type, int pageIndex, int pageSize)
+        public List<BookInfo> FindByType(string type, int pageIndex, int pageSize)
         {
             using (EShopDB db = new EShopDB())
             {
@@ -129,7 +129,7 @@ namespace EShop.DAL.Service
             }
         }
 
-        public int GetCount(int type)
+        public int GetTypeCount(string type)
         {
             using (EShopDB db = new EShopDB())
             {
@@ -140,7 +140,7 @@ namespace EShop.DAL.Service
             }
         }
 
-        public List<BookInfo> FindByType(int type, int size)
+        public List<BookInfo> FindByType(string type, int size)
         {
             using (EShopDB db = new EShopDB())
             {

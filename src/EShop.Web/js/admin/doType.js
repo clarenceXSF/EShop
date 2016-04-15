@@ -150,7 +150,7 @@ function previewImage(file, callback) {//file为plupload事件监听函数参数
     } else {
         var preloader = new mOxie.Image();
         preloader.onload = function () {
-            preloader.downsize(150, 200);//先压缩一下要预览的图片,宽300，高300
+            preloader.downsize(150, 200);//先压缩一下要预览的图片,宽150，高200
             var imgsrc = preloader.type == 'image/jpeg' ? preloader.getAsDataURL('image/jpeg', 80) : preloader.getAsDataURL(); //得到图片src,实质为一个base64编码的数据
             callback && callback(imgsrc); //callback传入的参数为预览图片的url
             preloader.destroy();

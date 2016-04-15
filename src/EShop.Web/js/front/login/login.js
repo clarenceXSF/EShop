@@ -1,75 +1,17 @@
-$(document).ready(function(e) {
-	$(".l-link").click(function() {
-		$(".l-title ul li:not(this)").css("background", "#f3f3f3");
-		$(this).css("background", "#fff");
-		$(".login").slideDown();
-		$(".register").slideUp();
-	});
-	$(".r-link").click(function() {
-		$(".l-title ul li:not(this)").css("background", "#f3f3f3");
-		$(this).css("background", "#fff");
-		$(".login").slideUp();
-		$(".register").slideDown();
-	});
-	//var count = 0;
-
-	//$("#username").focus(function() {
-	//	$("#username_tips").html(' ');
-	//});
-	//$("#setPwd").focus(function() {
-	//	$("#password_tips").html(' ');
-	//});
-	//$("#confirmPwd").focus(function() {
-	//	$("#con_password_tips").html(' ');
-	//});
-	//$("#account_num").focus(function() {
-	//	$("#account_tips").html(' ');
-	//});
-	//$("#pwd").focus(function() {
-	//	$("#pwd_tips").html(' ');
-	//});
-	//$("#register").click(function() {
-	//	$.post(window.urlreg, {
-	//		'username': $("#username").val(),
-	//		"setPwd": $("#setPwd").val(),
-	//		"confirmPwd": $("#confirmPwd").val(),
-	//		"t": $("#t").val(),
-	//	}, function(data) {
-	//		if (data == 2) {
-	//			$("#username_tips").html('请输入账号');
-	//		} else if (data == 3) {
-	//			$("#password_tips").html('请输入密码');
-	//		} else if (data == 4) {
-	//			$("#con_password_tips").html('请再次输入密码');
-	//		} else if (data == 5) {
-	//			$("#con_password_tips").html('确认密码输入不一致');
-	//		} else if (data == 7) {
-	//			$("#password_tips").html('密码只能6-15位,字母，下划线跟数字!');
-	//		} else if (data == 8) {
-	//			$("#username_tips").html('用户已存在');
-	//		} else if (data == 10) {
-	//			alert('注册失败!');
-	//		} else if (data == 1) {
-	//			$("#code_tips").html('验证码不正确');
-	//		} else if (data == 9) {
-	//			window.location.href = ucenterUrl;
-	//		}
-	//	});
-	//});
+$(document).ready(function (e) {
+    $(".l-link").click(function () {
+        $(".l-title ul li:not(this)").css("background", "#f3f3f3");
+        $(this).css("background", "#fff");
+        $(".login").slideDown();
+        $(".register").slideUp();
+    });
+    $(".r-link").click(function () {
+        $(".l-title ul li:not(this)").css("background", "#f3f3f3");
+        $(this).css("background", "#fff");
+        $(".login").slideUp();
+        $(".register").slideDown();
+    });
 });
-
-//function checkNull() {
-//	if ($("#account_num").val() == "") {
-//		$("#account_tips").html('用户名不能为空');
-//		return false;
-//	} else if ($("#pwd").val() == "") {
-//		$("#pwd_tips").html('密码不能为空');
-//		return false;
-//	} else {
-//		return true;
-//	}
-//}
-
 $(function () {
     function validate($dom) {
         var v = $dom.val();

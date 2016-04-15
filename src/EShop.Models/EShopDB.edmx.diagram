@@ -7,7 +7,6 @@
       <Diagram DiagramId="3c42608dede345e98c89b9e01adc73d5" Name="Diagram1">
         <EntityTypeShape EntityType="EShopModel.OtherType" Width="1.5" PointX="7.375" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EShopModel.BookType" Width="1.5" PointX="3.125" PointY="0.625" />
-        <EntityTypeShape EntityType="EShopModel.BookInfo" Width="1.5" PointX="1.125" PointY="0.5" />
         <EntityTypeShape EntityType="EShopModel.Recommend" Width="1.5" PointX="5.25" PointY="0.5" />
         <EntityTypeShape EntityType="EShopModel.SaleDetail" Width="1.5" PointX="5.25" PointY="2.625" />
         <EntityTypeShape EntityType="EShopModel.UserInfo" Width="1.5" PointX="7.375" PointY="0.5" />
@@ -15,6 +14,7 @@
         <EntityTypeShape EntityType="EShopModel.BookSale" Width="1.5" PointX="3.125" PointY="2.5" />
         <EntityTypeShape EntityType="EShopModel.BookSaleView" Width="1.5" PointX="1.125" PointY="5.75" />
         <EntityTypeShape EntityType="EShopModel.RecommendView" Width="1.375" PointX="5" PointY="5.75" />
+        <EntityTypeShape EntityType="EShopModel.BookInfo" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
