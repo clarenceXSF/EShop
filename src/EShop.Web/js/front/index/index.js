@@ -14,16 +14,18 @@ $(document).ready(function (e) {
 		$(this).find(".my-lgt").hide();
 	    $(this).css("background","#f2f2f2");
     });
-    $('#ttbar-website').mouseover(function(){
+    $('#tbar-website').mouseover(function(){
 		$(this).find('.s-nvg').show();
 		$(this).css("background","#fff");
 	});
-	$('#ttbar-website').mouseout(function(){
+	$('#tbar-website').mouseout(function(){
 		$(this).find('.s-nvg').hide();
 		$(this).css("background","#f2f2f2");
 	});
 	$("a").each(function(index, element) {
         if($(this).attr("href")=="#")$(this).attr("href","javascript:void(0);");
     });
-	 
+	$("#loginOut").click(function () {
+	    location.href = "/Account/LoginOut";
+	})
 });

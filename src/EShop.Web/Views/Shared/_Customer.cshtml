@@ -13,7 +13,6 @@
 </head>
 <body>
     <link rel="stylesheet" type="text/css" href="~/Css/comm/head.css">
-    <script src="~/js/front/index/headcate.js"></script>
     <script src="~/js/front/index/index.js"></script>
     @{
         var loginName = Session["loginName"] as string;
@@ -25,17 +24,19 @@
                 <li class="dropdown" id="tbar-login">
                     <iframe src="" id="loginMake" scrolling="no" frameborder="0" height="0" width="0"> </iframe>
                     <div class="quick-link">
-                        <span id="toolBarWelcome" class="welcome child-node" style="background-image:none;">欢迎光临!</span>
                         @{
                             if (string.IsNullOrEmpty(@loginName)) { 
+                                <span class="child-node">欢迎光临!</span>
                                 <span id="logReg">
                                     <a class="child-node" rel="nofollow" href="/Account/UserIndex" style="color:red;">请登录/注册</a>
                                 </span>
-                            }else { 
-                                <span id="logReg" style="color:green;padding-left:7px;">@loginName</span>
+                            }
+                            else
+                            {
+                                <span class="child-node" style="color:green;">欢迎您，@loginName</span>
                                 <span id="logLoginOn">
                                     <a class="child-node" rel="nofollow" href="http://test.fnuo123.com/?act=ucenter">会员中心</a>
-                                    <a class="child-node" rel="nofollow" id="commLoginOut" style="cursor:pointer;padding-left:7px;">退出</a>
+                                    <a class="child-node child-out" id="loginOut">退出</a>
                                 </span>
                             }
                         }
@@ -43,11 +44,11 @@
                 </li>
             </ul>
             <ul class="fright">
-                <li class="fore1 dropdown" id="tbar-light">
+                <li class="fore1" id="tbar-light">
                     <div class="dt cw-icon wdzh">
                         <a href="/UserSelf/Index">我的账户</a>
                         <b class="abc" style="opacity:1"></b>
-                        <div class="my-lgt">
+                        <div class="show-drop my-lgt">
                             <ul>
                                 <li><a target="_blank">我的订单</a></li>
                                 <li><a target="_blank">账户余额</a></li>
@@ -61,67 +62,24 @@
                 <li class="fore2" id="ttbar-mycar">
                     <div class="dt cw-icon"> <i class="ci-mycar"></i> <a>我的购物车</a> </div>
                 </li>
-                <li class="fore5" id="ttbar-online">
+                <li class="fore3" id="ttbar-online">
                     <div class="dt"> <a href="javascript:void(0)">客服在线</a> </div>
                 </li>
-                <li class="fore6" id="ttbar-website">
-                    <div class="dt">
+                <li class="fore4" id="tbar-website">
+                    <div class="dt cw-icon wdzh">
                         <a href="javascript:void(0)">网站导航</a>
-
                         <b class="abc" style="opacity:1"></b>
-                        <div class="s-nvg">
-                            <div class="wit">
-                                <div class="s-item">
-                                    <div class="i-title" style="color:#7ABD54;">热门搜索</div>
-                                    <div class="i-list">
-                                        <ul>
-                                            <li><a href="#">逛商城</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="s-item">
-                                    <div class="i-title" style="color:#E4393C;">优秀作者</div>
-                                    <div class="i-list">
-                                        <ul>
-                                            <li><a href="#">冰心</a></li>
-                                            <li><a href="#">巴金</a></li>
-                                            <li><a href="#">囖囖</a></li>
-                                            <li><a href="#">单身狗</a></li>
-                                            <li><a href="#">谔谔</a></li>
-                                            <li><a href="#">法定</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="s-item">
-                                    <div class="i-title" style="color:#E4393C;">图书分类</div>
-                                    <div class="i-list">
-                                        <ul>
-                                            <li><a href="#">aaa</a></li>
-                                            <li><a href="#">bbb</a></li>
-                                            <li><a href="#">ccc</a></li>
-                                            <li><a href="#">ddd</a></li>
-                                            <li><a href="#">eee</a></li>
-                                            <li><a href="#">aaa</a></li>
-                                            <li><a href="#">bbb</a></li>
-                                            <li><a href="#">ccc</a></li>
-                                            <li><a href="#">ddd</a></li>
-                                            <li><a href="#">eee</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="s-item" style="border:none;">
-                                    <div class="i-title" style="color:#7ABD54;">服务指南</div>
-                                    <div class="i-list">
-                                        <ul>
-                                            <li><a href="#">帮助中心</a></li>
-                                            <li><a href="#">登录</a></li>
-                                            <li><a href="#">注册</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="show-drop s-nvg">
+                            <ul>
+                                <li><a>热门搜索</a></li>
+                                <li><a>图书类型</a></li>
+                                <li><a>店长推荐</a></li>
+                                <li><a>新书上架</a></li>
+                                <li><a>畅销书籍</a></li>
+                                <li><a>优秀作者</a></li>
+                                <li><a href="~/Account/Index">后台管理</a></li>
+                            </ul>
                         </div>
-
                     </div>
                 </li>
             </ul>
@@ -162,8 +120,8 @@
                     </div>
                     <div id="navitems">
                         <ul id="navitems-group">
-                            <li> <a href="/" tar="0">首页</a></li>
-                            <li> <a href="/GoodList/Index" tar="0">导购</a></li>@*分类搜索页面*@
+                            <li> <a href="/">首页</a></li>
+                            <li> <a href="/GoodList/Index">导购</a></li>@*分类搜索页面*@
                         </ul>
                     </div>
                 </div>

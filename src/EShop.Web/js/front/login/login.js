@@ -16,13 +16,13 @@ $(document).ready(function(e) {
 	//$("#username").focus(function() {
 	//	$("#username_tips").html(' ');
 	//});
-	//$("#set-pwd").focus(function() {
+	//$("#setPwd").focus(function() {
 	//	$("#password_tips").html(' ');
 	//});
-	//$("#confirm-pwd").focus(function() {
+	//$("#confirmPwd").focus(function() {
 	//	$("#con_password_tips").html(' ');
 	//});
-	//$("#account-num").focus(function() {
+	//$("#account_num").focus(function() {
 	//	$("#account_tips").html(' ');
 	//});
 	//$("#pwd").focus(function() {
@@ -31,8 +31,8 @@ $(document).ready(function(e) {
 	//$("#register").click(function() {
 	//	$.post(window.urlreg, {
 	//		'username': $("#username").val(),
-	//		"set-pwd": $("#set-pwd").val(),
-	//		"confirm-pwd": $("#confirm-pwd").val(),
+	//		"setPwd": $("#setPwd").val(),
+	//		"confirmPwd": $("#confirmPwd").val(),
 	//		"t": $("#t").val(),
 	//	}, function(data) {
 	//		if (data == 2) {
@@ -59,7 +59,7 @@ $(document).ready(function(e) {
 });
 
 //function checkNull() {
-//	if ($("#account-num").val() == "") {
+//	if ($("#account_num").val() == "") {
 //		$("#account_tips").html('用户名不能为空');
 //		return false;
 //	} else if ($("#pwd").val() == "") {
@@ -76,7 +76,7 @@ $(function () {
         var id = $dom.attr("id");
         var flag = true;
         switch (id) {
-            case "account-num":
+            case "account_num":
                 $("#account_tips").html(' ');
                 if (v == "") {
                     $("#account_tips").html("登录账户不能为空！");
@@ -104,21 +104,22 @@ $(function () {
                     flag = false;
                 }
                 break;
-            case "set-pwd":
+            case "setPwd":
                 $("#password_tips").html(' ');
                 if (v == "") {
                     $("#password_tips").html("登录密码不能为空！");
                     flag = false;
-                } else if ($("#set-pwd").val().length < 6 || $("#set-pwd").val().length > 15) {
+                } else if ($("#setPwd").val().length < 6 || $("#setPwd").val().length > 15) {
                     $("#password_tips").html("密码只能6-15位");
+                    flag = false;
                 }
                 break;
-            case "confirm-pwd":
+            case "confirmPwd":
                 $("#con_password_tips").html(' ');
                 if (v == "") {
-                    $("#con_password_tips").html("请重新确认密码！");
+                    $("#con_password_tips").html("请再次输入登录密码！");
                     flag = false;
-                } else if (v != $("#set-pwd").val()) {
+                } else if (v != $("#setPwd").val()) {
                     $("#con_password_tips").html("密码输入不一致！");
                     flag = false;
                 }
@@ -128,19 +129,13 @@ $(function () {
         }
         return flag;
     }
-    $("#account-num").blur(function () {
-        validate($(this));
-    });
-    $("#pwd").blur(function () {
-        validate($(this));
-    });
     $("#username").blur(function () {
         validate($(this));
     });
-    $("#set-pwd").blur(function () {
+    $("#setPwd").blur(function () {
         validate($(this));
     });
-    $("#confirm-pwd").blur(function () {
+    $("#confirmPwd").blur(function () {
         validate($(this));
     });
     $("#loginform").submit(function () {
@@ -163,7 +158,7 @@ $(function () {
             }
         });
         if (flag === false) {
-            alter("输入存在错误，注册失败");
+            alert("输入存在错误，注册失败");
         }
         return flag;
     });
