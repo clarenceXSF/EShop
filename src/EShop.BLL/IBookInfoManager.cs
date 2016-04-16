@@ -62,6 +62,12 @@ namespace EShop.BLL
         /// <returns></returns>
         BookInfo FindById(string id);
         /// <summary>
+        /// 根据图书id获取图书信息(处理过类型)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        BookInfo FindByIdDelType(string id);
+        /// <summary>
         /// 根据图书类型分页获取相关图书信息(后台)
         /// </summary>
         /// <param name="type"></param>

@@ -1,5 +1,6 @@
 ﻿$(function () {
     setType();
+    TypeSelect;
     var addStock = 0;
     $(".editBook").click(function (event) {
         var href = $(this).attr("data-url");
@@ -33,6 +34,7 @@
     $("#reduceNum").click(function () {
         if (addStock >= 10) {
             addStock = addStock - 10;
+            $("#setNum").text(addStock);
             $("#stockNum").val(addStock);
         }
         else {
@@ -42,12 +44,13 @@
     });
     $("#addNum").click(function () {
         addStock = addStock + 10;
+        $("#setNum").text(addStock);
         $("#stockNum").val(addStock);
     });
 });
 
 //快捷模糊查询
-function searchType() {
+function searchBook() {
     var content = $('#searchText').val();
     location.href = "FindBySearchText?content=" + content;
 }
@@ -242,6 +245,10 @@ function setType() {
         error:function(xhr,textStatus,thrown){
             console.log("请求异常："+xhr.status+"  "+textStatus+"  "+thrown);
         }
-    });
-    
+    }); 
+}
+function TypeSelect() {
+    var oldtype = $("#oldType").val();
+    if (oldtype != null && oldtype != "")
+        $("#type option[value='" + oldtype + "']").attr("selected", true);
 }

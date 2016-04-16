@@ -33,15 +33,15 @@
     <thead>
         <tr id="thMenu">
             <th style="display: none;">图书编号</th>
-            <th style="width: 15%; text-align: center;">书名</th>
-            <th style="width: 15%; text-align: center;">作者</th>
-            <th style="width: 15%; text-align: center;">出版时间</th>
-            <th style="width: 5%; text-align: center;">类型</th>
+            <th style="width: 12%; text-align: center;">书名</th>
+            <th style="width: 10%; text-align: center;">作者</th>
+            <th style="width: 10%; text-align: center;">出版时间</th>
+            <th style="width: 17%; text-align: center;">类型</th>
             <th style="width: 5%; text-align: center;">售价</th>
             <th style="width: 5%; text-align: center;">原价</th>
-            <th style="width: 5%; text-align: center;">销售量</th>
-            <th style="width: 5%; text-align: center;">货存量</th>
-            <th style="width: 30%">具体操作</th>
+            <th style="width: 8%; text-align: center;">销售量</th>
+            <th style="width: 8%; text-align: center;">货存量</th>
+            <th style="width: 25%">具体操作</th>
         </tr>
     </thead>
     @foreach (var item in (List<BookInfo>)Model)
@@ -50,10 +50,18 @@
             <td style="display: none;">@item.Id</td>
             <td style="text-align: center;">@item.Name</td>
             <td style="text-align: center;">@item.Author</td>
-            <td style="text-align: center;">@item.PublishDate</td>
+            @{  var dt = DateTime.Parse(@item.PublishDate.ToString());
+                var date = dt.GetDateTimeFormats('y')[0].ToString();
+                <td style="text-align: center;">@date</td>
+            }
             <td style="text-align: center;">@item.Type</td>
-            <td style="text-align: center;">@item.Price</td>
-            <td style="text-align: center;">@item.Original</td>
+            @{  var d1 = decimal.Parse(@item.Price.ToString());
+                var d2 = decimal.Parse(@item.Original.ToString());
+                var p1 = Math.Round(d1, 2).ToString();
+                var p2 = Math.Round(d2, 2).ToString();
+                <td style="text-align: center;">@p1</td>
+                <td style="text-align: center;">@p2</td>
+            }
             <td style="text-align: center;">@item.Sale</td>
             <td style="text-align: center;">@item.Stock</td>
             <td>

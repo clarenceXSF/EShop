@@ -12,10 +12,14 @@ body ul {list-style: none;}
 .sider-r {width: 211px;height: 529px;position: relative;float: left;border-left: none;overflow:hidden;background-color: #fff;}
 .sider-r *{ overflow:hidden; float:left;}
 .sider-r li{width:100%;}
-.sider-r li.con1{height: 233px;border-top: solid 1px #eee;}
-.sider-r li.con1 a{height: 30px;font-size: 12px;line-height: 30px;width: 195px;padding-left: 10px;color: #444;}
-.sider-r li.con1 a b{padding-right: 2px;}
-.sider-r li.con1 a:hover{text-decoration:underline;}
+.sider-r li.line1{height: 165px;line-height: 36px;border-bottom: 1px dotted #d8d8d8;width: 320px;margin-left: 9px;vertical-align: top;}
+.sider-r li.line1 img{width:140px;height:150px;float: left;}
+.sider-r li.line1 div{float: left;overflow: hidden;position: relative;width:51px;}
+.sider-r li.line1 div .name{height: 66px;line-height:22px;font-size:10px;overflow: hidden;}
+.sider-r li.line1 div .price{height:22px;line-height:22px;font-size:14px;overflow: hidden;color:red;font-weight:bolder;}
+.sider-r li.line1 div .yj{height:22px;line-height:22px;font-size:10px;overflow: hidden;color:darkgray;text-decoration:line-through;}
+/*.sider-r li.line1 a b{padding-right: 2px;}*/
+.sider-r li.line1 a:hover{text-decoration:underline;}
 .goodAuthor{border: solid 1px #eee;border-right: none;border-bottom: none;}
 .goodAuthor a{padding: 5px;width: 35%;min-width: 80px;text-align: center;float: left;border: 1px solid #cccccc;margin-top: 8px;margin-left: 10px;background-color: #ffffff;}
 .sider-r li.h1{height: 40px;}
@@ -26,6 +30,8 @@ body ul {list-style: none;}
 #floor {width: 100%;overflow: hidden;height: auto;}
 #floor a{text-decoration:none;}
 #floor .wit{width:1190px;margin:0 auto;}
+#floor .wit .witTop1{width:860px;float: left;background-color:lavenderblush;}
+#floor .wit .witTop2{width:320px;margin-left:10px;background-color:lemonchiffon;float: left;overflow: hidden;position: relative;}
 #floor .f-title{height:36px;border-bottom:solid 1px #c81623;width:1190px;position:relative;margin:0 auto;}
 #floor i{display:block;float:left;}
 #floor .f-ticon{padding-top:5px;}
@@ -40,6 +46,8 @@ body ul {list-style: none;}
 #floor .f-title ul li.on em{display:none;}
 #floor .f-title ul li.floor-whitesapce{width:1px;height:15px;background:#ccc;float:left;margin-top:10px;padding: 0px;margin-left: 0px;z-index: 1;}
 #floor .f-content{width:1190px;position:relative;margin:0 auto;height:auto;overflow: hidden;}
+#floor .f-content .price {color:red;font-weight:bolder;}
+#floor .f-content .yj{color:darkgray;text-decoration:line-through;font-size:12px;}
 #floor .f-leftside{width:330px;height:470px;float:left;}
 #floor .f-lsthemes {width:330px;margin-top:-221px;z-index:2;position: absolute;}
 #floor .f-lsthemes span{font-size:14px;margin-right:5px;color:#333;opacity:1;line-height:28px;}
