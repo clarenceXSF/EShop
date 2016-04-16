@@ -16,10 +16,13 @@ namespace EShop.Web.Controllers
 
         public ActionResult Index()
         {
-            if (string.IsNullOrEmpty(Session["loginName"].ToString()))
-                return RedirectToAction("UserIndex", "Account");
+            if (Session["loginName"] != null && Session["loginName"].ToString() != "")
+                return View();
+            return RedirectToAction("UserIndex", "Account");
+        }
+        public ActionResult _first() 
+        {
             return View();
         }
-
     }
 }

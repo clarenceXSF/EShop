@@ -49,6 +49,11 @@ namespace EShop.BLL.Manager
         }
         public BookInfo FindById(string id)
         {
+            BookInfo bi = _bookInfoService.FindById(id);
+            return bi;
+        }
+        public BookInfo FindByIdDelType(string id)
+        {
             BookInfo bi =  _bookInfoService.FindById(id);
             BookType bt = _typeService.FindById(bi.Type);
             bi.Type = bt.TypeName;

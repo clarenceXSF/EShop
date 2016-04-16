@@ -15,7 +15,7 @@ namespace EShop.Web.Controllers
     {
         //
         // GET: /Book/
-        private int biPageSize = 8;//列表页显示行数
+        private int biPageSize = 6;//列表页显示行数
         private IBookInfoManager bookManager = new BookInfoManager();
         public ActionResult Index(int? pageIndex, int? pageSize)
         {
@@ -69,7 +69,7 @@ namespace EShop.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddNewBook(string name, string author)
+        public ActionResult AddNewBook(string name, string author, DateTime publishDate, string type, decimal price, decimal original, string describe)
         {
             string imgSrc = String.Empty;
             if (Session["bookImgPath"] != null && Session["bookImgPath"].ToString() != "")
@@ -77,9 +77,17 @@ namespace EShop.Web.Controllers
             BookInfo bi = new BookInfo()
             {
                 Id = Guid.NewGuid().ToString(),
-                Name  = name,
+                Name = name,
                 Author = author,
-                ISBN = imgSrc
+                PublishDate = publishDate,
+                Price = price,
+                Original = original,
+                Describe = describe,
+                ISBN = imgSrc,
+                Type = type,
+                Sale = 0,
+                Stock = 0,
+                CreateDate = DateTime.Now
             };
             Session["bookImgPath"] = null;
             bool success = bookManager.InsertBookInfo(bi); 
@@ -93,11 +101,16 @@ namespace EShop.Web.Controllers
             return View(bi);
         }
         [HttpPost]
-        public ActionResult EditBookInfo(string biId, string name, string author)
+        public ActionResult EditBookInfo(string biId, string name, string author, DateTime publishDate, string type, decimal price, decimal original, string describe)
         {
             BookInfo bi = bookManager.FindById(biId);
             bi.Name = name;
             bi.Author = author;
+            bi.PublishDate = publishDate;
+            bi.Type = type;
+            bi.Price = price;
+            bi.Original = original;
+            bi.Describe = describe;
             if (Session["bookImgPath"] != null && Session["bookImgPath"].ToString() != "")
             {
                 bi.ISBN = (string)Session["bookImgPath"];
@@ -117,12 +130,18 @@ namespace EShop.Web.Controllers
         public ActionResult AddBookStock(string biId, string stockNum)
         {
             int num = Int32.Parse(string.IsNullOrEmpty(stockNum) ? "0" : stockNum);
-            bool result = bookManager.UpdateBookInfoSale(biId, num);
+            bool result = bookManager.UpdateBookInfoStock(biId, num);
             if (result)
             {
                 BookInfo bi = bookManager.FindById(biId);
                 TempData["mess"] = "成功记录图书‘" + bi.Name + "’进货" + num + "本";
             }
+            return Redirect("Index");
+        }
+        [AllowAnonymous]
+        public ActionResult FindBySearchText(string content)
+        {
+            Session["searchText_b"] = content;
             return Redirect("Index");
         }
     }

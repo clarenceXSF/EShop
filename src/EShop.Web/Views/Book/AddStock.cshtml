@@ -26,20 +26,21 @@
         </div>
         <div class="am-form-group">
             <label class="am-u-sm-2 am-form-label">当前售价：</label>
-            <div class="am-u-sm-5 am-u-end">
-                <strong class="am-danger am-padding-left-sm">￥</strong>
-                <strong class="am-success am-padding-left-sm">@oldBi.Price</strong>
-            </div>
+            @{  var d = decimal.Parse(@oldBi.Price.ToString());
+                var p = Math.Round(d, 2).ToString();
+                <label class="am-u-sm-3 am-form-label am-u-end" style="font-size:20px;color:red;">￥&nbsp;@p</label>
+            }
         </div>
         <div class="am-form-group">
             <label class="am-u-sm-2 am-form-label">当前货存：</label>
-            <div class="am-u-sm-5 am-u-end">
+            <label class="am-u-sm-3 am-form-label am-u-end am-text-lg">&nbsp;@oldBi.Stock &nbsp;本</label>
+            @*<div class="am-u-sm-5 am-u-end">
                 <strong class="am-warning am-padding-left-sm">@oldBi.Stock </strong>本
-            </div>
+            </div>*@
         </div>
         <div class="am-form-group">
             <label class="am-u-sm-2 am-form-label">图书封面：</label>
-            <div class="am-u-sm-5">
+            <div class="am-u-sm-3 am-u-end">
                 @{
                     if (string.IsNullOrEmpty(@oldBi.ISBN))
                     {
@@ -55,9 +56,13 @@
         <div class="am-form-group">
             <label class="am-u-sm-2 am-form-label">进货数量：</label>
             <div class="am-u-sm-5 am-u-end">
-                <a id="reduceNum" class="am-icon-btn am-secondary am-icon-minus">10</a>
-                <input type="text" id="stockNum" name="stockNum" style="width:50px;text-align:center" value="0" readonly />
-                <a id="addNum" class="am-icon-btn am-secondary am-icon-plus">10</a>
+                <input type="hidden" id="stockNum" name="stockNum" />
+                <div class="item-link">
+                    <a id="reduceNum" class="am-icon-btn am-secondary am-icon-minus">10</a>
+                    <a id="setNum" class="am-btn am-btn-default am-btn-lg" @*style="width:50px;height:50px;line-height:50px;font-size:20px; text-align:center;border:solid 1px blue;"*@>0</a>
+                    @*<input type="text" id="stockNum" name="stockNum" style="width:50px; text-align:center;" value="0" readonly />*@
+                    <a id="addNum" class="am-icon-btn am-secondary am-icon-plus">10</a>
+                </div>
             </div>
         </div>
         <br />

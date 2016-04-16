@@ -324,16 +324,17 @@ html .wit {
 }
 .left-sidebar li {
 	line-height: 40px;
-    /*text-indent:20%;*/
 	height: 40px;
 	float: left;
 	width: 100%;
-	color: #484848;
 	font-weight: normal;
 	font-size: 14px;
 }
-.left-sidebar li.on {
+.left-sidebar li:hover {
 	background-color: #f7f7f7;
+}
+.left-sidebar li a{
+	color: #f7f7f7;
 }
 .left-sidebar i {
     display: block;
@@ -342,76 +343,6 @@ html .wit {
     padding: 3px 0 0 24px;
 }
 
-/*`````````````*/
-.z-menu .ul2 {
-	position: absolute;
-	z-index: 99;
-	left: 50%;
-	top: 0px;
-	overflow: hidden;
-	width: 748px;
-	height: 532px;
-	margin-left: -369px;
-	background-color: #f7f7f7;
-	float: left;
-	display: none;
-}
-.z-menu .ul2 >.l1 {
-	width: 100%;
-	overflow: hidden;
-	float: left;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	padding-top: 11px;
-}
-.z-menu .ul2 >.l1 .mp1 {
-	width: 80px;
-	height: 20px;
-	float: left;
-	padding-left: 26px;
-	margin-top: 10px;
-}
-.z-menu .ul2 >.l1 .mp1 > a {
-	font-size: 12px;
-	color: #555;
-	line-height: 14px;
-	font-weight: bolder;
-	float: left;
-	line-height: 20px;
-	overflow: hidden;
-	height: 20px;
-	max-width: 60px;
-}
-.z-menu .ul2 >.l1 .mp1 > b {
-	color: #555;
-	font-size: 12px;
-	line-height: 20px;
-	font-family: '黑体';
-	float: right;
-	padding-right: 12px;
-}
-.z-menu .ul2 >.l1 .mp2 {
-	float: left;
-	width: 635px;
-	overflow: hidden;
-	border-bottom: solid 1px #eee;
-	padding-bottom: 8px;
-	margin-top: 10px;
-	min-height: 20px;
-}
-.z-menu .ul2 >.l1 .mp2 > a {
-	float: left;
-	font-size: 12px;
-	color: #555;
-	height: 16px;
-	line-height: 16px;
-	border-left: solid 1px #ccc;
-	padding: 0px 5px;
-}
-.z-menu .ul2 >.l1 .mp2 > a:hover {
-	color: #C81623;
-}
 .quick-link {
 	position: relative;
 	cursor: default;

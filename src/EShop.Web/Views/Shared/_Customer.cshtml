@@ -28,14 +28,14 @@
                             if (string.IsNullOrEmpty(@loginName)) { 
                                 <span class="child-node">欢迎光临!</span>
                                 <span id="logReg">
-                                    <a class="child-node" rel="nofollow" href="/Account/UserIndex" style="color:red;">请登录/注册</a>
+                                    <a class="child-node" rel="nofollow" href="~/Account/UserIndex" style="color:red;">请登录/注册</a>
                                 </span>
                             }
                             else
                             {
                                 <span class="child-node" style="color:green;">欢迎您，@loginName</span>
                                 <span id="logLoginOn">
-                                    <a class="child-node" rel="nofollow" href="http://test.fnuo123.com/?act=ucenter">会员中心</a>
+                                    <a class="child-node" rel="nofollow" href="~/UserAdmin/Index">会员中心</a>
                                     <a class="child-node child-out" id="loginOut">退出</a>
                                 </span>
                             }
@@ -46,7 +46,7 @@
             <ul class="fright">
                 <li class="fore1" id="tbar-light">
                     <div class="dt cw-icon wdzh">
-                        <a href="/UserSelf/Index">我的账户</a>
+                        <a href="~/UserAdmin/Index">我的账户</a>
                         <b class="abc" style="opacity:1"></b>
                         <div class="show-drop my-lgt">
                             <ul>
@@ -121,7 +121,7 @@
                     <div id="navitems">
                         <ul id="navitems-group">
                             <li> <a href="/">首页</a></li>
-                            <li> <a href="/GoodList/Index">导购</a></li>@*分类搜索页面*@
+                            <li> <a href="~/GoodsShow/Index">导购</a></li>@*分类搜索页面*@
                         </ul>
                     </div>
                 </div>
