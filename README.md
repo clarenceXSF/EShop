@@ -1,4 +1,4 @@
-# EShop
+﻿# EShop
 风御轩网上书店
 
 ###远程仓库 `GitHub`
@@ -10,11 +10,11 @@
 |--------|:-----------:|---------:|
 |明确需求|    |    |
 |编写设计|设计显示要求|  |
-|配置环境|SoruceTree、Git、vs2013、SQL Server2008、Navicat| |
+|配置环境|SoruceTree、Git、vs2013、SQL Server2012、Navicat| |
 |完成数据库脚本| | |
-|搭建项目框架|DAL、BLL、Model、Web| |
+|搭建项目框架|DAL、BLL、Common、Model、Web| |
 |完成项目后台|EF、MVC4  | |
-|前端设计开发|html、css、JavaScript | |
+|前端设计开发|html、css、JavaScript、Amaze UI | |
 |修复BUG| | |
 |发布项目|IIS | |
 
@@ -23,16 +23,20 @@
 ```
 EShop
 |-- docs
-|  |-- data
-|  |  |-- CreateData.sql
+|  |-- Sql脚本
+|  |  |-- BuildEShop.sql
+|  |  |-- Init.sql
+|  |  |-- sql2012
+|  |  |-- Navicat运行脚本
 |-- reader.md
 |-- src
-|  |-- EShop.Models                // 数据模型层子项目
+|  |-- EShop.Models                // 数据模型层
 |  |  |-- ***.cs
-|  |-- EShop.DAL                   // 数据访问层子项目
-|  |  |-- ***Service.cs            // 访问处理
-|  |-- EShop.BLL                   // 业务逻辑层子项目
+|  |-- EShop.DAL                   // 数据访问层
+|  |  |-- ***Service.cs           
+|  |-- EShop.BLL                   // 业务逻辑层
 |  |  |-- ***Manager.cs
 |  |-- EShop.Web
+|  |-- EShop.Common                // 共用工具层
 |  |-- packages
 ```

@@ -56,5 +56,11 @@ namespace EShop.DAL
         /// <param name="id"></param>
         /// <returns></returns>
         BookType FindById(string id);
+        /// <summary>
+        /// 根据类型名获取图书类型信息
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        BookType FindByName(string name);
     }
 }
