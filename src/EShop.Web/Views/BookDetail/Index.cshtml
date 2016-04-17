@@ -59,140 +59,162 @@ ul {
     margin-top: -29px;
 }
 </style>
+@using EShop.Models
+@{var bi = (BookInfo)Model;
+  var date = DateTime.Parse(bi.CreateDate.ToString());
+  var showDate = date.Year + "年 " + date.Month + "月";
+  var d = decimal.Parse(bi.Price.ToString());
+  var price = Math.Round(d, 2).ToString();
+  var d2 = decimal.Parse(bi.Original.ToString());
+  var original = Math.Round(d2, 2).ToString();
+  }
 <div class="result-title" style="width:1190px;position:relative;height:20px;margin:10px auto;line-height:20px;">
     <h4 style="margin-left:10px;font-size:14px;color:#5E5E5E;float:left;">
         <a href="#">全部</a>
         <foreach name="itemNav" value="i"> ><a href="#">人文</a> </foreach>
     </h4>
 </div>
-<div class="p-content">
-    <div class="left-pic" style="width: 407px;float: left;height: 552px;">
-        <img src="~/Images/typeMenu/showBook.jpg" rel="aaa" width="400" height="400" alt=""/>
-    </div>
-    <div class="center-sales" style="width: 489px;float: left;margin-left: 22px;">
-        <h3 style="margin-bottom: 40px;width: 469px;font-size: 16px;">几天是沙发放</h3>
+<div style="width:1190px;position:relative;margin:10px auto;">
+    <div class="p-content">
+        <div class="left-pic" style="width: 407px;float: left;height: 552px;">
+            <img src="@bi.ISBN" rel="@bi.Name" width="400" height="400" alt="" />
+        </div>
+        <div class="center-sales" style="width: 489px;float: left;margin-left: 22px;">
+            <h3 style="margin-bottom: 40px;width: 469px;font-size: 16px;">@bi.Name</h3>
 
-        <div class="sales-price">
-            <span class="sales-priceleft">价格</span> <span class="sales-priceicon">￥</span>
-            <span class="sales-pricenew">99</span>
+            <div class="sales-price">
+                <span class="sales-priceleft">价格</span> <span class="sales-priceicon">￥</span>
+                <span class="sales-pricenew">@price</span>
+            </div>
+
+            <style type="text/css">
+                .center-sales .sales-info {
+                    float: left;
+                    width: 469px;
+                    line-height: 40px;
+                    margin-left: 20px;
+                }
+
+                    .center-sales .sales-info .sales-left {
+                        float: left;
+                        color: #020604;
+                    }
+
+                    .center-sales .sales-info .sales-right {
+                        float: left;
+                        color: dimgray;
+                        margin-left: 12px;
+                    }
+
+                    .center-sales .sales-info .discount-right {
+                        color: #B2B2B2;
+                        text-decoration: line-through;
+                    }
+            </style>
+
+            <div class="sales-info">
+                <span class="sales-left">原价</span> <span class="sales-right discount-right">@original 元</span>
+            </div>
+            <div class="sales-info">
+                <span class="sales-left">作者</span> <span class="sales-right">@bi.Author</span>
+            </div>
+            <div class="sales-info">
+                <span class="sales-left">出版时间</span> <span class="sales-right">@showDate</span>
+            </div>
+            <div class="sales-info">
+                <span class="sales-left">内容简介</span> <span class="sales-right">@bi.Describe</span>
+            </div>
+
+            <style type="text/css">
+                .center-sales .sales-choose {
+                    float: left;
+                    width: 469px;
+                    line-height: 120px;
+                    margin-left: 0px;
+                }
+
+                    .center-sales .sales-choose a {
+                        text-decoration: none;
+                        padding: 15px 20px;
+                        background: #AE1407;
+                        color: #fff;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        font-size: 16px;
+                    }
+            </style>
+
+            <div class="sales-choose">
+                <a href="#" id="shoppingCar" target="_blank">加入购物车</a>
+                <a href="#" id="shoppingCar" target="_blank">>>马上购买</a>
+            </div>
         </div>
 
         <style type="text/css">
-            .center-sales .sales-info {
+            .right-shop {
                 float: left;
-                width: 469px;
-                line-height: 40px;
-                margin-left: 20px; 
+                width: 230px;
+                margin-left: 25px;
             }
-            .center-sales .sales-info .sales-left {
+
+                .right-shop .right-shop-title {
+                    float: left;
+                }
+
+                    .right-shop .right-shop-title .title-look {
+                        color: #D8D8D8;
+                        float: left;
+                    }
+
+                    .right-shop .right-shop-title .title-right {
+                        float: left;
+                        width: 70px;
+                        height: 2px;
+                        background: #D8D8D8;
+                        margin-top: 10px;
+                        margin-left: 5px;
+                    }
+
+            ul {
+                list-style: none;
+            }
+
+            .right-shop .right-shop-list {
                 float: left;
-                color: #020604;
             }
-            .center-sales .sales-info .sales-right {
-                float: left;
-                color:dimgray;
-                margin-left: 12px;
-            }.center-sales .sales-info .discount-right {
-                 color: #B2B2B2;
-                text-decoration: line-through;
-            }
+
+                .right-shop .right-shop-list li {
+                    margin-top: 20px;
+                }
+
+                .right-shop .right-shop-list .price {
+                    position: absolute;
+                    background-color: rgb(242, 242, 242);
+                    opacity: 0.6;
+                    height: 24px;
+                    width: 139px;
+                    text-align: center;
+                    color: black;
+                    margin-top: -29px;
+                }
         </style>
 
-        <div class="sales-info">
-            <span class="sales-left">原价</span> <span class="sales-right discount-right">118元</span>
-        </div>
-        <div class="sales-info">
-            <span class="sales-left">作者</span> <span class="sales-right">clarence</span>
-        </div>
-        <div class="sales-info">
-            <span class="sales-left">出版时间</span> <span class="sales-right">2015-12-01</span>
-        </div>
-        <div class="sales-info">
-            <span class="sales-left">内容简介</span> <span class="sales-right">吃辣人侧翻的比较老办法了噶热爱格力高</span>
-        </div>
-
-        <style type="text/css">
-            .center-sales .sales-choose {
-                float: left;
-                width: 469px;
-                line-height: 120px;
-                margin-left: 0px;
-            }.center-sales .sales-choose a {
-                text-decoration: none;
-                padding: 15px 20px;
-                background: #AE1407;
-                color: #fff;
-                border-radius: 3px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-        </style>
-
-        <div class="sales-choose">
-            <a href="#" id="shoppingCar" target="_blank">加入购物车</a>
-            <a href="#" id="shoppingCar" target="_blank">>>马上购买</a>
-            @*<input type="button" id="shoppingCar" value="加入购物车" />
-            <input type="button" id="playNow" value="马上购买" />*@
-        </div>
-    </div>
-
-    <style type="text/css">
-    .right-shop {
-        float: left;
-        width: 230px;
-        margin-left: 25px;
-    }
-    .right-shop .right-shop-title {
-        float: left;
-    }
-    .right-shop .right-shop-title .title-look {
-        color: #D8D8D8;
-        float: left;
-    }
-    .right-shop .right-shop-title .title-right {
-        float: left;
-        width: 70px;
-        height: 2px;
-        background: #D8D8D8;
-        margin-top: 10px;
-        margin-left: 5px;
-    }
-    ul {
-        list-style :none;
-    }
-    .right-shop .right-shop-list {
-        float: left;
-    }
-    .right-shop .right-shop-list li {
-        margin-top: 20px;
-    }
-    .right-shop .right-shop-list .price {
-        position: absolute;
-        background-color: rgb(242, 242, 242);
-        opacity: 0.6;
-        height: 24px;
-        width: 139px;
-        text-align: center;
-        color: black;
-        margin-top: -29px;
-    }
-    </style>
-
-    <div class="right-shop">
-        <div class="right-shop-title">
-            <span class="title-look">看了又看</span> <span class="title-right"></span>
-        </div>
-        <ul class="right-shop-list">
-            <foreach name="goods_kk" value="v" key="k">
-                <li>
-                    <a href=""><img src="~/Images/typeMenu/showBook.jpg" width="139" height="140" alt="" /></a>
-                    <div class="price">￥88</div>
-                </li>
-                <li>
-                    <a href=""><img src="~/Images/typeMenu/showBook.jpg" width="139" height="140" alt="" /></a>
-                    <div class="price">￥88</div>
-                </li>
-            </foreach>
-        </ul>
+        @*<div class="right-shop">
+            <div class="right-shop-title">
+                <span class="title-look">看了又看</span> <span class="title-right"></span>
+            </div>
+            <ul class="right-shop-list">
+                <foreach name="goods_kk" value="v" key="k">
+                    <li>
+                        <a href=""><img src="~/Images/notImage.jpg" width="139" height="140" alt="" /></a>
+                        <div class="price">￥88</div>
+                    </li>
+                    <li>
+                        <a href=""><img src="~/Images/notImage.jpg" width="139" height="140" alt="" /></a>
+                        <div class="price">￥88</div>
+                    </li>
+                </foreach>
+            </ul>
+        </div>*@
     </div>
 </div>

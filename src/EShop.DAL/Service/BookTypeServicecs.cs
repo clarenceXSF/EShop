@@ -105,5 +105,15 @@ namespace EShop.DAL.Service
                 return obj;
             }
         }
+        public BookType FindByName(string name)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = (from bt in db.BookType
+                           where bt.TypeName.Contains(name)
+                           select bt).FirstOrDefault();
+                return obj;
+            }
+        }
     }
 }

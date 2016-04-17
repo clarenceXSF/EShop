@@ -39,5 +39,9 @@ namespace EShop.BLL.Manager
         {
             return _bookTypeService.FindById(id);
         }
+        public BookType FindByName(string name)
+        {
+            return _bookTypeService.FindByName(name);
+        }
     }
 }

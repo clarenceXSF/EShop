@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EShop.BLL;
+using EShop.BLL.Manager;
+using EShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,10 +16,11 @@ namespace EShop.Web.Controllers
     {
         //
         // GET: /BookDetail/
-
-        public ActionResult Index()
+        private IBookInfoManager bookManager = new BookInfoManager();
+        public ActionResult Index(string bookid)
         {
-            return View();
+            BookInfo bi = bookManager.FindById(bookid);
+            return View(bi);
         }
 
     }
