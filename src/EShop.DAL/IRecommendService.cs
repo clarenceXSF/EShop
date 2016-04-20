@@ -47,5 +47,11 @@ namespace EShop.DAL
         /// <param name="id"></param>
         /// <returns></returns>
         Recommend FindById(string id);
+        /// <summary>
+        /// 根据id获取推荐详细信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        RecommendView FindDetailById(string id);
     }
 }

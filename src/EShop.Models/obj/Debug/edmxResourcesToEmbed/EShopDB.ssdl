@@ -12,7 +12,7 @@
     <Property Name="Price" Type="money" />
     <Property Name="Original" Type="money" />
     <Property Name="ISBN" Type="nvarchar" MaxLength="50" />
-    <Property Name="Describe" Type="nvarchar" MaxLength="200" />
+    <Property Name="Describe" Type="nvarchar(max)" />
     <Property Name="CreateDate" Type="date" />
     <Property Name="Sale" Type="int" />
     <Property Name="Stock" Type="int" />
@@ -118,6 +118,7 @@
     <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BookId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookImg" Type="nvarchar" MaxLength="50" />
     <Property Name="ShowImage" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="ShowTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" />
@@ -132,11 +133,10 @@
     <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BsId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SaleNum" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserPhone" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateTime" Type="datetime" />
     <Property Name="BookId" Type="nvarchar" MaxLength="50" />
     <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookISBN" Type="nvarchar" MaxLength="50" />
     <Property Name="BookPrice" Type="money" />
     <Property Name="BookNum" Type="int" />
   </EntityType>
@@ -170,6 +170,7 @@ FROM [dbo].[BookSaleView] AS [BookSaleView]</DefiningQuery>
 [RecommendView].[Id] AS [Id], 
 [RecommendView].[BookId] AS [BookId], 
 [RecommendView].[BookName] AS [BookName], 
+[RecommendView].[BookImg] AS [BookImg], 
 [RecommendView].[ShowImage] AS [ShowImage], 
 [RecommendView].[ShowTitle] AS [ShowTitle], 
 [RecommendView].[CreateTime] AS [CreateTime]
@@ -180,11 +181,10 @@ FROM [dbo].[RecommendView] AS [RecommendView]</DefiningQuery>
 [SaleDetailView].[Id] AS [Id], 
 [SaleDetailView].[BsId] AS [BsId], 
 [SaleDetailView].[SaleNum] AS [SaleNum], 
-[SaleDetailView].[UserName] AS [UserName], 
-[SaleDetailView].[UserPhone] AS [UserPhone], 
 [SaleDetailView].[CreateTime] AS [CreateTime], 
 [SaleDetailView].[BookId] AS [BookId], 
 [SaleDetailView].[BookName] AS [BookName], 
+[SaleDetailView].[BookISBN] AS [BookISBN], 
 [SaleDetailView].[BookPrice] AS [BookPrice], 
 [SaleDetailView].[BookNum] AS [BookNum]
 FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>

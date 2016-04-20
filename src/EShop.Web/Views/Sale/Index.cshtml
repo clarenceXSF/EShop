@@ -1,5 +1,87 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@using EShop.Models
+@{
+    ViewBag.Title = "订单列表";
+    var searchStr = Session["searchText_b"] as string;
 }
-
-<h2>Index</h2>
+@section featured {
+    <div class="am-cf am-padding am-margin-bottom">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
+    </div>
+}
+@section scripts {
+    <script src="~/js/admin/AlertMess.js"></script>
+    <script src="~/js/admin/doSale.js"></script>
+}
+<div class="am-u-sm-12 am-u-md-8">
+    <div id="TypeListHeadMenu" class="am-btn-toolbar">
+        <div class="am-text-success"><em>管理员请谨记及时处理订单</em></div>
+    </div>
+</div>
+<div class="am-input-group">
+    <input type="text" class="am-form-field" id="searchText" name="searchText" placeholder="请输入用户名或订单号" value="@searchStr" />
+    <span class="am-input-group-btn">
+        <input class="am-btn am-btn-default" type="button" value="搜索" onclick="searchSale();" />
+    </span>
+</div>
+<hr />
+<input type="hidden" value="@TempData["mess"]" id="mess" />
+<table id="bookInfoTab" class="am-table am-table-striped am-table-hover table-main">
+    <thead>
+        <tr id="thMenu">
+            <th style="display: none;">订单编号</th>
+            <th style="width: 15%; text-align: center;">订单号</th>
+            <th style="width: 10%; text-align: center;">客户姓名</th>
+            <th style="width: 10%; text-align: center;">联系电话</th>
+            <th style="width: 10%; text-align: center;">购买数量</th>
+            <th style="width: 10%; text-align: center;">总消费</th>
+            <th style="width: 15%; text-align: center;">下单时间</th>
+            <th style="width: 10%; text-align: center;">订单状态</th>
+            <th style="width: 20%">具体操作</th>
+        </tr>
+    </thead>
+    @foreach (var item in (List<BookSaleView>)Model)
+    {
+        <tr>
+            <td style="display: none;">@item.Id</td>
+            <td style="text-align: center;">@item.SaleNum</td>
+            <td style="text-align: center;">@item.UserName</td>
+            <td style="text-align: center;">@item.UserPhone</td>
+            <td style="text-align: center;">@item.GoodsNum</td>
+            @{  var d = decimal.Parse(@item.CountPrice.ToString());
+                var price = Math.Round(d, 2).ToString();
+                var pdt = DateTime.Parse(@item.CreateTime.ToString());
+                var create = pdt.GetDateTimeFormats('g')[0].ToString();
+                <td style="text-align: center;">￥@price</td>
+                <td style="text-align: center;">@create</td>
+                
+                if (@item.State == 1) {<td style="text-align: center;color:red;">待发货</td>}
+                else if (@item.State == 1) {<td style="text-align: center;color:orange;">待收货</td> }
+                else if (@item.State == 2) {<td style="text-align: center;color:blue;">待评价</td> }
+                else if (@item.State == 3) {<td style="text-align: center;color:green;">已评价</td> }
+            }
+            
+            <td>
+                <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                        @{
+                            if (@item.State == 1) { 
+                                <button class="editBook am-btn am-btn-default am-btn-xs am-text-primary"
+                                        data-url="@Url.Content("~/BookSale/BookDetail?ID=" + @item.Id)">
+                                    <span class="am-icon-truck"></span>马上发货
+                                </button>
+                            }
+                            else { 
+                                <button class="editBook am-btn am-btn-default am-btn-xs am-text-primary"
+                                        data-url="@Url.Content("~/BookSale/BookDetail?ID=" + @item.Id)">
+                                    <span class="am-icon-list-alt"></span>交易明细
+                                </button>
+                            }
+                        }
+                        
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+@Html.Partial("_pageNavigation")

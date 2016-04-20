@@ -1,0 +1,97 @@
+﻿@using EShop.Common;
+@{
+    var page = ViewData["page"] as Pager;
+    var path = Request.Path;
+    var maxPageIndex = Math.Min(10, page.PageCount); //最大显示页数
+    var minBoundary = 5; //最小边界值
+    var maxBoundary = page.PageCount - 4; //最大边界值
+}
+@if (page.Total > 0)
+{
+    <div class="page-list">
+    @{
+    if (page.HasPrev)
+    {
+        <a href="@(path + "?pageIndex=" + (page.PageIndex - 1))" class="pre"> < </a>
+    }
+    else
+    {
+        <a href="javascript:;" class="pre"> < </a>
+    }
+    }
+    @{
+    if (page.PageCount <= maxPageIndex) //总页数不超过10
+    {
+        for (var index = 1; index <= page.PageCount; index++)
+        {
+            if (index == page.PageIndex)
+            {
+                <a href="#" class="pagenow">@index</a>
+            }
+            else
+            {
+                <a href="@(path + "?pageIndex=" + index)">@index</a>
+            }
+        }
+    }
+    else //总页数过多，超过10
+    {
+        //当前页数超过初始临界点5，但不超过限定临界点(总页数-4)
+        if (page.PageIndex > minBoundary && page.PageIndex <= maxBoundary)
+        {
+            //分页显示页数时，当前页固定左侧有5个，右侧4个页数
+            for (var index = (page.PageIndex - 5); index <= (page.PageIndex + 4); index++)
+            {
+                if (index == page.PageIndex)
+                {
+                    <a href="#" class="pagenow">@index</a>
+                }
+                else
+                {
+                    <a href="@(path + "?pageIndex=" + index)">@index</a>
+                }
+            }
+        }
+        else if (page.PageIndex <= minBoundary) //当前页数暂不超过临界点5，分页数字从1开始，保持10个分页
+        {
+            for (var index = 1; index <= maxPageIndex; index++)
+            {
+                if (index == page.PageIndex)
+                {
+                    <a href="#" class="pagenow">@index</a>
+                }
+                else
+                {
+                    <a href="@(path + "?pageIndex=" + index)">@index</a>
+                }
+            }
+        }
+        else if (page.PageIndex > maxBoundary) //当前页数超过限定临界点(总页数-4)
+        {
+            //分页数字最大值为总页数，保持10个分页页数显示
+            for (var index = (page.PageCount - (maxPageIndex - 1)); index <= page.PageCount; index++)
+            {
+                if (index == page.PageIndex)
+                {
+                    <a href="#" class="pagenow">@index</a>
+                }
+                else
+                {
+                    <a href="@(path + "?pageIndex=" + index)">@index</a>
+                }
+            }
+        }
+    }
+    }
+    @{
+    if (page.HasNext)
+    {
+        <a href="@(path + "?pageIndex=" + (page.PageIndex + 1))" class="next"> > </a>
+    }
+    else
+    {
+        <a href="javascript:;" class="next"> > </a>
+    }
+    }  
+    </div>
+}

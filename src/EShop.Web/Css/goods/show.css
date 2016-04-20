@@ -2,7 +2,7 @@
 .left-sidebar{display:none;}
 /*搜索结果*/
 .all-results{width:100%;position:relative;}
-.a-results{width:1190px;;margin:0 auto;overflow:hidden;position:relative;background:#fff;}
+.a-results{width:1190px;margin:0 auto;overflow:hidden;position:relative;background:#fff;}
 .result-list{width:1186px;margin:0 auto;position:relative;border:solid 1px #e8e8e8;display:block;font-size:12px;overflow:hidden;}
 .result-title{width:1190px;position:relative;height:20px;margin:10px auto;line-height:20px;}
 .result-title h4{margin-left:10px;font-size:14px;color:#5E5E5E;float:left;}
@@ -11,7 +11,7 @@
 .result-head {width:115px;height:38px;line-height:38px;float:left; color: #666;font-size: 12px;font-weight: 600; text-align: right;}
 .result-head h5{margin-left:15px;font-weight:normal; font-size:14px;}
 .result-body{width:932px;height:38px;float:left;}
-.result-body a{color: #666;float: left; line-height: 38px; margin-left: 20px;text-align: left; text-decoration: none;width: 100px;}
+.result-body a{color: #666;float: left; line-height: 38px; margin-left: 20px;text-align: left; text-decoration: none;width: 130px;}
 .result-right{float:left;width:130px;}
 .show-more{border:none;margin-left:20px;float:left;line-height:38px;}
 .show-more a{ border: 1px solid #ddd; color: #333;font-size: 12px; padding: 2px 6px; text-decoration: none;}

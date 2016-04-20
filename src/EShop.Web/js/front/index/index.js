@@ -44,7 +44,7 @@ function ShowHotSearch() {
             if (data != null) {
                 console.log("热门搜索" + data);
                 for (var i = 0; i < data.length; i++) {
-                    $("#hotwords").append("<a href=\"/GoodsShow/Index?search=" + data[i].TypeContent + "\" target=\"_blank\"> " + data[i].TypeContent + " </a>");
+                    $("#hotwords").append("<a href=\"/GoodsShow/Index?keyword=" + data[i].TypeContent + "\" target=\"_blank\"> " + data[i].TypeContent + " </a>");
                 }
             }
         },

@@ -1,9 +1,7 @@
 var indexban = {};
-$(document).ready(function(e) {
-    indexban.init();
-});
+
 indexban.init=function(){
-	indexban.len=$(".slider-banner > a").length-1;
+    indexban.len = $(".slider-banner > a").length - 1;
 	indexban.n=0;
 	indexban.t1=300;
 	indexban.t2=5000;

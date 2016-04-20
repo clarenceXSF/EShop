@@ -17,11 +17,10 @@ namespace EShop.Models
         public string Id { get; set; }
         public string BsId { get; set; }
         public string SaleNum { get; set; }
-        public string UserName { get; set; }
-        public string UserPhone { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
         public string BookId { get; set; }
         public string BookName { get; set; }
+        public string BookISBN { get; set; }
         public Nullable<decimal> BookPrice { get; set; }
         public Nullable<int> BookNum { get; set; }
     }

@@ -1,24 +1,14 @@
 ﻿<link href="~/Css/goods/show.css" rel="stylesheet" type="text/css" />
-@*<link href="~/Css/page/page.css" rel="stylesheet" type="text/css" />*@
-<script type="text/javascript">
-    $(document).ready(function (e) {
-        $('.show-more a').click(function () {
-            var tmp_val = $(this).attr("val");
-            var $showBlock = $(".result-body[val='" + tmp_val + "']");
-            if ($showBlock.hasClass("heightauto"))
-                $showBlock.removeClass("heightauto");
-            else 
-                $showBlock.addClass("heightauto");
-        })
-    });
-</script>
+<link href="~/Css/page/page.css" rel="stylesheet" type="text/css" />
+<script src="~/js/front/list/list.js"></script>
 <!--团购分类页面内容-->
 <div class="all-results" id="lists">
     <div class="result">
         <div class="result-title">
             <h4>
-                <a href="#">全部</a>
-                <foreach name="itemNav" value="i"> ><a href="#">科技</a> </foreach>
+                <a href="Index">全部</a> >
+                <span id="itemNav">@ViewBag.Content</span>
+                @*<foreach name="itemNav" value="i"> ><a href="#">科技</a> </foreach>*@
             </h4>
         </div>
         <div class="result-list">
@@ -26,45 +16,65 @@
             <div class="result-in">
                 <div class="result-head"> 图书分类： </div>
                 <div class="result-body" val="1">
-                    <a class="all" href="#" style="width:80px; color:#ad1306;">全部</a>
-                    <foreach name="cateone" value="c">
-                        <a href="#" title="ktv" val="1">人文</a>
-                        <a href="#" title="ktv" val="1">少儿</a>
-                        <a href="#" title="ktv" val="1">生活</a>
-                        <a href="#" title="ktv" val="1">科技</a>
-
-                        @*<a href="#" title="ktv" val="1">科技</a> <a href="#" title="ktv" val="1">科技</a> <a href="#" title="ktv" val="1">科技</a>
-                        <a href="#" title="ktv" val="1">科技</a> <a href="#" title="ktv" val="1">科技</a> <a href="#" title="ktv" val="1">科技</a>*@
-
-                    </foreach>
+                    <a class="all" href="Index" style="width:80px; color:#ad1306;">全部</a>
+                    <div id="cateone" >
+                        
+                    </div>
                 </div>
                 <div class="result-right result-pinpairight"><span class="show-more"><a href="#" val="1">展开</a></span> </div>
             </div>
             <!--作者名称-->
-            <div class="result-in">
+            @*<div class="result-in">
                 <div class="result-head"> 作者名称： </div>
                 <div class="result-body" val="2">
                     <a class="all" href="#" style="width:80px;color:#ad1306;">全部</a>
-                    <foreach name="catetwo" value="t">
+                    <div id="catetwo">
                         <a href="#" title="ktv" val="2">冰心</a>
                         <a href="#" title="ktv" val="2">巴图</a>
                         <a href="#" title="ktv" val="2">欧阳</a>
                         <a href="#" title="ktv" val="2">耶夫斯基</a>
-                    </foreach>
+                        <a href="#" title="ktv" val="2">冰心</a>
+                        <a href="#" title="ktv" val="2">巴图</a>
+                        <a href="#" title="ktv" val="2">欧阳</a>
+                        <a href="#" title="ktv" val="2">耶夫斯基</a>
+                    </div>
                 </div>
                 <div class="result-right result-pinpairight"><span class="show-more"><a href="#" val="2">展开</a></span></div>
-            </div>
+            </div>*@
 
         </div>
     </div>
 </div>
 
+@using EShop.Models
 <!--产品列表-->
 <div id="mall-list">
     <div class="mall">
-        <ul>
-            <foreach name="goods" value="g">
+        <ul id="goods">
+            @foreach (var item in (List<BookInfo>)Model)
+            {
                 <li>
+                    <a href="~/BookDetail/Index?bookid=@item.Id" title="@item.Name">
+                        <div class="mall-pic"> <img src="@item.ISBN" style="width:278px;height:278px;" /> </div>
+                        <div class="mall-info">
+                            <span class="book-name">@item.Name</span>
+                            <span class="book-author">@item.Author</span>
+                            @{  var dt = DateTime.Parse(@item.PublishDate.ToString());
+                                var date = dt.GetDateTimeFormats('y')[0].ToString();
+                                var d1 = decimal.Parse(@item.Price.ToString());
+                                var d2 = decimal.Parse(@item.Original.ToString());
+                                var p1 = Math.Round(d1, 2).ToString();
+                                var p2 = Math.Round(d2, 2).ToString();
+                            }
+                            <span class="book-date">@date</span>
+                        </div>
+                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥@p1</span> <span class="old-price">￥@p2</span></div>
+                    </a>
+                </li>
+            }
+                    @*<td style="display: none;">@item.Id</td>*@
+                   
+                @*<li>
                     <a href="~/BookDetail/Index" title="book">
                         <div class="mall-pic"> <img src="~/Images/book/caofangzi.jpg" style="width:278px;height:278px;" /> </div>
                         <div class="mall-info">
@@ -72,56 +82,12 @@
                             <span class="book-author">[英]clarence</span>
                             <span class="book-date">2015-06-22</span>
                         </div>
-                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥55</span> <span class="old-price">￥66</span> <!--<span style="color:#999;">(2.3折)</span> <span class="mall-temai"><img src="../../../img/default/B2Ccate/b2c-mallicon.png" width="14" height="16"  alt=""/>特卖</span> --></div>
+                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥55</span> <span class="old-price">￥66</span> </div> 
                     </a>
-                </li>
-                <li>
-                    <a href="#" title="book">
-                        <div class="mall-pic"> <img src="~/Images/book/jinglingshouhuzhe.jpg" style="width:278px;height:278px;" /> </div>
-                        <div class="mall-info">
-                            <span class="book-name">精灵守护者</span>
-                            <span class="book-author">[英]clarence</span>
-                            <span class="book-date">2015-06-22</span>
-                        </div>
-                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥55</span> <span class="old-price">￥66</span> <!--<span style="color:#999;">(2.3折)</span> <span class="mall-temai"><img src="../../../img/default/B2Ccate/b2c-mallicon.png" width="14" height="16"  alt=""/>特卖</span> --></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="book">
-                        <div class="mall-pic"> <img src="~/Images/notImage.jpg" style="width:278px;height:278px;" /> </div>
-                        <div class="mall-info">
-                            <span class="book-name">today is good day </span>
-                            <span class="book-author">[英]clarence</span>
-                            <span class="book-date">2015-06-22</span>
-                        </div>
-                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥55</span> <span class="old-price">￥66</span> <!--<span style="color:#999;">(2.3折)</span> <span class="mall-temai"><img src="../../../img/default/B2Ccate/b2c-mallicon.png" width="14" height="16"  alt=""/>特卖</span> --></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="book">
-                        <div class="mall-pic"> <img src="~/Images/book/xianlanqijianzhuan.jpg" style="width:278px;height:278px;" /> </div>
-                        <div class="mall-info">
-                            <span class="book-name">仙篮奇剑传</span>
-                            <span class="book-author">[英]clarence</span>
-                            <span class="book-date">2015-06-22</span>
-                        </div>
-                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥55</span> <span class="old-price">￥66</span> <!--<span style="color:#999;">(2.3折)</span> <span class="mall-temai"><img src="../../../img/default/B2Ccate/b2c-mallicon.png" width="14" height="16"  alt=""/>特卖</span> --></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="book">
-                        <div class="mall-pic"> <img src="~/Images/notImage.jpg" style="width:278px;height:278px;" /> </div>
-                        <div class="mall-info">
-                            <span class="book-name">today is good day 2 aa b cc fefe</span>
-                            <span class="book-author">[英]clarence</span>
-                            <span class="book-date">2015-06-22</span>
-                        </div>
-                        <div class="mall-price"> <span style="color:#FF285C;float:left;font-weight:bold;"></span> <span class="new-price">￥55</span> <span class="old-price">￥66</span> <!--<span style="color:#999;">(2.3折)</span> <span class="mall-temai"><img src="../../../img/default/B2Ccate/b2c-mallicon.png" width="14" height="16"  alt=""/>特卖</span> --></div>
-                    </a>
-                </li>
-            </foreach>
+                </li>*@
+               
         </ul>
-        <div class="page-list">show the page </div>
+        @Html.Partial("_pageCustomer")
     </div>
 </div>
 

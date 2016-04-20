@@ -36,5 +36,9 @@ namespace EShop.BLL.Manager
         {
             return _recommendService.FindById(id);
         }
+        public RecommendView FindDetailById(string id)
+        {
+            return _recommendService.FindDetailById(id);
+        }
     }
 }

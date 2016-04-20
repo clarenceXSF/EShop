@@ -30,10 +30,10 @@ namespace EShop.Models
         public DbSet<Recommend> Recommend { get; set; }
         public DbSet<SaleDetail> SaleDetail { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
-        public DbSet<SaleDetailView> SaleDetailView { get; set; }
         public DbSet<BookSale> BookSale { get; set; }
         public DbSet<BookSaleView> BookSaleView { get; set; }
-        public DbSet<RecommendView> RecommendView { get; set; }
         public DbSet<BookInfo> BookInfo { get; set; }
+        public DbSet<RecommendView> RecommendView { get; set; }
+        public DbSet<SaleDetailView> SaleDetailView { get; set; }
     }
 }

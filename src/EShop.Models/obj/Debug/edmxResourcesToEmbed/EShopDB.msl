@@ -58,22 +58,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SaleDetailView">
-      <EntityTypeMapping TypeName="EShopModel.SaleDetailView">
-        <MappingFragment StoreEntitySet="SaleDetailView">
-          <ScalarProperty Name="BookNum" ColumnName="BookNum" />
-          <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
-          <ScalarProperty Name="BookName" ColumnName="BookName" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="SaleNum" ColumnName="SaleNum" />
-          <ScalarProperty Name="BsId" ColumnName="BsId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BookSale">
       <EntityTypeMapping TypeName="EShopModel.BookSale">
         <MappingFragment StoreEntitySet="BookSale">
@@ -110,18 +94,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RecommendView">
-      <EntityTypeMapping TypeName="EShopModel.RecommendView">
-        <MappingFragment StoreEntitySet="RecommendView">
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
-          <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
-          <ScalarProperty Name="BookName" ColumnName="BookName" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BookInfo">
       <EntityTypeMapping TypeName="EShopModel.BookInfo">
         <MappingFragment StoreEntitySet="BookInfo">
@@ -136,6 +108,34 @@
           <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
           <ScalarProperty Name="Author" ColumnName="Author" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecommendView">
+      <EntityTypeMapping TypeName="EShopModel.RecommendView">
+        <MappingFragment StoreEntitySet="RecommendView">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
+          <ScalarProperty Name="ShowImage" ColumnName="ShowImage" />
+          <ScalarProperty Name="BookImg" ColumnName="BookImg" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleDetailView">
+      <EntityTypeMapping TypeName="EShopModel.SaleDetailView">
+        <MappingFragment StoreEntitySet="SaleDetailView">
+          <ScalarProperty Name="BookNum" ColumnName="BookNum" />
+          <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
+          <ScalarProperty Name="BookISBN" ColumnName="BookISBN" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SaleNum" ColumnName="SaleNum" />
+          <ScalarProperty Name="BsId" ColumnName="BsId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
