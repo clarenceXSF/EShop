@@ -45,6 +45,7 @@
     <Compile Include="IBookInfoManager.cs" />
     <Compile Include="IBookSaleManager.cs" />
     <Compile Include="IBookTypeManager.cs" />
+    <Compile Include="ICartManager.cs" />
     <Compile Include="IOtherTypeManager.cs" />
     <Compile Include="IRecommendManager.cs" />
     <Compile Include="ISaleDetailManager.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Manager\BookInfoManager.cs" />
     <Compile Include="Manager\BookSaleManager.cs" />
     <Compile Include="Manager\BookTypeManager.cs" />
+    <Compile Include="Manager\CartManager.cs" />
     <Compile Include="Manager\OtherTypeManager.cs" />
     <Compile Include="Manager\RecommendManager.cs" />
     <Compile Include="Manager\SaleDetailManager.cs" />

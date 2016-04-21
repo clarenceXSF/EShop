@@ -6,13 +6,14 @@
         <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">@ViewBag.Title</strong></div>
     </div>
 }
+<script src="~/js/admin/doIntegration.js"></script>
 <br />
 <div class="am-cf">
     <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
-        <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-book"></span><br />书籍总量<br />2300</a></li>
+        <li><a href="/Book/Index" class="am-text-warning"><span class="am-icon-btn am-icon-book"></span><br />书籍总量<br /><strong id="bookNum">5</strong></a></li>
         <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-suitcase"></span><br />今日交易<br />305</a></li>
         <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-briefcase"></span><br />成交订单<br />3080</a></li>
-        <li><a href="#" class="am-text-primary"><span class="am-icon-btn am-icon-user-md"></span><br />注册客户<br />900</a></li>
+        <li><a href="/User/Show?role=customer" class="am-text-primary"><span class="am-icon-btn am-icon-user-md"></span><br />注册客户<br /><strong id="customerNum">10</strong></a></li>
     </ul>
 </div>
 <div class="am-cf">

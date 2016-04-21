@@ -152,5 +152,13 @@ namespace EShop.Web.Controllers
             List<BookInfo> list = bookManager.FindByType(type, count);
             return Json(list);
         }
+        [AllowAnonymous]
+        [HttpPost]
+        public string GetBookNum()
+        {
+            string search = string.Empty;
+            int count = bookManager.GetCount(search);
+            return count.ToString();
+        }
     }
 }

@@ -75,6 +75,15 @@
           <Property Name="BookId" Type="nvarchar" MaxLength="50" />
           <Property Name="BookNum" Type="int" />
         </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="Id" />
@@ -110,6 +119,21 @@
           <Property Name="State" Type="int" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="Evalute" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“EShop.dbo.CartView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="CartView">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookId" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookISBN" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookPrice" Type="money" />
+          <Property Name="BookOriginal" Type="money" />
+          <Property Name="CreateTime" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“EShop.dbo.RecommendView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -152,6 +176,7 @@
           <EntitySet Name="OtherType" EntityType="Self.OtherType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recommend" EntityType="Self.Recommend" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleDetail" EntityType="Self.SaleDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookSaleView" EntityType="Self.BookSaleView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -169,6 +194,18 @@
 [BookSaleView].[Address] AS [Address], 
 [BookSaleView].[Evalute] AS [Evalute]
 FROM [dbo].[BookSaleView] AS [BookSaleView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CartView" EntityType="Self.CartView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CartView].[Id] AS [Id], 
+[CartView].[UserId] AS [UserId], 
+[CartView].[BookId] AS [BookId], 
+[CartView].[BookName] AS [BookName], 
+[CartView].[BookISBN] AS [BookISBN], 
+[CartView].[BookPrice] AS [BookPrice], 
+[CartView].[BookOriginal] AS [BookOriginal], 
+[CartView].[CreateTime] AS [CreateTime]
+FROM [dbo].[CartView] AS [CartView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RecommendView" EntityType="Self.RecommendView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -219,6 +256,8 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
           <EntitySet Name="BookInfo" EntityType="EShopModel.BookInfo" />
           <EntitySet Name="RecommendView" EntityType="EShopModel.RecommendView" />
           <EntitySet Name="SaleDetailView" EntityType="EShopModel.SaleDetailView" />
+          <EntitySet Name="ShoppingCart" EntityType="EShopModel.ShoppingCart" />
+          <EntitySet Name="CartView" EntityType="EShopModel.CartView" />
         </EntityContainer>
         <EntityType Name="BookType">
           <Key>
@@ -344,6 +383,28 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
           <Property Name="BookISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="BookNum" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CartView">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BookOriginal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -486,6 +547,30 @@ FROM [dbo].[SaleDetailView] AS [SaleDetailView]</DefiningQuery>
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="SaleNum" ColumnName="SaleNum" />
                 <ScalarProperty Name="BsId" ColumnName="BsId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCart">
+            <EntityTypeMapping TypeName="EShopModel.ShoppingCart">
+              <MappingFragment StoreEntitySet="ShoppingCart">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CartView">
+            <EntityTypeMapping TypeName="EShopModel.CartView">
+              <MappingFragment StoreEntitySet="CartView">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="BookOriginal" ColumnName="BookOriginal" />
+                <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
+                <ScalarProperty Name="BookISBN" ColumnName="BookISBN" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
