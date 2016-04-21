@@ -24,5 +24,10 @@ namespace EShop.Web.Controllers
         {
             return View();
         }
+        public ActionResult _sorry(string title)
+        {
+            ViewBag.Title = title;
+            return View();
+        }
     }
 }

@@ -119,5 +119,13 @@ namespace EShop.Web.Controllers
             if (valid) result = "1";//存在
             return result;
         }
+        [AllowAnonymous]
+        [HttpPost]
+        public string GetCustomerNum()
+        {
+            string search = string.Empty;
+            int count = uiManager.GetCount(search,90);
+            return count.ToString();
+        }
     }
 }

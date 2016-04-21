@@ -215,6 +215,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Css\admin\index.css" />
+    <Content Include="Css\book\index.css" />
     <Content Include="Css\comm\foot.css" />
     <Content Include="Css\comm\head.css" />
     <Content Include="Css\goods\show.css" />
@@ -266,6 +267,7 @@
     <Content Include="Images\typemenu\xz_0.png" />
     <Content Include="js\admin\AlertMess.js" />
     <Content Include="js\admin\doAccount.js" />
+    <Content Include="js\admin\doIntegration.js" />
     <Content Include="js\admin\doRecommend.js" />
     <Content Include="js\admin\doBook.js" />
     <Content Include="js\admin\doUser.js" />
@@ -345,6 +347,7 @@
     <Content Include="Views\Recommend\EditRecommend.cshtml" />
     <Content Include="Views\Recommend\AddRecommend.cshtml" />
     <Content Include="Views\Shared\_pageCustomer.cshtml" />
+    <Content Include="Views\UserAdmin\_sorry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

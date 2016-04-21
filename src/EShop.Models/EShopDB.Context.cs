@@ -35,5 +35,7 @@ namespace EShop.Models
         public DbSet<BookInfo> BookInfo { get; set; }
         public DbSet<RecommendView> RecommendView { get; set; }
         public DbSet<SaleDetailView> SaleDetailView { get; set; }
+        public DbSet<ShoppingCart> ShoppingCart { get; set; }
+        public DbSet<CartView> CartView { get; set; }
     }
 }

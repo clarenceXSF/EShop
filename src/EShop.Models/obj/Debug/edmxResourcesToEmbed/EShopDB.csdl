@@ -20,6 +20,8 @@
     <EntitySet Name="BookInfo" EntityType="EShopModel.BookInfo" />
     <EntitySet Name="RecommendView" EntityType="EShopModel.RecommendView" />
     <EntitySet Name="SaleDetailView" EntityType="EShopModel.SaleDetailView" />
+    <EntitySet Name="ShoppingCart" EntityType="EShopModel.ShoppingCart" />
+    <EntitySet Name="CartView" EntityType="EShopModel.CartView" />
   </EntityContainer>
   <EntityType Name="BookType">
     <Key>
@@ -145,5 +147,27 @@
     <Property Name="BookISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="BookNum" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ShoppingCart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CartView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BookOriginal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

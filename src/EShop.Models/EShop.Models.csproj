@@ -62,6 +62,9 @@
     <Compile Include="BookType.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CartView.cs">
+      <DependentUpon>EShopDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EShopDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +94,9 @@
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
     <Compile Include="SaleDetailView.cs">
+      <DependentUpon>EShopDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.cs">
       <DependentUpon>EShopDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.cs">

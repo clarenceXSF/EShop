@@ -1,0 +1,135 @@
+﻿.result-title {
+    width:1190px;
+    position:relative;
+    height:20px;
+    margin:10px auto;
+    line-height:20px;
+}
+.result-title h4 {
+    margin-left:10px;
+    font-size:14px;
+    color:#5E5E5E;
+    float:left;
+}
+.result-title a {
+    color: #555;
+    font-size: 12px;
+    text-decoration: none;
+}
+.center-sales {
+    width: 489px;
+    float: left;
+    margin-left: 22px;
+}
+.center-sales .sales-price {
+    float: left;
+    width: 469px;
+    margin-left: 20px; 
+}.center-sales .sales-price .sales-priceleft {
+    width: 38px;
+    float: left;
+    line-height: 55px;
+    color: #020604;
+}.center-sales .sales-price .sales-priceicon {
+    color: #AE1407;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    line-height: 55px;
+}.center-sales .sales-price .sales-pricenew {
+    float: left;
+    color: #AE1407;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.info {
+    width:1190px;
+    position:relative;
+    margin:10px auto;
+}
+.left-pic {
+    width: 407px;
+    float: left;
+    height: 552px;
+}
+.center-sales h3 {
+    margin-bottom: 40px;
+    width: 469px;
+    font-size: 16px;
+}
+.center-sales .sales-info {
+    float: left;
+    width: 469px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.center-sales .sales-info .sales-left {
+    float: left;
+    color: #020604;
+}
+.center-sales .sales-info .sales-right {
+    float: left;
+    color: dimgray;
+    margin-left: 12px;
+}
+.center-sales .sales-info .discount-right {
+    color: #B2B2B2;
+    text-decoration: line-through;
+}
+ .center-sales .sales-choose {
+    float: left;
+    width: 469px;
+    line-height: 120px;
+    margin-left: 0px;
+}
+.center-sales .sales-choose a {
+    text-decoration: none;
+    padding: 15px 20px;
+    background: #AE1407;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.right-shop {
+    float: left;
+    width: 230px;
+    margin-left: 25px;
+}
+.right-shop .right-shop-title {
+    float: left;
+}
+.right-shop .right-shop-title .title-look {
+    color: #D8D8D8;
+    float: left;
+}
+.right-shop .right-shop-title .title-right {
+    float: left;
+    width: 70px;
+    height: 2px;
+    background: #D8D8D8;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+ul {
+    list-style :none;
+}
+.right-shop .right-shop-list {
+    float: left;
+}
+.right-shop .right-shop-list li {
+    margin-top: 20px;
+}
+.right-shop .right-shop-list .price {
+    position: absolute;
+    background-color: rgb(242, 242, 242);
+    opacity: 0.6;
+    height: 24px;
+    width: 139px;
+    text-align: center;
+    color: black;
+    margin-top: -29px;
+}

@@ -51,6 +51,7 @@
     <Compile Include="IBookInfoService.cs" />
     <Compile Include="IBookSaleService.cs" />
     <Compile Include="IBookTypeServicecs.cs" />
+    <Compile Include="ICartService.cs" />
     <Compile Include="IOtherTypeService.cs" />
     <Compile Include="IRecommendService.cs" />
     <Compile Include="ISaleDetailService.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Service\BookInfoService.cs" />
     <Compile Include="Service\BookSaleService.cs" />
     <Compile Include="Service\BookTypeServicecs.cs" />
+    <Compile Include="Service\CartService.cs" />
     <Compile Include="Service\OtherTypeService.cs" />
     <Compile Include="Service\RecommendService.cs" />
     <Compile Include="Service\SaleDetailService.cs" />

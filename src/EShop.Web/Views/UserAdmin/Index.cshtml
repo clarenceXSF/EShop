@@ -8,48 +8,47 @@
         <div class="uMcon">
             <div class="uMcon-item item-person">
                 <div class="ulcon"> 
-                    <span class="ulcon-icon"> 
+                    @*<span class="ulcon-icon"> 
                         <img src="http://test.fnuo123.com/View/index/img/default/ucenter/umcon-icon-person.png" width="18" height="18" alt="" /> 
-                    </span> 
-                    <span class="ulcon-text" id="personal-center" url="http://test.fnuo123.com/?act=ucenter&ctrl=percenterindex">个人中心</span> 
+                    </span>*@ 
+                    <span class="ulcon-text" id="personal-center">个人中心</span> 
                 </div>
                 <ul class="ucot">
                     <li>
                         <i class="ucot-icon"></i> <span class="ucot-text">交易管理</span> <span class="ucot-show-more"><a href="#" val="1">+</a></span>
                         <ul class="ucot-child" val="1">
-                            <li><a @*href="http://test.fnuo123.com/?act=settlement&ctrl=shopcart"*@ target="_blank" id="gwc">我的购物车</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=myorder"*@>我的订单</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=evagoods"*@>评价商品</a></li>
+                            <li><a class="shopcart" id="gwc">我的购物车</a></li>
+                            <li><a href="#" class="xgot myorder" >我的订单</a></li>
+                            <li><a href="#" class="xgot evagoods" >评价商品</a></li>
                         </ul>
 
                     </li>
                     <li>
                         <i class="ucot-icon"></i> <span class="ucot-text">我的资产</span> <span class="ucot-show-more"><a href="#" val="2">+</a></span>
                         <ul class="ucot-child" val="2">
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=mypoints"*@>我的账户</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=bindapily"*@>绑定支付宝</a></li>
+                            <li><a href="#" class="xgot mypoints">我的账户</a></li>
+                            <li><a href="#" class="xgot bindapily">绑定支付宝</a></li>
                         </ul>
                     </li>
                     <li>
                         <i class="ucot-icon"></i> <span class="ucot-text">会员资料</span> <span class="ucot-show-more"><a href="#" val="4">+</a></span>
                         <ul class="ucot-child" val="4">
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=personaldata"*@>个人资料</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=addmanagement"*@>地址管理</a></li>
+                            <li><a href="#" class="xgot personaldata">个人资料</a></li>
                         </ul>
                     </li>
                     <li>
                         <i class="ucot-icon"></i> <span class="ucot-text">客户服务</span> <span class="ucot-show-more"><a href="#" val="5">+</a></span>
                         <ul class="ucot-child" val="5">
-                            <li><a href="#" onClick="openHelp();" class="xgot" @*purl="http://test.fnuo123.com/?act=ucenter&ctrl=onlineconsult"*@>在线咨询</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=mynews"*@>我的消息</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=aftercomplaint"*@>售后申诉</a></li>
+                            <li><a href="#" onclick="openHelp();" class="xgot onlineconsult">在线咨询</a></li>
+                            <li><a href="#" class="xgot mynews">我的消息</a></li>
+                            <li><a href="#" class="xgot aftercomplaint">售后申诉</a></li>
                         </ul>
                     </li>
                     <li>
                         <i class="ucot-icon"></i> <span class="ucot-text">推广中心</span> <span class="ucot-show-more"><a href="#" val="6">+</a></span>
                         <ul class="ucot-child" val="6">
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=zt"*@>好友列表</a></li>
-                            <li><a href="#" class="xgot" @*url="http://test.fnuo123.com/?act=ucenter&ctrl=invitefriends"*@>邀请好友</a></li>
+                            <li><a href="#" class="xgot friendList">好友列表</a></li>
+                            <li><a href="#" class="xgot invitefriends">邀请好友</a></li>
                         </ul>
 
                     </li>
@@ -67,6 +66,8 @@
 		$(".ucot-child li a").click(function() {
 			$(".ucot-child li a").css("color", "#000");
 			$(this).css("color", "#991A0F");
+			var title = $(this).text();
+			$("#iframepage").attr('src', '/UserAdmin/_sorry?title=' + title);
 		});
 		$(".ucot li span").click(function () {
 		    var ucot_val = 0;
