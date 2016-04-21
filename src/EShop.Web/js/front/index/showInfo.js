@@ -1,5 +1,6 @@
 ﻿$(function () {
     ShowTypeList();//首页左导航栏显示
+    ShowRecommend();//首页中间店长推荐
     ShowNewBook();//新书上架
     ShowHotSale();//畅销书籍
     ShowAuthor();//优秀作者
@@ -23,6 +24,27 @@ function ShowTypeList() {
                     
                     $("#showTypeList").append("<li><a href=\"/GoodsShow/Index?type=" + data[i].Id + "\"><div class=\"left-item1\"><i><img src=\"/Images/typemenu/xz_" + i + ".png\" width=\"18\" height=\"18\" /></i> " + data[i].TypeName + " </div></a></li>");
                 }
+            }
+        },
+        error: function (xhr, textStatus, thrown) {
+            console.log("请求异常：" + xhr.status + "  " + textStatus + "  " + thrown);
+        }
+    });
+}
+//店长推荐
+function ShowRecommend() {
+    $.ajax({
+        url: '/Home/FindRecommend',
+        type: 'POST',
+        dataType: 'json',
+        async: true,
+        success: function (data) {
+            if (data != null) {
+                console.log("店长推荐" + data);
+                for (var i = 0; i < data.length; i++) {
+                    $(".slider-banner .dian").before("<a href=\"/BookDetail/Index?bookid=" + data[i].BookId + "\"><img src=\"" + data[i].ShowImage + "\" alt=\"" + data[i].ShowTitle + "\" title=\"" + data[i].ShowTitle + "\" /></a>");
+                }
+                indexban.init();
             }
         },
         error: function (xhr, textStatus, thrown) {
@@ -64,7 +86,7 @@ function ShowHotSale() {
         async: true,
         success: function (data) {
             if (data != null) {
-                console.log("畅销书籍" + data);
+                //console.log("畅销书籍" + data);
                 for (var i = 0; i < data.length; i++) {
                     $("#showHotSale").append("<li><div class=\"f-mimg f-mimg1\">"
                         + "<a href=\"/BookDetail/Index?bookid=" + data[i].Id
@@ -90,7 +112,7 @@ function ShowAuthor() {
         async: true,
         success: function (data) {
             if (data != null) {
-                console.log("优秀作者" + data);
+                //console.log("优秀作者" + data);
                 for (var i = 0; i < data.length; i++) {
                     $("#showAuthor").append("<a href=\"/GoodsShow/Index?author=" + data[i] + "\" target=\"_blank\"> " + data[i] + " </a>");
                 }
@@ -154,7 +176,7 @@ function setTypeInfo(tn, $info, $malllist) {
         async: true,
         success: function (data) {
             if (data != null) {
-                console.log("类型--" + tn + "数据：" + data);
+                //console.log("类型--" + tn + "数据：" + data);
                 $info.find("#type_name").html(data.TypeName);
                 $info.find("#type_img").append("<img src=\"" + data.ImgSrc
                     + "\" width=\"330\" height=\"470\" alt=\"" + data.TypeName + "\" />");
@@ -176,7 +198,7 @@ function setBookListByType(type, $malllist) {
         async: true,
         success: function (data) {
             if (data != null) {
-                console.log("类型" + type + "图书加载:" + data);
+                //console.log("类型" + type + "图书加载:" + data);
                 for (var i = 0; i < data.length; i++) {
                     $malllist.append("<li><div class=\"f-mimg f-mimg1\">"
                         + "<a href=\"/BookDetail/Index?bookid=" + data[i].Id

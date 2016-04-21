@@ -1,0 +1,7 @@
+/*page*/
+.page-list{position:relative; text-align:center; padding:20px 0; clear:both;}
+.page-list a {display:inline-block; height:35px; line-height:35px; color:#666; font-size:14px; padding:0 13px; border-radius:20px;background:#fff; text-decoration:none; margin-left:10px; border:1px solid #666;}
+.page-list a:hover{border: solid 1px #ad1306 ;color:#ad1306 ;}
+.page-list .next, .page-list .pre { width: 60px; }
+.page-list .pagenow { /*box-shadow: 0 0 3px #3F9FD9;*/ background-color: #ad1306 ; border-color: #ad1306 ; color: #fff; }
+.page-list .pagenow:hover{background-color: #ad1306 ;color:#FFF;}

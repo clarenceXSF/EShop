@@ -16,6 +16,7 @@ namespace EShop.Web.Controllers
         private IBookInfoManager bookManager = new BookInfoManager();
         private IBookTypeManager typeManager = new BookTypeManager();
         private IOtherTypeManager otherManager = new OtherTypeManager();
+        private IRecommendManager recommendManager = new RecommendManager();
         public ActionResult Index()
         {
             return View();
@@ -60,6 +61,15 @@ namespace EShop.Web.Controllers
         public JsonResult FindByType(string type)
         {
             List<BookInfo> list = bookManager.FindByType(type, 8);
+            return Json(list);
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult FindRecommend()
+        {
+            string search = string.Empty;
+            int count = recommendManager.GetCount(search);
+            List<RecommendView> list = recommendManager.PagingFindRecommend(search, 0, count);
             return Json(list);
         }
     }

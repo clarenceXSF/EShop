@@ -15,7 +15,7 @@ namespace EShop.Web.Controllers
     {
         //
         // GET: /Book/
-        private int biPageSize = 6;//列表页显示行数
+        private int biPageSize = 8;//列表页显示行数
         private IBookInfoManager bookManager = new BookInfoManager();
         public ActionResult Index(int? pageIndex, int? pageSize)
         {
@@ -114,7 +114,7 @@ namespace EShop.Web.Controllers
             if (Session["bookImgPath"] != null && Session["bookImgPath"].ToString() != "")
             {
                 bi.ISBN = (string)Session["bookImgPath"];
-                Session["TypeImgPath"] = null;
+                Session["bookImgPath"] = null;
             }
             bool result = bookManager.UpdateBookInfo(bi);
             if (result)
@@ -143,6 +143,14 @@ namespace EShop.Web.Controllers
         {
             Session["searchText_b"] = content;
             return Redirect("Index");
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult FindBookByType(string type)
+        {
+            int count = bookManager.GetTypeCount(type);
+            List<BookInfo> list = bookManager.FindByType(type, count);
+            return Json(list);
         }
     }
 }

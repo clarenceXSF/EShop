@@ -1,29 +1,23 @@
 ﻿<script src="~/js/front/index/indexban.js"></script>
 <script src="~/js/front/index/showInfo.js"></script>
-<!--左导航栏-->
-<div class="z-menu" style="display: block !important;">
-    <div class="left-sidebar" style="display:block;">
-        <ul id="showTypeList">
-            @*<li><a href="/GoodsShow/Index"><div class="left-item1"><i><img src="~/Images/typemenu/xz_2.png" width="18" height="18" /></i> 人文 </div></a></li>*@
-        </ul>
-    </div>
-</div>
+
 <link href="~/Css/index/index.css" rel="stylesheet" type="text/css" />
 <div id="foc">
     <div class="wit">
         <!--左导航-->
-        <div class="left-side"></div>
+        <div class="left-side">
+            <div class="z-menu" style="display: block !important;">
+                <div class="left-sidebar" style="display:block;">
+                    <ul id="showTypeList">
+                        @*<li><a href="/GoodsShow/Index"><div class="left-item1"><i><img src="~/Images/typemenu/xz_2.png" width="18" height="18" /></i> 人文 </div></a></li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
         <!--中间店长推荐-->
-        <div class="slider-banner">
+        <div class="slider-banner" >
             <i class="last"> < </i> <i class="next"> > </i>
-
-            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a>
-
-            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a>
-
-            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a>
-
-            <a href="/BookDetail/Index"><img src="http://test.fnuo123.com/Upload/slide/1455505761_0_0.png" /></a><!--~/Images/typeMenu/middle_feng.jpg-->
+            @*<a href="/BookDetail/Index"><img src="~/Images/recommend/penzaiB.jpg" /></a>*@
 
             <div class="dian">
                 <ul class="-h"></ul>
@@ -101,7 +95,7 @@
     </div>
 </div>
 @*人文*@
-<div id="floor" v="人文">
+<div id="floor">
     <div class="wit" style="background-color:cornsilk" id="renwenInfo">
         <div class="f-title">
             <i class="f-ticon f-tic1"><em>1F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
@@ -138,7 +132,7 @@
     </div>
 </div>
 @*少儿*@
-<div id="floor" v="少儿">
+<div id="floor">
     <div class="wit" style="background-color:lightcyan" id="shaoerInfo">
         <div class="f-title">
             <i class="f-ticon f-tic1"><em>2F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
@@ -164,7 +158,7 @@
     </div>
 </div>
 @*生活*@
-<div id="floor" v="生活">
+<div id="floor">
     <div class="wit" style="background-color:lavenderblush" id="shenghuoInfo">
         <div class="f-title">
             <i class="f-ticon f-tic1"><em>3F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>
@@ -188,7 +182,7 @@
     </div>
 </div>
 @*科技*@
-<div id="floor" v="科技">
+<div id="floor">
     <div class="wit" style="background-color:lavender" id="kejiInfo">
         <div class="f-title">
             <i class="f-ticon f-tic1"><em>4F</em><img src="~/Images/floor-icon.png" width="36" height="24" alt="" /></i>

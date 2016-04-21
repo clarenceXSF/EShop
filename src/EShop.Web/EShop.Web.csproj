@@ -266,6 +266,7 @@
     <Content Include="Images\typemenu\xz_0.png" />
     <Content Include="js\admin\AlertMess.js" />
     <Content Include="js\admin\doAccount.js" />
+    <Content Include="js\admin\doRecommend.js" />
     <Content Include="js\admin\doBook.js" />
     <Content Include="js\admin\doUser.js" />
     <Content Include="js\admin\doSearch.js" />
@@ -273,7 +274,9 @@
     <Content Include="js\front\index\index.js" />
     <Content Include="js\front\index\indexban.js" />
     <Content Include="js\front\index\showInfo.js" />
+    <Content Include="js\front\list\list.js" />
     <Content Include="js\front\login\login.js" />
+    <Content Include="Css\page\page.css" />
     <Content Include="js\lib\plUpload\Moxie.swf" />
     <Content Include="js\lib\plUpload\Moxie.xap" />
     <Content Include="js\lib\plUpload\plupload.full.min.js" />
@@ -339,11 +342,15 @@
     <Content Include="Views\GoodsShow\Index.cshtml" />
     <Content Include="Views\UserAdmin\Index.cshtml" />
     <Content Include="Views\UserAdmin\_first.cshtml" />
+    <Content Include="Views\Recommend\EditRecommend.cshtml" />
+    <Content Include="Views\Recommend\AddRecommend.cshtml" />
+    <Content Include="Views\Shared\_pageCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\bookType\" />
     <Folder Include="Images\book\" />
+    <Folder Include="Images\recommend\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -85,5 +85,15 @@ namespace EShop.DAL.Service
                 return obj;
             }
         }
+        public RecommendView FindDetailById(string id)
+        {
+            using (EShopDB db = new EShopDB())
+            {
+                var obj = (from r in db.RecommendView
+                           where r.Id == id
+                           select r).FirstOrDefault();
+                return obj;
+            }
+        }
     }
 }

@@ -36,12 +36,13 @@
             <th style="width: 12%; text-align: center;">书名</th>
             <th style="width: 10%; text-align: center;">作者</th>
             <th style="width: 10%; text-align: center;">出版时间</th>
+            <th style="width: 10%; text-align: center;">上架时间</th>
             <th style="width: 17%; text-align: center;">类型</th>
             <th style="width: 5%; text-align: center;">售价</th>
             <th style="width: 5%; text-align: center;">原价</th>
             <th style="width: 8%; text-align: center;">销售量</th>
             <th style="width: 8%; text-align: center;">货存量</th>
-            <th style="width: 25%">具体操作</th>
+            <th style="width: 15%">具体操作</th>
         </tr>
     </thead>
     @foreach (var item in (List<BookInfo>)Model)
@@ -50,9 +51,12 @@
             <td style="display: none;">@item.Id</td>
             <td style="text-align: center;">@item.Name</td>
             <td style="text-align: center;">@item.Author</td>
-            @{  var dt = DateTime.Parse(@item.PublishDate.ToString());
-                var date = dt.GetDateTimeFormats('y')[0].ToString();
-                <td style="text-align: center;">@date</td>
+            @{  var pdt = DateTime.Parse(@item.PublishDate.ToString());
+                var pdate = pdt.GetDateTimeFormats('y')[0].ToString();
+                var cdt = DateTime.Parse(@item.CreateDate.ToString());
+                var cdate = cdt.GetDateTimeFormats('m')[0].ToString();
+                <td style="text-align: center;">@pdate</td>
+                <td style="text-align: center;">@cdate</td>
             }
             <td style="text-align: center;">@item.Type</td>
             @{  var d1 = decimal.Parse(@item.Price.ToString());
