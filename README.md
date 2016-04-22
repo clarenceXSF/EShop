@@ -24,7 +24,6 @@
 EShop
 |-- docs
 |  |-- Sql脚本
-|  |  |-- BuildEShop.sql
 |  |  |-- Init.sql
 |  |  |-- sql2012
 |  |  |-- Navicat运行脚本
@@ -33,10 +32,23 @@ EShop
 |  |-- EShop.Models                // 数据模型层
 |  |  |-- ***.cs
 |  |-- EShop.DAL                   // 数据访问层
-|  |  |-- ***Service.cs           
+|  |  |--Service              //实现类
+|  |  |  |-- ***Service.cs
+|  |  |-- I***Service.cs      //接口     
 |  |-- EShop.BLL                   // 业务逻辑层
-|  |  |-- ***Manager.cs
+|  |  |-- Manager             //实现类
+|  |  |  |-- ***Manager.cs
+|  |  |-- I***Manager.cs      //接口
 |  |-- EShop.Web
+|  |  |--Controller           //控制器
+|  |  |--Css                  //前端样式
+|  |  |--Images               //图片路径
+|  |  |--js                      
+|  |  |  |--admin             //后台管理处理js
+|  |  |  |--front             //前端界面处理js
+|  |  |  |--lib               //js插件/工具
+|  |  |--Scripts
+|  |  |--Views                //视图
 |  |-- EShop.Common                // 共用工具层
 |  |-- packages
 ```
