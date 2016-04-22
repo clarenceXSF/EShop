@@ -1,7 +1,11 @@
 ﻿/*
 Navicat SQL Server Data Transfer
 
+Source Server         : EShop
 Target Server Type    : SQL Server
+Target Server Version : 110000
+File Encoding         : 65001
+
 */
 
 
@@ -284,7 +288,7 @@ GO
 INSERT INTO [dbo].[BookInfo] ([Id], [Name], [Author], [PublishDate], [Type], [Price], [Original], [ISBN], [Describe], [CreateDate], [Sale], [Stock]) VALUES (N'c1d86763-83cb-4b86-b8e5-3e3832a37764', N'hello，早餐', N'子瑜妈妈', N'2013-07-01', N'7e46edff-3f8c-4384-bd94-a6ed6dcf0504', N'19.9000', N'39.8000', N'/Images/book/hellozaocan.jpg', N'每天都有丰盛的早餐，是件非常幸福的事情。美美地吃上一顿早餐，可以让早餐带来的满足感唤醒我们慵懒的身体，让身体的每一个细胞都充满着正面的能量，让我们信心百倍地迎接新的一天。', N'2016-04-17', N'0', N'0')
 GO
 GO
-INSERT INTO [dbo].[BookInfo] ([Id], [Name], [Author], [PublishDate], [Type], [Price], [Original], [ISBN], [Describe], [CreateDate], [Sale], [Stock]) VALUES (N'cb6b04a4-4227-4f5e-9045-87ed7d5903e0', N'守护者系列（5册/套）', N'（日）上桥菜穗子', N'2011-04-02', N'58d6f6e9-4c0c-462a-bf6f-32962103a213', N'50.0000', N'100.0000', N'/Images/book/jinglingshouhuzhe.jpg', N'这是一套风靡日本的幻想类儿童文学，其中《精灵守护者》已被改编成电视动画，在多国播出，获选为2007年第十一回日本文部省文化厅媒体艺术祭动画部门推荐的作品。
+INSERT INTO [dbo].[BookInfo] ([Id], [Name], [Author], [PublishDate], [Type], [Price], [Original], [ISBN], [Describe], [CreateDate], [Sale], [Stock]) VALUES (N'cb6b04a4-4227-4f5e-9045-87ed7d5903e0', N'守护者系列（5册/套）', N'上桥菜穗子', N'2011-04-02', N'58d6f6e9-4c0c-462a-bf6f-32962103a213', N'50.0000', N'100.0000', N'/Images/book/jinglingshouhuzhe.jpg', N'这是一套风靡日本的幻想类儿童文学，其中《精灵守护者》已被改编成电视动画，在多国播出，获选为2007年第十一回日本文部省文化厅媒体艺术祭动画部门推荐的作品。
 作品在通过一个幻想的世界，向读者展示了人类非凡的勇气和博大的爱。作品的张力让人读来痛快淋漓，而其中蕴含的深意更启人掩卷沉思。相信对今天的中国青少年乃至成人，能从书中找到非同寻常的生命的力量。', N'2016-04-16', N'0', N'80')
 GO
 GO
@@ -759,6 +763,21 @@ GO
 -- ----------------------------
 -- Records of Recommend
 -- ----------------------------
+INSERT INTO [dbo].[Recommend] ([Id], [BookId], [ShowImage], [ShowTitle], [CreateTime]) VALUES (N'0accbc84-84af-4422-9ae9-869fa8cbe2b2', N'd6c585dc-df86-4582-ae8a-7b88f4063d21', N'/Images/recommend/shuduB.jpg', N'玩数独', N'2016-04-20 21:51:36.697')
+GO
+GO
+INSERT INTO [dbo].[Recommend] ([Id], [BookId], [ShowImage], [ShowTitle], [CreateTime]) VALUES (N'27b24d40-e0eb-413f-b324-4f000493c5d5', N'90e02b0b-5e26-4b4c-b22d-de687dfe6519', N'/Images/recommend/xinlixueB.jpg', N'心理学', N'2016-04-20 21:50:53.207')
+GO
+GO
+INSERT INTO [dbo].[Recommend] ([Id], [BookId], [ShowImage], [ShowTitle], [CreateTime]) VALUES (N'4bb2df76-2063-4623-9ba3-4ce4bef1309f', N'9980a2c5-3220-4f26-9509-ba06644b96ee', N'/Images/recommend/penzaiB.jpg', N'多肉小盆栽', N'2016-04-20 21:46:16.600')
+GO
+GO
+INSERT INTO [dbo].[Recommend] ([Id], [BookId], [ShowImage], [ShowTitle], [CreateTime]) VALUES (N'7647cee6-ee36-445e-a1a2-e8fecb2f016e', N'bc2c8941-b0ca-48ed-b6ae-2cf64f6672a8', N'/Images/recommend/shanhaijingB.jpg', N'玄幻文学--山海经', N'2016-04-20 21:47:18.463')
+GO
+GO
+INSERT INTO [dbo].[Recommend] ([Id], [BookId], [ShowImage], [ShowTitle], [CreateTime]) VALUES (N'f434ee19-f83d-4e4d-97bb-11f517f9bf61', N'49de0503-cfe9-4827-aaff-9d2febf2e8de', N'/Images/recommend/xingB.jpg', N'星星', N'2016-04-20 21:41:10.337')
+GO
+GO
 
 -- ----------------------------
 -- Table structure for SaleDetail
@@ -833,6 +852,25 @@ GO
 
 -- ----------------------------
 -- Records of SaleDetail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for ShoppingCart
+-- ----------------------------
+DROP TABLE [dbo].[ShoppingCart]
+GO
+CREATE TABLE [dbo].[ShoppingCart] (
+[Id] nvarchar(50) NOT NULL ,
+[UserId] nvarchar(50) NULL ,
+[BookId] nvarchar(50) NULL ,
+[CreateTime] datetime NULL 
+)
+
+
+GO
+
+-- ----------------------------
+-- Records of ShoppingCart
 -- ----------------------------
 
 -- ----------------------------
@@ -1038,6 +1076,25 @@ BookSale bs
 GO
 
 -- ----------------------------
+-- View structure for CartView
+-- ----------------------------
+DROP VIEW [dbo].[CartView]
+GO
+CREATE VIEW [dbo].[CartView] AS 
+SELECT 
+sc.Id,
+sc.UserId,
+sc.BookId,
+(SELECT bi.Name FROM BookInfo bi WHERE bi.Id = sc.Id) AS BookName,
+(SELECT bi.ISBN FROM BookInfo bi WHERE bi.id = sc.BookId) AS BookISBN,
+(SELECT bi.Price FROM BookInfo bi WHERE bi.id = sc.BookId) AS BookPrice,
+(SELECT bi.Original FROM BookInfo bi WHERE bi.id = sc.BookId) AS BookOriginal,
+sc.CreateTime
+FROM 
+ShoppingCart sc
+GO
+
+-- ----------------------------
 -- View structure for RecommendView
 -- ----------------------------
 DROP VIEW [dbo].[RecommendView]
@@ -1047,6 +1104,7 @@ SELECT
 r.Id,
 r.BookId,
 (SELECT b.Name FROM BookInfo b WHERE b.Id = r.BookId ) AS BookName,
+(SELECT b.ISBN FROM BookInfo b WHERE b.Id = r.BookId ) AS BookImg,
 r.ShowImage,
 r.ShowTitle,
 r.CreateTime
@@ -1065,11 +1123,10 @@ SELECT
 sd.Id,
 sd.BsId,
 (SELECT bs.SaleNum FROM BookSale bs WHERE bs.Id = sd.BsId) AS SaleNum,
-(SELECT ui.Name FROM UserInfo ui WHERE ui.Id =(SELECT bs.UserId FROM BookSale bs WHERE bs.Id = sd.BsId)) AS UserName,
-(SELECT ui.Phone FROM UserInfo ui WHERE ui.Id =(SELECT bs.UserId FROM BookSale bs WHERE bs.Id = sd.BsId)) AS UserPhone,
 (SELECT bs.CreateTime FROM BookSale bs WHERE bs.Id = sd.BsId) AS CreateTime,
 sd.BookId,
 (SELECT bi.Name FROM BookInfo bi WHERE bi.id = sd.BookId) AS BookName,
+(SELECT bi.ISBN FROM BookInfo bi WHERE bi.id = sd.BookId) AS BookISBN,
 (SELECT bi.Price FROM BookInfo bi WHERE bi.id = sd.BookId) AS BookPrice,
 sd.BookNum
 FROM
@@ -1134,6 +1191,16 @@ GO
 -- Primary Key structure for table SaleDetail
 -- ----------------------------
 ALTER TABLE [dbo].[SaleDetail] ADD PRIMARY KEY ([Id])
+GO
+
+-- ----------------------------
+-- Indexes structure for table ShoppingCart
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table ShoppingCart
+-- ----------------------------
+ALTER TABLE [dbo].[ShoppingCart] ADD PRIMARY KEY ([Id])
 GO
 
 -- ----------------------------
